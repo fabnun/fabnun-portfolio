@@ -268,19 +268,34 @@ let info = {
   ],
   education: [
     {
+      name: 'GOOGLE FOR STARTUPS',
+      date: '2022',
+      description: 'ProgramaGol ingresa al programa de Google for Startups.',
+    },
+    {
+      name: 'CAPITAL SEMILLA DE CORFO',
+      date: '2019',
+      description: 'ProgramaGol obtiene el financiamiento del Capital Semilla de CORFO.',
+    },
+    {
+      name: 'JAVACUP DE JAVAHISPANO',
+      date: '2009 - 2013',
+      description: 'Desarrollo de la nueva versión del framework, gestión de foros y ejecución del torneo de programación de futbol virtual JavaCup de JavaHispano.',
+    },
+    {
       name: 'JAVACUP DE JAVAHISPANO',
       date: '2007',
-      description: 'Campeón del torneo de programación de futbol virtual JavaCup de JavaHispano',
+      description: 'Campeón del torneo de programación de futbol virtual JavaCup de JavaHispano.',
     },
     {
       name: 'UNIVERSIDAD DE SANTIAGO DE CHILE',
       date: '1996 - 2002',
-      description: 'Ingeniería Civil en Computación e Informática',
+      description: 'Ingeniería Civil en Computación e Informática.',
     },
     {
       name: 'UNIVERSIDAD DE CHILE',
       date: '1992 - 1995',
-      description: 'Ingeniería Civil en Computación e Informática (no terminado)',
+      description: 'Ingeniería Civil en Computación e Informática (no terminado).',
     },
     {
       name: 'PRUEBA DE APTITUD ACADÉMICA Y PRUEBAS ESPECÍFICAS',
@@ -290,7 +305,7 @@ let info = {
     {
       name: 'LICEO MANUEL ARRIARAN BARROS',
       date: '1987 - 1991',
-      description: '8º Básico y Educación Media',
+      description: '8º Básico y Educación Media.',
     },
   ],
   experience: [
