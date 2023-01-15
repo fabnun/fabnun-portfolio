@@ -21,22 +21,22 @@ let info = {
       name: 'ProgramaGol',
       pictures: [
         {
-          img: require('./src/assets/portfolio/PGol/logo.png'),
+          img: require('./src/assets/portfolio/PGol/logo.jpg'),
         },
         {
           youtube: 'https://www.youtube.com/embed/pwPAasG_qmY',
         },
         {
-          img: require('./src/assets/portfolio/PGol/pgol0.png'),
+          img: require('./src/assets/portfolio/PGol/pgol0.jpg'),
         },
         {
-          img: require('./src/assets/portfolio/PGol/pgol1.png'),
+          img: require('./src/assets/portfolio/PGol/pgol1.jpg'),
         },
         {
-          img: require('./src/assets/portfolio/PGol/pgol2.png'),
+          img: require('./src/assets/portfolio/PGol/pgol2.jpg'),
         },
         {
-          img: require('./src/assets/portfolio/PGol/pgol3.png'),
+          img: require('./src/assets/portfolio/PGol/pgol3.jpg'),
         },
       ],
       technologies: ['ELearning', 'Soccer', 'JavasScript', 'VideoGame', 'Firebase', 'Html5', 'Css3', 'Web Workers', 'PWA'],
@@ -49,7 +49,7 @@ let info = {
       name: 'ConWords',
       pictures: [
         {
-          img: require('./src/assets/portfolio/ConWords/logo.png'),
+          img: require('./src/assets/portfolio/ConWords/logo.jpg'),
         },
         {
           youtube: 'https://www.youtube.com/embed/noc6wxkFXG4',
@@ -58,16 +58,16 @@ let info = {
           youtube: 'https://www.youtube.com/embed/i_RKUUlSae8',
         },
         {
-          img: require('./src/assets/portfolio/ConWords/1.png'),
+          img: require('./src/assets/portfolio/ConWords/1.jpg'),
         },
         {
-          img: require('./src/assets/portfolio/ConWords/2.png'),
+          img: require('./src/assets/portfolio/ConWords/2.jpg'),
         },
         {
-          img: require('./src/assets/portfolio/ConWords/3.png'),
+          img: require('./src/assets/portfolio/ConWords/3.jpg'),
         },
         {
-          img: require('./src/assets/portfolio/ConWords/4.png'),
+          img: require('./src/assets/portfolio/ConWords/4.jpg'),
         },
       ],
       technologies: ['Colaborative', 'Crossword', 'Generator', 'VideoGame', 'JavasScript', 'Vue2', 'Firebase', 'Html5', 'Css3', 'CapacitorJS', 'html5Canvas', 'WebScrapping', 'Genetic Algorithm', 'PWA'],
@@ -93,13 +93,13 @@ let info = {
       name: 'Jobwus',
       pictures: [
         {
-          img: require('./src/assets/portfolio/Jobwus/logo.png'),
+          img: require('./src/assets/portfolio/Jobwus/logo.jpg'),
         },
         {
           youtube: 'https://www.youtube.com/embed/gtr4vl3LXTk',
         },
         // {
-        //   img: require('./src/assets/portfolio/Jobwus/1.png'),
+        //   img: require('./src/assets/portfolio/Jobwus/1.jpg'),
         // },
       ],
       technologies: ['Jobs', 'JavasScript', 'Node', 'Vue2', 'Firebase', 'Html5', 'Css3', 'WebScrapping', 'PWA'],
@@ -117,28 +117,28 @@ let info = {
       name: 'KCMS',
       pictures: [
         {
-          img: require('./src/assets/portfolio/kcms/logo.png'),
+          img: require('./src/assets/portfolio/kcms/logo.jpg'),
         },
         {
-          img: require('./src/assets/portfolio/kcms/0.png'),
+          img: require('./src/assets/portfolio/kcms/0.jpg'),
         },
         {
-          img: require('./src/assets/portfolio/kcms/1.png'),
+          img: require('./src/assets/portfolio/kcms/1.jpg'),
         },
         {
-          img: require('./src/assets/portfolio/kcms/2.png'),
+          img: require('./src/assets/portfolio/kcms/2.jpg'),
         },
         {
-          img: require('./src/assets/portfolio/kcms/3.png'),
+          img: require('./src/assets/portfolio/kcms/3.jpg'),
         },
         {
-          img: require('./src/assets/portfolio/kcms/4.png'),
+          img: require('./src/assets/portfolio/kcms/4.jpg'),
         },
         {
-          img: require('./src/assets/portfolio/kcms/6.png'),
+          img: require('./src/assets/portfolio/kcms/6.jpg'),
         },
         {
-          img: require('./src/assets/portfolio/kcms/7.png'),
+          img: require('./src/assets/portfolio/kcms/7.jpg'),
         },
       ],
       technologies: ['Java', 'CMS', 'Google App Engine', 'DataStore', 'objectify', 'BeanShell', 'Scriplets', 'Html5', 'Css3', 'WebDesign'],
@@ -151,19 +151,19 @@ let info = {
       name: 'JavaCup JavaHispano',
       pictures: [
         {
-          img: require('./src/assets/portfolio/JavaCup/logo.png'),
+          img: require('./src/assets/portfolio/JavaCup/logo.jpg'),
         },
         {
           youtube: 'https://www.youtube.com/embed/hJdcK9MexOI',
         },
         {
-          img: require('./src/assets/portfolio/JavaCup/3.png'),
+          img: require('./src/assets/portfolio/JavaCup/3.jpg'),
         },
         {
-          img: require('./src/assets/portfolio/JavaCup/4.png'),
+          img: require('./src/assets/portfolio/JavaCup/4.jpg'),
         },
         {
-          img: require('./src/assets/portfolio/JavaCup/5.png'),
+          img: require('./src/assets/portfolio/JavaCup/5.jpg'),
         },
       ],
       technologies: ['ELearning', 'Soccer', 'Java', 'VideoGame', 'Java Swing', 'Slick2D', 'PixiJs', 'Google App Engine'],
@@ -187,20 +187,20 @@ let info = {
       name: 'Imprenta Ges',
       pictures: [
         {
-          img: require('./src/assets/portfolio/ImprentaGes/logo.png'),
+          img: require('./src/assets/portfolio/ImprentaGes/logo.jpg'),
         },
 
         {
-          img: require('./src/assets/portfolio/ImprentaGes/1.png'),
+          img: require('./src/assets/portfolio/ImprentaGes/1.jpg'),
         },
         {
-          img: require('./src/assets/portfolio/ImprentaGes/2.png'),
+          img: require('./src/assets/portfolio/ImprentaGes/2.jpg'),
         },
         {
-          img: require('./src/assets/portfolio/ImprentaGes/3.png'),
+          img: require('./src/assets/portfolio/ImprentaGes/3.jpg'),
         },
         {
-          img: require('./src/assets/portfolio/ImprentaGes/4.png'),
+          img: require('./src/assets/portfolio/ImprentaGes/4.jpg'),
         },
       ],
       technologies: ['Windows', 'POS', 'Java', 'Desktop App', 'PostgreSQL', 'Java Swing'],
@@ -215,7 +215,7 @@ let info = {
       name: 'KVentas',
       pictures: [
         {
-          img: require('./src/assets/portfolio/KVentas/logo.png'),
+          img: require('./src/assets/portfolio/KVentas/logo.jpg'),
         },
         {
           youtube: 'https://www.youtube.com/embed/mOSZYswDCnM',
@@ -278,12 +278,12 @@ let info = {
       description: 'ProgramaGol obtiene el financiamiento del Capital Semilla de CORFO.',
     },
     {
-      name: 'JAVACUP DE JAVAHISPANO',
+      name: 'FRAMEWORK JAVACUP DE JAVAHISPANO',
       date: '2009 - 2013',
       description: 'Desarrollo de la nueva versión del framework, gestión de foros y ejecución del torneo de programación de futbol virtual JavaCup de JavaHispano.',
     },
     {
-      name: 'JAVACUP DE JAVAHISPANO',
+      name: 'TORNEO JAVACUP DE JAVAHISPANO',
       date: '2007',
       description: 'Campeón del torneo de programación de futbol virtual JavaCup de JavaHispano.',
     },
@@ -314,7 +314,7 @@ let info = {
       date: 'Enero 2021 - Actualidad',
       position: 'Desarrollo de Software',
       description: 'Desarrollo freelance de aplicaciones web, aplicaciones híbridas, sitios web y mantenimiento de sistemas existentes.',
-      skills: ['Vue', 'Flutter', 'Bootstrap', 'Javascript', 'Flutter', 'Dart', 'HTML5', 'CSS3', 'Web Workers', 'Html5Canvas', 'PixiJs', 'PostgreSQL', 'MySQL', 'MongoDB', 'GCP', 'Firebase', 'Firestore', 'IndexedDB', 'SCRUM', 'KanBan', 'Git', 'Node', 'NPM', 'CapacitorJS', 'PWA'],
+      skills: ['Vue', 'Flutter', 'Bootstrap', 'Javascript', 'Dart', 'HTML5', 'CSS3', 'Web Workers', 'Html5Canvas', 'PixiJs', 'PostgreSQL', 'MySQL', 'MongoDB', 'GCP', 'Firebase', 'Firestore', 'IndexedDB', 'SCRUM', 'KanBan', 'Git', 'Node', 'NPM', 'CapacitorJS', 'PWA'],
     },
     {
       name: 'PROGRAMAGOL · Autónomo',
