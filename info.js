@@ -1,3 +1,6 @@
+import jsPDF from 'jspdf';
+import QRCode from 'qrcode';
+
 let info = {
   name: 'Fabián Núñez',
   logo_name: 'fabnun',
@@ -10,10 +13,12 @@ let info = {
   },
   description: 'Hola, soy Fabián Núñez, ingeniero civil en computación e informática de la USACH. Tengo ' + (new Date().getFullYear() - 2004) + ' años de experiencia implementando y modelando sistemas en diversos lenguajes y plataformas.<br><br>Me considero una persona creativa y curiosa, con capacidades teóricas y prácticas que me permiten abordar problemas complejos.<br><br>Si pudiera elegir, me gustaría trabajar en  frontend para proyectos del área educativa, ciencias, artes o videojuegos.<br><br>',
   links: {
-    linkedin: 'https://www.linkedin.com/in/fabnun/',
+    portfolio: 'https://fabnun.web.app',
+    linkedin: 'https://www.linkedin.com/in/fabnun',
     github: 'https://github.com/fabnun',
-    instagram: 'https://www.instagram.com/fabnun/',
-    //resume: 'https://github.com/fabnun/fabnun-portfolio/blob/master/src/assets/pdfs/cv.pdf',
+    instagram: 'https://www.instagram.com/fabnun',
+    phone: '+56 9 4246 8328',
+    email: 'fabnun@gmail.com',
   },
 
   portfolio: [
@@ -75,8 +80,9 @@ let info = {
       date: 'Diciembre 2022',
       project: 'https://github.com/fabnun/conwords-generator',
       visit: 'https://conwords.app',
-      description: `ConWords es un juego y un editor de crucigramas online, donde los usuarios pueden jugar, crear y compartir sus propios crucigramas. La idea es que mediante la colaboración de la comunidad, se puedan mejorar la calidad y diversidad de los crucigramas, haciéndolos más entretenidos, desafiantes y temáticos.<br><br>
-      Actualmente, se pueden jugar las siguientes temáticas: <a target="_blank" href="https://conwords.app/#informatica">#informatica</a>, 
+      description: `
+      
+      ConWords es un juego y editor de crucigramas online donde los usuarios pueden jugar, crear y compartir sus propios crucigramas. Actualmente, se pueden jugar las siguientes temáticas: <a target="_blank" href="https://conwords.app/#informatica">#informatica</a>, 
       <a target="_blank" href="https://conwords.app/#astronomia">#astronomia</a>,
       <a target="_blank" href="https://conwords.app/#ciencias">#ciencias</a>, 
       <a target="_blank" href="https://conwords.app/#miscelaneo">#miscelaneo</a>, 
@@ -367,6 +373,125 @@ let info = {
       skills: ['Java', 'WebSphere', 'JSP', 'Struts', 'Tomcat', 'SQL Server', 'Visual Basic', 'UML'],
     },
   ],
+  pdf: () => {
+    const pdf = new jsPDF();
+    // Agrega contenido HTML al PDF utilizando addHTML
+    const htmlDoc = document.createElement('div');
+    htmlDoc.className = 'pdf';
+    htmlDoc.innerHTML = `
+    <style>
+      .pdf * {
+          font-family: arial;
+      }
+      .pdf h1 {
+          background-color: #ccc;
+          padding: 8px;
+          font-size: 28px;
+          margin-bottom: 32px;
+          text-align: center;
+          font-weight: bold;
+      }
+      .pdf h2 {
+        background-color: #ccc;
+        padding: 8px;
+        font-size: 24px;
+        margin: 16px 0;
+        font-weight: bold;
+      }
+      .pdf h3 {
+        float:left;
+        font-size: 16px;
+        font-weight: bold;
+      }
+      .pdf p {
+        font-size:16px;
+        text-align: justify;
+        padding: 0;
+      }
+      .pdf img {
+          border-radius: 4px;
+          margin:4px 16px 16px 0;
+      }
+      span {
+        max-width: 128px;
+        display: inline-block;
+        text-align: center;
+      }
+      
+    </style>
+    <h1>Curriculum Vitae<br>${info.name}</h1>
+    <img style="float:left;width:100px" src="${info.flat_picture}" />
+    
+    <p>${info.description}</p>
+    <div style="clear:both;" id="qr-links"></div>
+    <h2>Experiencia Laboral</h2>
+      ${info.experience.map(
+        (exp) => `
+          <h3>${exp.name} - ${exp.position}</h3>
+          <h3 style="float:right">${exp.date}</h3>
+          <p style="clear:both">${exp.description}<br><br></p>
+        `
+      )}
+    <h2>Educación e Hitos Importantes</h2>
+      ${info.education.map(
+        (exp) => `
+          <h3>${exp.name}</h3>
+          <h3 style="float:right">${exp.date}</h3>
+          <p style="clear:both">${exp.description}<br><br></p>
+        `
+      )}
+    <h2>Habilidades</h2>
+      ${info.skills.map(
+        (skill) => `
+          <h3>${skill.title}</h3>
+          <p>${skill.info.join(', ')}<br><br></p>
+        `
+      )}
+      <br><br>
+      <p style="float:right">Documento Generado Automaticamente el ${new Date().toLocaleString()} en <a href="https://fabnun.web.app">fabnun.web.app</a></p>
+    `;
+
+    for (const link in info.links) {
+      const span = document.createElement('span');
+
+      var canvas = document.createElement('canvas');
+      QRCode.toCanvas(
+        canvas,
+        info.links[link],
+        {
+          width: 132,
+          height: 132,
+        },
+        function(error) {
+          if (error) console.error(error);
+        }
+      );
+      span.appendChild(canvas);
+      span.appendChild(document.createTextNode(link));
+
+      htmlDoc.querySelector('#qr-links').appendChild(span);
+    }
+
+    pdf.html(htmlDoc, {
+      callback: function(doc) {
+        // Save the PDF
+        console.log(doc.save('sample-document.pdf'));
+      },
+      x: 15,
+      y: 15,
+      html2canvas: {
+        jsPDF: {
+          format: 'a4',
+        },
+        imageType: 'image/jpeg',
+        output: './pdf/generate.pdf',
+      },
+      width: 180, //target width in the PDF document
+      windowWidth: 800, //window width in CSS pixels
+    });
+  },
+
+  // Save the PDF
 };
 
 export default info;

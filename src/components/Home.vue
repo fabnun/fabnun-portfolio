@@ -19,7 +19,7 @@
             <button class="btn btn-outline-secondary mx-2" @click="open('instagram')" aria-label="ir a instagram">
               <svg :style="{ filter: nightMode ? 'brightness(100)' : 'brightness(0)' }" class="icon"><use xlink:href="#icon-instagram"></use></svg>
             </button>
-            <button class="btn btn-outline-secondary mx-2" @click="open(/*open('resume')*/)" aria-label="descargar cv">
+            <button class="btn btn-outline-secondary mx-2" @click="info.pdf()" aria-label="descargar cv">
               <svg :style="{ filter: nightMode ? 'brightness(100)' : 'brightness(0)' }" class="icon"><use xlink:href="#icon-profile"></use></svg>
             </button>
           </div>
@@ -45,6 +45,7 @@ export default {
   },
   data() {
     return {
+      info,
       picture: info.flat_picture,
       description: info.description,
       name: info.name,

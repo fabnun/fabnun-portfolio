@@ -19,7 +19,7 @@
             <button class="btn btn-outline-secondary mx-2" @click="open('instagram')" aria-label="ir a instagram">
               <svg class="icon"><use xlink:href="#icon-instagram"></use></svg>
             </button>
-            <button class="btn btn-outline-secondary mx-2" @click="open(/*open('resume')*/)" aria-label="descargar cv">
+            <button class="btn btn-outline-secondary mx-2" @click="info.pdf()" aria-label="descargar cv">
               <svg class="icon"><use xlink:href="#icon-profile"></use></svg>
             </button>
           </div>
@@ -36,6 +36,7 @@ export default {
   name: 'Footer',
   data() {
     return {
+      info,
       linkedin: info.links.linkedin,
       github: info.links.github,
       instagram: info.links.instagram,
@@ -53,9 +54,6 @@ export default {
           break;
         case 'instagram':
           window.open(this.instagram, '_blank');
-          break;
-        case 'resume':
-          window.open(this.resume, '_blank');
           break;
       }
     },
