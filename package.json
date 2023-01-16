@@ -7,15 +7,10 @@
     "deploy": "vue-cli-service build && firebase deploy --only hosting:fabnun"
   },
   "dependencies": {
-    "@chenfengyuan/vue-carousel": "^1.0.5",
     "aos": "^3.0.0-beta.6",
     "babel-helper-vue-jsx-merge-props": "^2.0.3",
     "core-js": "^3.6.4",
-    "emailjs-com": "^2.4.1",
-    "firebase": "^9.15.0",
     "material-icons": "^0.3.1",
-    "or": "^0.2.0",
-    "serve": "^11.3.0",
     "v-tooltip": "^2.0.3",
     "vue": "^2.6.11",
     "vue-cookie": "^1.1.4",

@@ -9,7 +9,7 @@
       }"
     >
       <div @click.prevent="showModal" style="cursor:pointer">
-        <img class="card-img-top" :src="portfolio.pictures[0].img" alt="Card image cap" />
+        <img class="card-img-top" :src="portfolio.pictures[0].img" alt="Card image cap" width="100%" height="100%" />
       </div>
       <div class="card-body pborder-top">
         <h5 class="title2">{{ portfolio.name }}</h5>
@@ -112,7 +112,7 @@ div.img-div {
 .pcard-dark {
   border-radius: 7px;
   border: none;
-  background-color: #30363a !important;
+  background-color: #20262a !important;
   /* box-shadow: 1px 1px 12px rgb(53, 53, 53); */
   transition: all 0.5s;
 }

@@ -106,11 +106,11 @@ export default {
 }
 
 .bg-dark2 {
-  background-color: #262c30 !important;
+  background-color: #161c20 !important;
 }
 
 .text-light {
-  color: #d3d2d2 !important;
+  color: #fff !important;
 }
 
 .p-st {

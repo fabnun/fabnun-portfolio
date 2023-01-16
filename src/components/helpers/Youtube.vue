@@ -21,6 +21,7 @@ export default {
   padding-bottom: 56.25%; /* 16:9 of the videos */
 }
 .videoContainer > iframe {
+  background: black;
   position: absolute;
   top: 0;
   left: 0;

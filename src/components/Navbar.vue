@@ -13,7 +13,9 @@
           <Logo :nightMode="nightMode" />
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span style="color: gray; font-size: 23px;"><i class="fas fa-bars"></i></span>
+          <span style="color: gray; font-size: 23px;">
+            <svg class="icon" :style="{ filter: nightMode ? 'brightness(100)' : 'brightness(0)' }"><use xlink:href="#icon-menu"></use></svg>
+          </span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -35,15 +37,11 @@
               <a class="nav-link" href="/contact" @click.prevent="scroll('contact')" :class="{ 'text-light': nightMode }">Contacto</a>
             </li>
             <li class="nav-item ml-2">
-              <a class="nav-link" href="#" @click.prevent="switchMode" :class="{ 'text-light': nightMode }"
-                ><i
-                  :class="{
-                    'fas fa-moon': nightMode,
-                    'far fa-moon': !nightMode,
-                  }"
-                  v-tooltip.bottom="nightMode ? 'Modo Día' : 'Modo Noche'"
-                ></i
-              ></a>
+              <a class="nav-link" href="#" @click.prevent="switchMode" :class="{ 'text-light': nightMode }" style="outline:none;" tabindex="-1;">
+                <svg class="icon" style=" margin-top:-4px;position:relative;">
+                  <use :xlink:href="nightMode ? '#icon-sun' : '#icon-moon'" v-tooltip.bottom="nightMode ? 'Modo Día' : 'Modo Noche'"></use>
+                </svg>
+              </a>
             </li>
           </ul>
         </div>
@@ -87,6 +85,13 @@ export default {
 </script>
 
 <style scoped>
+.icon {
+  width: 1.5em;
+  height: 1.5em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
 .nav-link {
   font-weight: 500;
 }

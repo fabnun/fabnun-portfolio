@@ -74,7 +74,6 @@
 
 <script>
 import config from '../../config';
-import emailjs from 'emailjs-com';
 
 import Snackbar from './helpers/Snackbar';
 
@@ -111,35 +110,35 @@ export default {
       this.snackbarMessage = 'Por ahora enviar esta deshabilitado, use linkedin, github o instagram para contactar';
       this.snackbarColor = 'rgb(212, 149, 97)';
       return;
-      if (!this.email || !this.name || !this.text) {
-        this.showSnackbar = true;
-        this.snackbarMessage = 'Please all the fields';
-        this.snackbarColor = 'rgb(212, 149, 97)';
-      } else {
-        var obj = {
-          user_email: this.email,
-          from_name: this.name,
-          message_html: this.text,
-          to_name: 'Hrishikesh Paul',
-        };
+      // if (!this.email || !this.name || !this.text) {
+      //   this.showSnackbar = true;
+      //   this.snackbarMessage = 'Please all the fields';
+      //   this.snackbarColor = 'rgb(212, 149, 97)';
+      // } else {
+      //   var obj = {
+      //     user_email: this.email,
+      //     from_name: this.name,
+      //     message_html: this.text,
+      //     to_name: 'Hrishikesh Paul',
+      //   };
 
-        emailjs.send(config.emailjs.serviceID, config.emailjs.templateID, obj, config.emailjs.userID).then(
-          (result) => {
-            this.showSnackbar = true;
-            this.snackbarMessage = 'Thanks! Message recieved.';
-            this.snackbarColor = '#1aa260';
+      //   emailjs.send(config.emailjs.serviceID, config.emailjs.templateID, obj, config.emailjs.userID).then(
+      //     (result) => {
+      //       this.showSnackbar = true;
+      //       this.snackbarMessage = 'Thanks! Message recieved.';
+      //       this.snackbarColor = '#1aa260';
 
-            this.email = '';
-            this.text = '';
-            this.name = '';
-          },
-          (error) => {
-            this.showSnackbar = true;
-            this.snackbarMessage = 'Oops! Something went wrong.';
-            this.snackbarColor = 'rgb(212, 149, 97)';
-          }
-        );
-      }
+      //       this.email = '';
+      //       this.text = '';
+      //       this.name = '';
+      //     },
+      //     (error) => {
+      //       this.showSnackbar = true;
+      //       this.snackbarMessage = 'Oops! Something went wrong.';
+      //       this.snackbarColor = 'rgb(212, 149, 97)';
+      //     }
+      //   );
+      // }
     },
   },
 };

@@ -238,32 +238,32 @@ let info = {
     {
       title: 'Lenguajes de Programación y Estándares',
       info: ['Javascript ES6', 'Java8', 'C', 'C++', 'Dart', 'SQL', 'NoSQL', 'HTML5', 'CSS3'],
-      icon: 'fa fa-code',
+      icon: 'embed',
     },
     {
       title: 'Frameworks y APIs',
       info: ['Vue2', 'Flutter', 'Bootstrap', 'Java Swing', 'Web Workers', 'Html5Canvas', 'PixiJs'],
-      icon: 'fas fa-laptop-code',
+      icon: 'cube',
     },
     {
       title: 'Base de Datos',
       info: ['PostgreSQL', 'MySQL', 'MongoDB', 'Google Datastore', 'Firestore', 'IndexedDB', 'LocalStorage'],
-      icon: 'fa fa-database',
+      icon: 'database',
     },
     {
       title: 'Sistemas Operativos y Plataformas Cloud',
       info: ['Windows', 'Ubuntu', 'Android', 'GCP', 'Firebase'],
-      icon: 'fas fa-tools',
+      icon: 'tools',
     },
     {
       title: 'IDEs y Editores',
       info: ['VSCode', 'Eclipse', 'Netbeans', 'Android Studio', 'Gimp', 'Photoshop', 'Premiere', 'Inkscape', 'VSDC Video Editor'],
-      icon: 'fa fa-pencil-square-o',
+      icon: 'pencil',
     },
     {
       title: 'Metodologías, Paradigmas y Herramientas',
       info: ['UML', 'SCRUM', 'KanBan', 'POO', 'Git', 'Node', 'NPM', 'CapacitorJS'],
-      icon: 'fa fa-cogs',
+      icon: 'cogs',
     },
   ],
   education: [

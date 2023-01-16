@@ -8,7 +8,9 @@
       <br />
       <div class="row">
         <div class="col-xl-4 col-bg-4 col-md-4 col-sm-12 text-center pb-5 px-4" v-for="(skill, idx) in skills" :key="skill.title" data-aos="fade-up" data-aos-offset="10" data-aos-delay="30" :style="{ 'transition-delay': idx / 4.2 + 's' }" data-aos-duration="500" data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="true">
-          <div class="bg-div"><i :class="skill.icon"></i></div>
+          <div class="bg-div">
+            <svg class="icon"><use :xlink:href="'#icon-' + skill.icon"></use></svg>
+          </div>
           <div class="title2 pt-2">{{ skill.title }}</div>
           <hr width="50%" :class="{ pgray: !nightMode, 'bg-secondary': nightMode }" />
           <span class="title3">{{ skill.info.join(', ') }}</span>
@@ -37,6 +39,12 @@ export default {
 </script>
 
 <style scoped>
+.icon {
+  width: 48px;
+  height: 48px;
+  fill: rgb(212, 149, 97);
+  transition: all 0.5s;
+}
 .title {
   font-size: 30px;
   font-weight: 500;

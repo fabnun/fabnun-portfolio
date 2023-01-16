@@ -10,16 +10,18 @@
 
         <div class="col-xl-6 col-bg-6 col-md-6 col-sm-12">
           <div class="text-center">
-            <button class="btn btn-outline-secondary mx-2 " @click="open('linkedin')">
-              <i class="fab fa-linkedin"></i>
+            <button class="btn btn-outline-secondary mx-2 " @click="open('linkedin')" aria-label="ir a linkedin">
+              <svg class="icon"><use xlink:href="#icon-linkedin"></use></svg>
             </button>
-            <button class="btn btn-outline-secondary mx-2" @click="open('github')">
-              <i class="fab fa-github"></i>
+            <button class="btn btn-outline-secondary mx-2" @click="open('github')" aria-label="ir a github">
+              <svg class="icon"><use xlink:href="#icon-github"></use></svg>
             </button>
-            <button class="btn btn-outline-secondary mx-2" @click="open('instagram')">
-              <i class="fab fa-instagram"></i>
+            <button class="btn btn-outline-secondary mx-2" @click="open('instagram')" aria-label="ir a instagram">
+              <svg class="icon"><use xlink:href="#icon-instagram"></use></svg>
             </button>
-            <button class="btn btn2 btn-outline-secondary mx-2" @click="open(/*open('resume')*/)">CV <i class="fa fa-file"></i></button>
+            <button class="btn btn-outline-secondary mx-2" @click="open(/*open('resume')*/)" aria-label="descargar cv">
+              <svg class="icon"><use xlink:href="#icon-profile"></use></svg>
+            </button>
           </div>
         </div>
       </div>
@@ -62,19 +64,24 @@ export default {
 </script>
 
 <style scoped>
+.icon {
+  width: 1.5em;
+  height: 1.5em;
+}
+
 span {
   font-weight: 500;
 }
 
 .btn {
-  border-color: white;
-  color: white;
+  border-color: #669db3ff;
+  color: #669db3ff;
 }
 
 .btn:hover {
-  background-color: white;
-  border-color: white;
-  color: gray;
+  background-color: #669db3ff;
+  border-color: #669db3ff;
+  color: white;
 }
 
 .btn:focus {
@@ -88,10 +95,5 @@ span {
     padding-bottom: 20px;
     text-align: center;
   }
-}
-
-.btn2 {
-  background-color: #669db3ff;
-  border-color: #669db3ff;
 }
 </style>

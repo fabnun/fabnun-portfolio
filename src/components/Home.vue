@@ -3,23 +3,25 @@
     <div class="container" data-aos="fade" data-aos-once="true" data-aos-duration="1000">
       <div class="row align-items-center ">
         <div class="col-xl-6 col-bg-6 col-md-6 col-sm-12 text-center pt-5 pb-5">
-          <img :src="picture" />
+          <img :src="picture" alt="foto de perfil" />
         </div>
         <div class="col-xl-6 col-bg-6 col-md-6 col-sm-12 pt-5">
           <div>
             <p v-html="description"></p>
           </div>
           <div class="text-center pb-4">
-            <button class="btn btn-outline-secondary mx-2 " @click="open('linkedin')" v-tooltip.bottom="'LinkedIn'">
-              <i class="fab fa-linkedin"></i>
+            <button class="btn btn-outline-secondary mx-2 " @click="open('linkedin')" aria-label="ir a linkedin">
+              <svg class="icon"><use xlink:href="#icon-linkedin"></use></svg>
             </button>
-            <button class="btn btn-outline-secondary mx-2" @click="open('github')" v-tooltip.bottom="'GitHub'">
-              <i class="fab fa-github"></i>
+            <button class="btn btn-outline-secondary mx-2" @click="open('github')" aria-label="ir a github">
+              <svg class="icon"><use xlink:href="#icon-github"></use></svg>
             </button>
-            <button class="btn btn-outline-secondary mx-2" @click="open('instagram')" v-tooltip.bottom="'instagram'">
-              <i class="fab fa-instagram"></i>
+            <button class="btn btn-outline-secondary mx-2" @click="open('instagram')" aria-label="ir a instagram">
+              <svg class="icon"><use xlink:href="#icon-instagram"></use></svg>
             </button>
-            <button class="btn btn2 btn-outline-secondary mx-2" @click="/*open('resume')*/" v-tooltip.bottom="'Curriculum'">CV <i class="fa fa-file"></i></button>
+            <button class="btn btn-outline-secondary mx-2" @click="open(/*open('resume')*/)" aria-label="descargar cv">
+              <svg class="icon"><use xlink:href="#icon-profile"></use></svg>
+            </button>
           </div>
         </div>
       </div>
@@ -74,6 +76,11 @@ export default {
 </script>
 
 <style scoped>
+.icon {
+  width: 1.5em;
+  height: 1.5em;
+}
+
 .home-title {
   font-size: 28px;
   font-weight: 500;
