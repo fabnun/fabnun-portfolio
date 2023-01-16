@@ -92,7 +92,7 @@ let info = {
       <a target="_blank" href="https://conwords.app/#idiomas">#idiomas</a>, 
       <a target="_blank" href="https://conwords.app/#mapudungun">#mapudungun</a>, 
       <a target="_blank" href="https://conwords.app/#adultos">#adultos</a><br><br>
-      El algoritmo para la generación de crucigramas está disponible en <a target="_blank" href="https://github.com/fabnun/conwords-generator">Github</a>.
+      El algoritmo para la generación de crucigramas está disponible en <a target="_blank" href="https://github.com/fabnun/conwords-generator">Github</a> y <a target="_blank" href="https://www.npmjs.com/package/conwords-generator">npm</a>.
       `,
     },
     {
@@ -412,7 +412,7 @@ let info = {
           border-radius: 4px;
           margin:4px 16px 16px 0;
       }
-      span {
+      .pdf span {
         max-width: 128px;
         display: inline-block;
         text-align: center;
