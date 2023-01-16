@@ -9,7 +9,7 @@
   >
     <div class="container">
       <div class="text-center" data-aos="fade" data-aos-once="true" data-aos-duration="1000">
-        <span class="title text-center" :class="{ pgray: !nightMode, 'text-light': nightMode }">Historia</span>
+        <span class="title text-center" :class="{ pgray: !nightMode, 'text-light': nightMode }">Cronología</span>
       </div>
       <hr width="50%" :class="{ pgray: !nightMode, 'bg-secondary': nightMode }" />
       <div class="row">

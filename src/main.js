@@ -6,11 +6,8 @@ import 'aos/dist/aos.css';
 import VueParallaxJs from 'vue-parallax-js';
 import VueScrollTo from 'vue-scrollto';
 import VueRouter from 'vue-router';
-import VTooltip from 'v-tooltip';
-
 var VueCookie = require('vue-cookie');
 
-Vue.use(VTooltip);
 Vue.use(VueRouter);
 Vue.use(VueScrollTo);
 Vue.use(VueCookie);

@@ -1,5 +1,4 @@
-import jsPDF from 'jspdf';
-import QRCode from 'qrcode';
+let _pdf = undefined;
 
 let info = {
   name: 'Fabián Núñez',
@@ -13,11 +12,14 @@ let info = {
   },
   description: 'Hola, soy Fabián Núñez, ingeniero civil en computación e informática de la USACH. Tengo ' + (new Date().getFullYear() - 2004) + ' años de experiencia implementando y modelando sistemas en diversos lenguajes y plataformas.<br><br>Me considero una persona creativa y curiosa, con capacidades teóricas y prácticas que me permiten abordar problemas complejos.<br><br>Si pudiera elegir, me gustaría trabajar en  frontend para proyectos del área educativa, ciencias, artes o videojuegos.<br><br>',
   links: {
-    portfolio: 'https://fabnun.web.app',
     linkedin: 'https://www.linkedin.com/in/fabnun',
     github: 'https://github.com/fabnun',
     instagram: 'https://www.instagram.com/fabnun',
-    phone: '+56 9 4246 8328',
+  },
+  linksCV: {
+    portafolio: 'https://fabnun.web.app',
+    linkedin: 'https://www.linkedin.com/in/fabnun',
+    github: 'https://github.com/fabnun',
     email: 'fabnun@gmail.com',
   },
 
@@ -92,7 +94,7 @@ let info = {
       <a target="_blank" href="https://conwords.app/#idiomas">#idiomas</a>, 
       <a target="_blank" href="https://conwords.app/#mapudungun">#mapudungun</a>, 
       <a target="_blank" href="https://conwords.app/#adultos">#adultos</a><br><br>
-      El algoritmo para la generación de crucigramas está disponible en <a target="_blank" href="https://github.com/fabnun/conwords-generator">Github</a> y <a target="_blank" href="https://www.npmjs.com/package/conwords-generator">npm</a>.
+      El algoritmo para la generación de crucigramas está disponible en <a target="_blank" href="https://github.com/fabnun/conwords-generator">github</a> y <a target="_blank" href="https://www.npmjs.com/package/conwords-generator">npm</a>.
       `,
     },
     {
@@ -248,7 +250,7 @@ let info = {
     },
     {
       title: 'Frameworks y APIs',
-      info: ['Vue2', 'Flutter', 'Bootstrap', 'Java Swing', 'Web Workers', 'Html5Canvas', 'PixiJs'],
+      info: ['Vue2', 'Flutter', 'Bootstrap', 'Java Swing', 'Web Workers', 'Html5 Canvas', 'PixiJs'],
       icon: 'cube',
     },
     {
@@ -320,7 +322,7 @@ let info = {
       date: 'Enero 2021 - Actualidad',
       position: 'Desarrollo de Software',
       description: 'Desarrollo freelance de aplicaciones web, aplicaciones híbridas, sitios web y mantenimiento de sistemas existentes.',
-      skills: ['Vue', 'Flutter', 'Bootstrap', 'Javascript', 'Dart', 'HTML5', 'CSS3', 'Web Workers', 'Html5Canvas', 'PixiJs', 'PostgreSQL', 'MySQL', 'MongoDB', 'GCP', 'Firebase', 'Firestore', 'IndexedDB', 'SCRUM', 'KanBan', 'Git', 'Node', 'NPM', 'CapacitorJS', 'PWA'],
+      skills: ['Vue', 'Flutter', 'Bootstrap', 'Javascript', 'Dart', 'HTML5', 'CSS3', 'Web Workers', 'Html5 Canvas', 'PixiJs', 'MongoDB', 'GCP', 'Firebase', 'Firestore', 'IndexedDB', 'SCRUM', 'KanBan', 'Git', 'Node', 'NPM', 'CapacitorJS', 'PWA'],
     },
     {
       name: 'PROGRAMAGOL · Autónomo',
@@ -374,124 +376,15 @@ let info = {
     },
   ],
   pdf: () => {
-    const pdf = new jsPDF();
-    // Agrega contenido HTML al PDF utilizando addHTML
-    const htmlDoc = document.createElement('div');
-    htmlDoc.className = 'pdf';
-    htmlDoc.innerHTML = `
-    <style>
-      .pdf * {
-          font-family: arial;
-      }
-      .pdf h1 {
-          background-color: #ccc;
-          padding: 8px;
-          font-size: 28px;
-          margin-bottom: 32px;
-          text-align: center;
-          font-weight: bold;
-      }
-      .pdf h2 {
-        background-color: #ccc;
-        padding: 8px;
-        font-size: 24px;
-        margin: 16px 0;
-        font-weight: bold;
-      }
-      .pdf h3 {
-        float:left;
-        font-size: 16px;
-        font-weight: bold;
-      }
-      .pdf p {
-        font-size:16px;
-        text-align: justify;
-        padding: 0;
-      }
-      .pdf img {
-          border-radius: 4px;
-          margin:4px 16px 16px 0;
-      }
-      .pdf span {
-        max-width: 128px;
-        display: inline-block;
-        text-align: center;
-      }
-      
-    </style>
-    <h1>Curriculum Vitae<br>${info.name}</h1>
-    <img style="float:left;width:100px" src="${info.flat_picture}" />
-    
-    <p>${info.description}</p>
-    <div style="clear:both;" id="qr-links"></div>
-    <h2>Experiencia Laboral</h2>
-      ${info.experience.map(
-        (exp) => `
-          <h3>${exp.name} - ${exp.position}</h3>
-          <h3 style="float:right">${exp.date}</h3>
-          <p style="clear:both">${exp.description}<br><br></p>
-        `
-      )}
-    <h2>Educación e Hitos Importantes</h2>
-      ${info.education.map(
-        (exp) => `
-          <h3>${exp.name}</h3>
-          <h3 style="float:right">${exp.date}</h3>
-          <p style="clear:both">${exp.description}<br><br></p>
-        `
-      )}
-    <h2>Habilidades</h2>
-      ${info.skills.map(
-        (skill) => `
-          <h3>${skill.title}</h3>
-          <p>${skill.info.join(', ')}<br><br></p>
-        `
-      )}
-      <br><br>
-      <p style="float:right">Documento Generado Automaticamente el ${new Date().toLocaleString()} en <a href="https://fabnun.web.app">fabnun.web.app</a></p>
-    `;
-
-    for (const link in info.links) {
-      const span = document.createElement('span');
-
-      var canvas = document.createElement('canvas');
-      QRCode.toCanvas(
-        canvas,
-        info.links[link],
-        {
-          width: 132,
-          height: 132,
-        },
-        function(error) {
-          if (error) console.error(error);
-        }
-      );
-      span.appendChild(canvas);
-      span.appendChild(document.createTextNode(link));
-
-      htmlDoc.querySelector('#qr-links').appendChild(span);
+    if (_pdf === undefined) {
+      import('./pdf').then((module) => {
+        _pdf = module.default;
+        info.pdf();
+      });
+    } else {
+      _pdf();
     }
-
-    pdf.html(htmlDoc, {
-      callback: function(doc) {
-        // Save the PDF
-        console.log(doc.save('sample-document.pdf'));
-      },
-      x: 15,
-      y: 15,
-      html2canvas: {
-        jsPDF: {
-          format: 'a4',
-        },
-        imageType: 'image/jpeg',
-        output: './pdf/generate.pdf',
-      },
-      width: 180, //target width in the PDF document
-      windowWidth: 800, //window width in CSS pixels
-    });
   },
-
-  // Save the PDF
 };
 
 export default info;

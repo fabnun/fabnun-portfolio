@@ -30,16 +30,16 @@
               <a class="nav-link" href="/skills" @click.prevent="scroll('skills')" :class="{ 'text-light': nightMode }">Habilidades</a>
             </li>
             <li class="nav-item mx-2">
-              <a class="nav-link" href="/about" @click.prevent="scroll('about')" :class="{ 'text-light': nightMode }">Historia</a>
+              <a class="nav-link" href="/about" @click.prevent="scroll('about')" :class="{ 'text-light': nightMode }">Cronología</a>
             </li>
 
             <li class="nav-item mx-2">
               <a class="nav-link" href="/contact" @click.prevent="scroll('contact')" :class="{ 'text-light': nightMode }">Contacto</a>
             </li>
             <li class="nav-item ml-2">
-              <a class="nav-link" href="#" @click.prevent="switchMode" :class="{ 'text-light': nightMode }" style="outline:none;" tabindex="-1">
+              <a class="nav-link" href="#" @click.prevent="switchMode" :class="{ 'text-light': nightMode }" style="outline:none;" tabindex="-1" :title="nightMode ? 'Modo Día' : 'Modo Noche'">
                 <svg class="icon" style=" margin-top:-4px;position:relative;outline:none;" tabindex="-1">
-                  <use :xlink:href="nightMode ? '#icon-sun' : '#icon-moon'" v-tooltip.bottom="nightMode ? 'Modo Día' : 'Modo Noche'"></use>
+                  <use :xlink:href="nightMode ? '#icon-sun' : '#icon-moon'"></use>
                 </svg>
               </a>
             </li>

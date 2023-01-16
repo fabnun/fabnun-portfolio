@@ -10,17 +10,11 @@
             <p v-html="description"></p>
           </div>
           <div class="text-center pb-4">
-            <button class="btn btn-outline-secondary mx-2 " @click="open('linkedin')" aria-label="ir a linkedin">
-              <svg :style="{ filter: nightMode ? 'brightness(100)' : 'brightness(0)' }" class="icon"><use xlink:href="#icon-linkedin"></use></svg>
-            </button>
-            <button class="btn btn-outline-secondary mx-2" @click="open('github')" aria-label="ir a github">
-              <svg :style="{ filter: nightMode ? 'brightness(100)' : 'brightness(0)' }" class="icon"><use xlink:href="#icon-github"></use></svg>
-            </button>
-            <button class="btn btn-outline-secondary mx-2" @click="open('instagram')" aria-label="ir a instagram">
-              <svg :style="{ filter: nightMode ? 'brightness(100)' : 'brightness(0)' }" class="icon"><use xlink:href="#icon-instagram"></use></svg>
-            </button>
-            <button class="btn btn-outline-secondary mx-2" @click="info.pdf()" aria-label="descargar cv">
+            <button class="btn btn-outline-secondary mx-2" @click="info.pdf()" title="generar cv">
               <svg :style="{ filter: nightMode ? 'brightness(100)' : 'brightness(0)' }" class="icon"><use xlink:href="#icon-profile"></use></svg>
+            </button>
+            <button v-for="(value, key) in info.links" :key="key" class="btn btn-outline-secondary mx-2 " @click="open(value)" :title="'ver ' + key">
+              <svg :style="{ filter: nightMode ? 'brightness(100)' : 'brightness(0)' }" class="icon"><use :xlink:href="'#icon-' + key"></use></svg>
             </button>
           </div>
         </div>
@@ -57,20 +51,7 @@ export default {
   },
   methods: {
     open(link) {
-      switch (link) {
-        case 'linkedin':
-          window.open(this.linkedin, '_blank');
-          break;
-        case 'github':
-          window.open(this.github, '_blank');
-          break;
-        case 'instagram':
-          window.open(this.instagram, '_blank');
-          break;
-        case 'resume':
-          window.open(this.resume, '_blank');
-          break;
-      }
+      window.open(link, '_blank');
     },
   },
 };

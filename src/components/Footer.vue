@@ -4,23 +4,17 @@
       <div class="row pt-1 align-items-center">
         <div class="col-xl-6 col-bg-6 col-md-6 col-sm-12 pbelow" style="color: white;">
           <a href="https://github.com/hrishikeshpaul/portfolio-template" style="color: white;" target="_blank" rel="noopener noreferrer">
-            <span>Original Template from Hrishikesh Paul</span>
+            <span>Original Template by Hrishikesh Paul</span>
           </a>
         </div>
 
         <div class="col-xl-6 col-bg-6 col-md-6 col-sm-12">
           <div class="text-center">
-            <button class="btn btn-outline-secondary mx-2 " @click="open('linkedin')" aria-label="ir a linkedin">
-              <svg class="icon"><use xlink:href="#icon-linkedin"></use></svg>
-            </button>
-            <button class="btn btn-outline-secondary mx-2" @click="open('github')" aria-label="ir a github">
-              <svg class="icon"><use xlink:href="#icon-github"></use></svg>
-            </button>
-            <button class="btn btn-outline-secondary mx-2" @click="open('instagram')" aria-label="ir a instagram">
-              <svg class="icon"><use xlink:href="#icon-instagram"></use></svg>
-            </button>
-            <button class="btn btn-outline-secondary mx-2" @click="info.pdf()" aria-label="descargar cv">
+            <button class="btn btn-outline-secondary mx-2" @click="info.pdf()" title="generar cv">
               <svg class="icon"><use xlink:href="#icon-profile"></use></svg>
+            </button>
+            <button v-for="(value, key) in info.links" :key="key" class="btn btn-outline-secondary mx-2 " @click="open(value)" :title="'ver ' + key">
+              <svg class="icon"><use :xlink:href="'#icon-' + key"></use></svg>
             </button>
           </div>
         </div>
