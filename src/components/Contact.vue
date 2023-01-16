@@ -109,6 +109,7 @@ export default {
       this.showSnackbar = true;
       this.snackbarMessage = 'Por ahora enviar esta deshabilitado, use linkedin, github o instagram para contactar';
       this.snackbarColor = 'rgb(212, 149, 97)';
+      this.snackbarTimeout = 15000;
       return;
       // if (!this.email || !this.name || !this.text) {
       //   this.showSnackbar = true;

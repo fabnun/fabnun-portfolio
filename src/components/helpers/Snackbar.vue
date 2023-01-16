@@ -1,10 +1,6 @@
 <template>
   <div>
-    <div
-      id="snackbar"
-      :class="{ show: showSnackbar }"
-      :style="{ 'background-color': snackbarColor }"
-    >
+    <div id="snackbar" :class="{ show: showSnackbar }" :style="{ 'background-color': snackbarColor }">
       {{ snackbarMessage }}
     </div>
   </div>
@@ -12,7 +8,7 @@
 
 <script>
 export default {
-  name: "Snackbar",
+  name: 'Snackbar',
   props: {
     showSnackbar: {
       type: Boolean,
@@ -28,8 +24,8 @@ export default {
     showSnackbar(nv) {
       if (nv) {
         setTimeout(() => {
-          this.$emit("close", false);
-        }, 1900);
+          this.$emit('close', false);
+        }, 2900);
       }
     },
   },

@@ -11,16 +11,16 @@
           </div>
           <div class="text-center pb-4">
             <button class="btn btn-outline-secondary mx-2 " @click="open('linkedin')" aria-label="ir a linkedin">
-              <svg class="icon"><use xlink:href="#icon-linkedin"></use></svg>
+              <svg :style="{ filter: nightMode ? 'brightness(100)' : 'brightness(0)' }" class="icon"><use xlink:href="#icon-linkedin"></use></svg>
             </button>
             <button class="btn btn-outline-secondary mx-2" @click="open('github')" aria-label="ir a github">
-              <svg class="icon"><use xlink:href="#icon-github"></use></svg>
+              <svg :style="{ filter: nightMode ? 'brightness(100)' : 'brightness(0)' }" class="icon"><use xlink:href="#icon-github"></use></svg>
             </button>
             <button class="btn btn-outline-secondary mx-2" @click="open('instagram')" aria-label="ir a instagram">
-              <svg class="icon"><use xlink:href="#icon-instagram"></use></svg>
+              <svg :style="{ filter: nightMode ? 'brightness(100)' : 'brightness(0)' }" class="icon"><use xlink:href="#icon-instagram"></use></svg>
             </button>
             <button class="btn btn-outline-secondary mx-2" @click="open(/*open('resume')*/)" aria-label="descargar cv">
-              <svg class="icon"><use xlink:href="#icon-profile"></use></svg>
+              <svg :style="{ filter: nightMode ? 'brightness(100)' : 'brightness(0)' }" class="icon"><use xlink:href="#icon-profile"></use></svg>
             </button>
           </div>
         </div>
@@ -110,6 +110,7 @@ img {
 .btn {
   border-color: #669db3ff;
   color: #669db3ff;
+  height: 2.4em;
 }
 
 .btn2 {

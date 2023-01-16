@@ -74,20 +74,18 @@ span {
 }
 
 .btn {
-  border-color: #669db3ff;
-  color: #669db3ff;
+  border-color: white;
+  height: 2.4em;
 }
 
 .btn:hover {
   background-color: #669db3ff;
   border-color: #669db3ff;
-  color: white;
 }
 
 .btn:focus {
-  background-color: white;
-  border-color: white;
-  color: gray;
+  background-color: #669db3ff;
+  border-color: #669db3ff;
 }
 
 @media screen and (max-width: 574px) {
