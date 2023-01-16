@@ -55,6 +55,7 @@ export default {
 }
 
 .title2 {
+  color: rgb(212, 149, 97);
   font-size: 20px;
   font-weight: 500;
 }

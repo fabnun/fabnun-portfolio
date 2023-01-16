@@ -130,3 +130,6 @@ table {
 .bg-dark {
   background-color: #212529 !important;
 }
+*:focus {
+  outline: none;
+}

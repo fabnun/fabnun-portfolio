@@ -165,9 +165,9 @@ export default {
 }
 
 .pinput {
+  border: 1px solid lightgray;
   font-size: 18px;
   outline: none;
-  border: none;
   border-radius: 7px;
   padding: 10px;
   width: 50%;

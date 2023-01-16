@@ -37,8 +37,8 @@
               <a class="nav-link" href="/contact" @click.prevent="scroll('contact')" :class="{ 'text-light': nightMode }">Contacto</a>
             </li>
             <li class="nav-item ml-2">
-              <a class="nav-link" href="#" @click.prevent="switchMode" :class="{ 'text-light': nightMode }" style="outline:none;" tabindex="-1;">
-                <svg class="icon" style=" margin-top:-4px;position:relative;">
+              <a class="nav-link" href="#" @click.prevent="switchMode" :class="{ 'text-light': nightMode }" style="outline:none;" tabindex="-1">
+                <svg class="icon" style=" margin-top:-4px;position:relative;outline:none;" tabindex="-1">
                   <use :xlink:href="nightMode ? '#icon-sun' : '#icon-moon'" v-tooltip.bottom="nightMode ? 'Modo Día' : 'Modo Noche'"></use>
                 </svg>
               </a>

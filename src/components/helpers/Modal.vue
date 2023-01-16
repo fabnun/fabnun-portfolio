@@ -15,7 +15,11 @@
             <span
               ><a href="#" @click.prevent="open(portfolio.visit)" :class="{ 'text-light': nightMode }">{{ portfolio.name }}</a></span
             >
-            <a class="pull-right" style="font-size: 18px;" @click="$emit('close')"><i class="fas fa-times"></i></a>
+            <a class="pull-right" style="font-size: 18px;" @click="$emit('close')">
+              <svg class="icon" style="width: 24px;height: 24px;float: right;" :style="{ filter: nightMode ? 'brightness(100)' : 'brightness(0)' }">
+                <use xlink:href="#icon-close"></use>
+              </svg>
+            </a>
             <hr class="my-1" :class="{ pgray: !nightMode, 'bg-secondary': nightMode }" />
           </div>
           <div class="modal-body my-0 pb-0 px-4 pt-0">
