@@ -34,24 +34,13 @@
 import Card from './helpers/Card';
 import Modal from './helpers/Modal';
 import DesignModal from './helpers/DesignModal';
-import Carousel from './helpers/Carousel';
 import info from '../../info';
-
-import { VueTabs, VTab } from 'vue-nav-tabs';
-import 'vue-nav-tabs/themes/vue-tabs.css';
-
-import { VueperSlides, VueperSlide } from 'vueperslides';
-import 'vueperslides/dist/vueperslides.css';
 
 export default {
   name: 'Portfolio',
   components: {
     Card,
     Modal,
-    VueTabs,
-    VTab,
-    VueperSlides,
-    VueperSlide,
     DesignModal,
   },
   props: {
@@ -186,56 +175,6 @@ export default {
   color: white;
 }
 
-/deep/ .vue-tabs .nav-tabs {
-  border: none;
-  font-size: 20px;
-  font-weight: 500;
-  display: flex;
-
-  justify-content: center;
-}
-
-/deep/ .vue-tabs .tabs__link {
-  color: #a0a0a0;
-}
-
-/deep/ .vue-tabs .nav-tabs > li.active > a {
-  background: transparent;
-  border: none;
-  transition: all 0.5s;
-  padding-right: 0;
-  padding-left: 0;
-  margin-right: 15px;
-  margin-left: 15px;
-}
-
-/deep/ .vue-tabs .nav-tabs > li > a:hover {
-  background: transparent;
-  color: #cbcbcb;
-  transition: all 0.5s;
-}
-
-/deep/ .vue-tabs .nav-tabs > li > a {
-  background: transparent;
-  border: none;
-  transition: all 0.5s;
-}
-
-/deep/ .vue-tabs .nav-tabs > li > a:after {
-  content: '';
-  width: 20%;
-  position: absolute;
-  bottom: 3px;
-  border-width: 0 0 2px;
-  border-style: solid;
-  transition: all 0.5s;
-}
-
-/deep/ .vue-tabs .nav-tabs > li.active > a:after {
-  width: 100%;
-  transition: all 0.5s;
-}
-
 .design-img {
   width: 100%;
   border-radius: 15px;
@@ -269,13 +208,6 @@ export default {
   opacity: 1;
 }
 
-/deep/.vueperslide {
-  border-radius: 10px !important;
-}
-/deep/.vueperslides__parallax-wrapper {
-  border-radius: 10px !important;
-}
-
 .btn {
   border-color: #669db3ff;
   color: #669db3ff;
@@ -291,11 +223,6 @@ export default {
   background-color: #669db3ff;
   border-color: #669db3ff;
   color: white;
-}
-/deep/ .vueperslides__arrow {
-  outline: none !important;
-  border: none;
-  color: grey;
 }
 
 .badge {

@@ -1,6 +1,6 @@
 {
   "name": "fabnun-portfolio",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -11,15 +11,11 @@
     "babel-helper-vue-jsx-merge-props": "^2.0.3",
     "core-js": "^3.6.4",
     "jspdf": "^2.5.1",
-    "material-icons": "^0.3.1",
     "qrcode": "^1.5.1",
     "vue": "^2.6.11",
     "vue-cookie": "^1.1.4",
-    "vue-nav-tabs": "^0.5.7",
     "vue-router": "^3.3.4",
-    "vue-scrollto": "^2.18.1",
-    "vue-selector": "0.0.1",
-    "vueperslides": "^2.10.2"
+    "vue-scrollto": "^2.18.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.3.0",
@@ -31,5 +27,5 @@
     "vue-template-compiler": "^2.6.11"
   },
   "keywords": [],
-  "description": ""
+  "description": "my personal portfolio"
 }

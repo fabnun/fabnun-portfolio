@@ -43,13 +43,11 @@
 </template>
 
 <script>
-import Carousel from './Carousel';
 import Gallery from './Gallery';
 
 export default {
   name: 'Modal',
   components: {
-    Carousel,
     Gallery,
   },
   props: {
