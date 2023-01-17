@@ -10,7 +10,20 @@
             <p v-html="description"></p>
           </div>
           <div class="text-center pb-4">
-            <button class="btn btn-outline-secondary mx-2" @click="info.pdf()" title="generar cv">
+            <button
+              :class="'btn btn-outline-secondary mx-2' + (process ? ' titila' : '')"
+              @click="
+                info.pdf(
+                  () => {
+                    process = true;
+                  },
+                  () => {
+                    process = false;
+                  }
+                )
+              "
+              title="generar cv"
+            >
               <svg :style="{ filter: nightMode ? 'brightness(100)' : 'brightness(0)' }" class="icon"><use xlink:href="#icon-profile"></use></svg>
             </button>
             <button v-for="(value, key) in info.links" :key="key" class="btn btn-outline-secondary mx-2 " @click="open(value)" :title="key">
@@ -35,6 +48,7 @@ export default {
   },
   data() {
     return {
+      process: false,
       info,
       picture: info.flat_picture,
       description: info.description,

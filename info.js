@@ -6,6 +6,7 @@ let info = {
   flat_picture: require('./src/assets/face.webp'),
   config: {
     use_cookies: true,
+    use_qrcode: false,
     navbar: {
       blur: true,
     },
@@ -378,15 +379,15 @@ let info = {
       skills: ['Java', 'WebSphere', 'JSP', 'Struts', 'Tomcat', 'SQL Server', 'Visual Basic', 'UML'],
     },
   ],
-  pdf: () => {
+  pdf: (inicia, termina, error) => {
     //Carga dinamica de funcion pdf()
     if (_pdf === undefined) {
       import('./pdf').then((module) => {
         _pdf = module.default;
-        info.pdf();
+        info.pdf(inicia, termina, error);
       });
     } else {
-      _pdf();
+      _pdf(inicia, termina, error);
     }
   },
 };

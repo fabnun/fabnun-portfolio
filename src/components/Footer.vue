@@ -2,15 +2,28 @@
   <div class="bg-secondary">
     <div class="container py-3">
       <div class="row pt-1 align-items-center">
-        <div class="col-xl-6 col-bg-6 col-md-6 col-sm-12 pbelow" style="color: white;">
-          <a href="https://github.com/hrishikeshpaul/portfolio-template" style="color: white;" target="_blank" rel="noopener noreferrer">
+        <div class="col-xl-5 col-bg-5 col-md-5 col-sm-12 mb-3 pbelow" style="color: white;">
+          <a href="https://github.com/hrishikeshpaul/portfolio-template" style="color: white;font-size:12px" target="_blank" rel="noopener noreferrer">
             <span>Original Template by Hrishikesh Paul</span>
           </a>
         </div>
 
-        <div class="col-xl-6 col-bg-6 col-md-6 col-sm-12">
+        <div class="col-xl-7 col-bg-7 col-md-7 col-sm-12">
           <div class="text-center">
-            <button class="btn btn-outline-secondary mx-2" @click="info.pdf()" title="generar cv">
+            <button
+              :class="'btn btn-outline-secondary mx-2' + (process ? ' titila' : '')"
+              @click="
+                info.pdf(
+                  () => {
+                    process = true;
+                  },
+                  () => {
+                    process = false;
+                  }
+                )
+              "
+              title="generar cv"
+            >
               <svg class="icon"><use xlink:href="#icon-profile"></use></svg>
             </button>
             <button v-for="(value, key) in info.links" :key="key" class="btn btn-outline-secondary mx-2 " @click="open(value)" :title="key">
@@ -30,6 +43,7 @@ export default {
   name: 'Footer',
   data() {
     return {
+      process: false,
       info,
       linkedin: info.links.linkedin,
       github: info.links.github,
