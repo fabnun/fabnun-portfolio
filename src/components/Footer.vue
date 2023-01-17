@@ -7,10 +7,9 @@
             <span>Original Template by Hrishikesh Paul</span>
           </a>
         </div>
-
         <div class="col-xl-7 col-bg-7 col-md-7 col-sm-12">
           <div class="text-center">
-            <button
+            <!-- <button
               :class="'btn btn-outline-secondary mx-2' + (process ? ' titila' : '')"
               @click="
                 info.pdf(
@@ -24,8 +23,8 @@
               "
               title="generar cv"
             >
-              <svg class="icon"><use xlink:href="#icon-profile"></use></svg>
-            </button>
+              <svg class="icon"><use xlink:href="#icon-cv"></use></svg>
+            </button> -->
             <button v-for="(value, key) in info.links" :key="key" class="btn btn-outline-secondary mx-2 " @click="open(value)" :title="key">
               <svg class="icon"><use :xlink:href="'#icon-' + key"></use></svg>
             </button>
@@ -84,7 +83,7 @@ span {
   height: 2.4em;
   width: 2.6em;
   margin-bottom: 0.6em;
-  padding: 0.4em 0 0;
+  padding: 0;
 }
 
 .btn:hover {

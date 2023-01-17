@@ -1,8 +1,7 @@
 import jsPDF from 'jspdf';
 import QRCode from 'qrcode';
-import info from './info.js';
 
-const pdf = (inicia, termina, error) => {
+const pdf = (inicia, termina, info) => {
   inicia();
   const pdf = new jsPDF();
   // Agrega contenido HTML al PDF utilizando addHTML
@@ -11,30 +10,31 @@ const pdf = (inicia, termina, error) => {
   htmlDoc.innerHTML = `
     <style>
       .pdf * {
-          font-family: Times;
       }
       .pdf h1 {
           background-color: #ccc;
           padding: 8px;
-          font-size: 24px;
+          font-size: 22px;
           margin-bottom: 32px;
           text-align: center;
           font-weight: bold;
+          border-radius: 6px;
       }
       .pdf h2 {
         background-color: #ccc;
         padding: 8px;
-        font-size: 20px;
+        font-size: 18px;
         margin: 16px 0;
         font-weight: bold;
+        border-radius: 4px;
       }
       .pdf h3 {
         float:left;
-        font-size: 16px;
+        font-size: 14px;
         font-weight: bold;
       }
       .pdf p {
-        font-size:16px;
+        font-size:12px;
         text-align: justify;
         padding: 0;
       }
@@ -66,8 +66,10 @@ const pdf = (inicia, termina, error) => {
     <div style="clear:both;" id="qr-links"></div>
     <h2>Experiencia Laboral</h2>
       ${info.experience
-        .map(
-          (exp) => `
+        .map((exp) =>
+          exp.space
+            ? `<p style="height:${exp.space}px">&nbsp;</p>`
+            : `
           <h3>${exp.name} - ${exp.position}</h3>
           <h3 style="float:right">${exp.date}</h3>
           <p style="clear:both">${exp.description}<br><br></p>
@@ -77,8 +79,10 @@ const pdf = (inicia, termina, error) => {
         <br>
     <h2>Educación e Hitos Importantes</h2>
       ${info.education
-        .map(
-          (exp) => `
+        .map((exp) =>
+          exp.space
+            ? `<p style="height:${exp.space}px">&nbsp;</p>`
+            : `
           <h3>${exp.name}</h3>
           <h3 style="float:right">${exp.date}</h3>
           <p style="clear:both">${exp.description}<br><br></p>
@@ -98,20 +102,19 @@ const pdf = (inicia, termina, error) => {
       ${info.portfolio
         .map(
           (project) => `
-          <h3>${project.name} - ${project.date}</h3> : 
-            ${project.project ? project.project + ' &nbsp; ' : ''}
-            ${project.visit ? project.visit : ''}
-          <br>
+          <h3>${project.name} - ${project.date}</h3> : <br>
+            ${project.project ? project.project : ''}
+            ${project.visit ? (project.project ? '<br>' : '') + project.visit : ''}
+          <br><br>
         `
         )
         .join('')}
 
     `;
 
-  if (info.use_qrcore) {
+  if (info.config.cv_qrcode) {
     for (const link in info.linksCV) {
       const span = document.createElement('span');
-
       var canvas = document.createElement('canvas');
       QRCode.toCanvas(
         canvas,
@@ -125,35 +128,28 @@ const pdf = (inicia, termina, error) => {
         }
       );
       span.appendChild(canvas);
+      span.appendChild(document.createTextNode(link));
+      htmlDoc.querySelector('#qr-links').appendChild(span);
     }
-    span.appendChild(document.createTextNode(link));
-    htmlDoc.querySelector('#qr-links').appendChild(span);
   } else {
-    for (const link in info.linksCV) {
-      const label = document.createElement('label');
-      label.innerHTML = info.linksCV[link];
-      htmlDoc.querySelector('#qr-links').appendChild(label);
-    }
+    const s = Object.values(info.linksCV)
+      .map((value) => `<p style="display:inline-block;padding:4px 8px; background:#ccc;margin:4px;border-radius:4px">${value}</p>`)
+      .join(' ');
+
+    htmlDoc.querySelector('#qr-links').innerHTML = s;
   }
-  //console.log(pdf.getFontList());
-  pdf.setFont('Times'); // set custom font
+  //console.log(Object.keys(pdf.getFontList()));
+  pdf.autoPrint;
 
   pdf.html(htmlDoc, {
     callback: function(doc) {
       const fecha = new Date();
       const fechaActual = fecha.getDate() + '-' + (fecha.getMonth() + 1) + '-' + fecha.getFullYear();
-      doc.save(info.name + ' CV ' + fechaActual + ' .pdf');
+      doc.save('CV - ' + info.name + ' (' + fechaActual + ').pdf');
       termina();
     },
     x: 15,
     y: 15,
-    html2canvas: {
-      jsPDF: {
-        format: 'a4',
-      },
-      imageType: 'image/jpeg',
-      output: './pdf/generate.pdf',
-    },
     width: 180, //target width in the PDF document
     windowWidth: 800, //window width in CSS pixels
   });

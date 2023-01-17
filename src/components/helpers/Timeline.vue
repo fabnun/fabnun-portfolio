@@ -6,7 +6,7 @@
           <p class="title1" data-aos="fade" data-aos-once="true" data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-duration="1000">
             {{ data.title }}
           </p>
-          <ul class="timeline m-0 pt-2" v-for="(e, idx) in data.data" :key="e.name" :style="{ 'transition-delay': idx / 4.2 + 's' }" data-aos="fade-up" data-offset="10" data-aos-once="true" data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-duration="500">
+          <ul class="timeline m-0 pt-2" v-for="(e, idx) in data.data.filter((d) => d.name)" :key="e.name" :style="{ 'transition-delay': idx / 4.2 + 's' }" data-aos="fade-up" data-offset="10" data-aos-once="true" data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-duration="500">
             <li class="m-0 pb-3">
               <div>
                 <div class="px-2 date">{{ e.date }}</div>

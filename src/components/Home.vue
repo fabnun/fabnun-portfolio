@@ -10,7 +10,7 @@
             <p v-html="description"></p>
           </div>
           <div class="text-center pb-4">
-            <button
+            <!-- <button
               :class="'btn btn-outline-secondary mx-2' + (process ? ' titila' : '')"
               @click="
                 info.pdf(
@@ -24,8 +24,8 @@
               "
               title="generar cv"
             >
-              <svg :style="{ filter: nightMode ? 'brightness(100)' : 'brightness(0)' }" class="icon"><use xlink:href="#icon-profile"></use></svg>
-            </button>
+              <svg :style="{ filter: nightMode ? 'brightness(100)' : 'brightness(0)' }" class="icon"><use xlink:href="#icon-cv"></use></svg>
+            </button> -->
             <button v-for="(value, key) in info.links" :key="key" class="btn btn-outline-secondary mx-2 " @click="open(value)" :title="key">
               <svg :style="{ filter: nightMode ? 'brightness(100)' : 'brightness(0)' }" class="icon"><use :xlink:href="'#icon-' + key"></use></svg>
             </button>
@@ -105,7 +105,7 @@ img {
   height: 2.4em;
   margin-bottom: 0.6em;
   width: 2.6em;
-  padding: 0.4em 0 0;
+  padding: 0;
 }
 
 .btn2 {

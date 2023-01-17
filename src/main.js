@@ -27,5 +27,5 @@ new Vue({
   render: (h) => h(App),
 }).$mount('#app');
 document.addEventListener('DOMContentLoaded', function(event) {
-  console.clear();
+  //console.clear();
 });

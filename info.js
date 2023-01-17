@@ -6,56 +6,31 @@ let info = {
   flat_picture: require('./src/assets/face.webp'),
   config: {
     use_cookies: true,
-    use_qrcode: false,
+    cv_qrcode: false,
+    cv_font: 'courier',
+
     navbar: {
       blur: true,
     },
   },
   description: 'Hola, soy Fabián Núñez, ingeniero civil en computación e informática de la USACH. Tengo ' + (new Date().getFullYear() - 2004) + ' años de experiencia implementando y modelando sistemas en diversos lenguajes y plataformas.<br><br>Me considero una persona creativa y curiosa, con capacidades teóricas y prácticas que me permiten abordar problemas complejos.<br><br>Si pudiera elegir, me gustaría trabajar en  frontend para proyectos del área educativa, ciencias, artes o videojuegos.<br><br>',
   links: {
-    fono: 'tel:+56 9 4246 8328',
+    //fono: 'tel:+56 9 4246 8328',
+    cv: 'hhttps://github.com/fabnun/fabnun-portfolio/blob/main/src/assets/pdfs/CV - Fabián Núñez (17-1-2023).pdf',
     email: 'mailto:fabnun@gmail.com',
     linkedin: 'https://linkedin.com/in/fabnun',
     github: 'https://github.com/fabnun',
     instagram: 'https://instagram.com/fabnun',
   },
   linksCV: {
-    portafolio: 'fabnun.web.app',
-    linkedin: 'linkedin.com/in/fabnun',
-    github: 'github.com/fabnun',
+    portafolio: 'https://fabnun.web.app',
+    linkedin: 'https://linkedin.com/in/fabnun',
+    github: 'https://github.com/fabnun',
     email: 'fabnun@gmail.com',
-    fono: '+56 9 4246 8328',
+    //fono: '+56 9 4246 8328',
   },
 
   portfolio: [
-    {
-      name: 'ProgramaGol',
-      pictures: [
-        {
-          img: require('./src/assets/portfolio/PGol/logo.webp'),
-        },
-        {
-          youtube: 'https://www.youtube.com/embed/pwPAasG_qmY',
-        },
-        {
-          img: require('./src/assets/portfolio/PGol/pgol0.webp'),
-        },
-        {
-          img: require('./src/assets/portfolio/PGol/pgol1.webp'),
-        },
-        {
-          img: require('./src/assets/portfolio/PGol/pgol2.webp'),
-        },
-        {
-          img: require('./src/assets/portfolio/PGol/pgol3.webp'),
-        },
-      ],
-      technologies: ['ELearning', 'Soccer', 'JavasScript', 'VideoGame', 'Firebase', 'Html5', 'Css3', 'Web Workers', 'PWA'],
-      category: 'Web App',
-      date: 'Diciembre 2020',
-      visit: 'https://programagol.com',
-      description: 'ProgramaGol es una plataforma educativa en línea que une la enseñanza de JavaScript con desafíos lúdicos en un videojuego de fútbol. Este proyecto que actualmente esta en desarrollo, ha recibido el apoyo de inversión del Capital Semilla de Corfo en 2020 y del programa Google for Startups en 2022.',
-    },
     {
       name: 'ConWords',
       pictures: [
@@ -102,6 +77,34 @@ let info = {
       `,
     },
     {
+      name: 'ProgramaGol',
+      pictures: [
+        {
+          img: require('./src/assets/portfolio/PGol/logo.webp'),
+        },
+        {
+          youtube: 'https://www.youtube.com/embed/pwPAasG_qmY',
+        },
+        {
+          img: require('./src/assets/portfolio/PGol/pgol0.webp'),
+        },
+        {
+          img: require('./src/assets/portfolio/PGol/pgol1.webp'),
+        },
+        {
+          img: require('./src/assets/portfolio/PGol/pgol2.webp'),
+        },
+        {
+          img: require('./src/assets/portfolio/PGol/pgol3.webp'),
+        },
+      ],
+      technologies: ['ELearning', 'Soccer', 'JavasScript', 'VideoGame', 'Firebase', 'Html5', 'Css3', 'Web Workers', 'PWA'],
+      category: 'Web App',
+      date: 'Diciembre 2020',
+      visit: 'https://programagol.com',
+      description: 'ProgramaGol es una plataforma educativa en línea que une la enseñanza de JavaScript con desafíos lúdicos en un videojuego de fútbol. Este proyecto que actualmente esta en desarrollo, ha recibido el apoyo de inversión del Capital Semilla de Corfo en 2020 y del programa Google for Startups en 2022.',
+    },
+    {
       name: 'Jobwus',
       pictures: [
         {
@@ -110,14 +113,11 @@ let info = {
         {
           youtube: 'https://www.youtube.com/embed/gtr4vl3LXTk',
         },
-        // {
-        //   img: require('./src/assets/portfolio/Jobwus/1.webp'),
-        // },
       ],
       technologies: ['Jobs', 'JavasScript', 'Node', 'Vue2', 'Firebase', 'Html5', 'Css3', 'WebScrapping', 'PWA'],
       category: 'Web App',
       project: 'https://github.com/fabnun/vue-jobwus',
-      date: 'Mayo 2017',
+      date: 'Mayo 2021',
       visit: 'https://jobwus.com/',
       description: `Directorio de ofertas laborales de portales de empleos en Chile. Las ofertas son extraídas, filtradas y agrupadas en las categorías: 
       <a href='https://jobwus.com/profes' target="_blank">Profesores</a>,
@@ -181,7 +181,7 @@ let info = {
       technologies: ['ELearning', 'Soccer', 'Java', 'VideoGame', 'Java Swing', 'Slick2D', 'PixiJs', 'Google App Engine'],
       category: 'Desktop App',
       date: ' Agosto 2007 - Agosto 2013',
-      project: 'https://code.google.com/archive/p/javacup-javahispano/',
+      project: 'https://code.google.com/archive/p/javacup-javahispano',
       visit: 'http://www.javahispano.org/portada/tag/javacup',
       description: `
 
@@ -196,7 +196,7 @@ let info = {
     },
 
     {
-      name: 'Imprenta Ges',
+      name: 'ImprentaGes',
       pictures: [
         {
           img: require('./src/assets/portfolio/ImprentaGes/logo.webp'),
@@ -217,7 +217,7 @@ let info = {
       ],
       technologies: ['Windows', 'POS', 'Java', 'Desktop App', 'PostgreSQL', 'Java Swing'],
       category: 'Java Swing App',
-      date: ' Agosto, 2007',
+      date: ' Agosto 2007',
       project: 'https://github.com/fabnun/ImprentaGes',
       //visit: 'http://www.javahispano.org/portada/tag/javacup',
       description: `ImprentaGes es una aplicación POS (punto de ventas) para Windows desarrollada con Java y PostgreSQL. La aplicación permite gestionar órdenes de trabajo, boletas, facturas, productos, impresoras, cajas, usuarios, permisos de acceso, etc. Fue pensada para ser usada en imprentas, pero eso no impide que se pueda usar en otro tipo de negocio.<br><br>
@@ -241,7 +241,7 @@ let info = {
       ],
       technologies: ['Windows', 'POS', 'Java', 'Desktop App', 'PostgreSQL', 'Java Swing'],
       category: 'Java Swing App',
-      date: ' Agosto, 2007',
+      date: ' Agosto 2007',
       project: 'https://github.com/fabnun/KVentas',
       description: 'KVentas es una aplicación POS (punto de ventas) para Windows desarrollada con Java y PostgreSQL. La aplicación permite gestionar órdenes de cotizaciones, boletas, facturas, contabilidad, productos, impresoras, cajas, usuarios, permisos de acceso, etc. Fue pensada para ser usada en una distribuidora de papeles, pero eso no impide que se pueda usar en otro tipo de negocio.',
     },
@@ -300,10 +300,14 @@ let info = {
       description: 'Campeón del torneo de programación de futbol virtual JavaCup de JavaHispano.',
     },
     {
+      space: 140,
+    },
+    {
       name: 'UNIVERSIDAD DE SANTIAGO DE CHILE',
       date: '1996 - 2002',
       description: 'Ingeniería Civil en Computación e Informática.',
     },
+
     {
       name: 'UNIVERSIDAD DE CHILE',
       date: '1992 - 1995',
@@ -325,15 +329,15 @@ let info = {
       name: 'FREELANCE · Autónomo',
       date: 'Enero 2021 - Actualidad',
       position: 'Desarrollo de Software',
-      description: 'Desarrollo freelance de aplicaciones web, aplicaciones híbridas, sitios web y mantenimiento de sistemas existentes.',
-      skills: ['Vue', 'Flutter', 'Bootstrap', 'Javascript', 'Dart', 'HTML5', 'CSS3', 'Web Workers', 'Html5 Canvas', 'PixiJs', 'MongoDB', 'GCP', 'Firebase', 'Firestore', 'IndexedDB', 'SCRUM', 'KanBan', 'Git', 'Node', 'NPM', 'CapacitorJS', 'PWA'],
+      description: 'Desarrollo freelance de aplicaciones java swing, aplicaciones web, sitios web y mantenimiento de sistemas existentes.',
+      skills: ['Trabajo Remoto', 'Capacitación', 'Vue', 'Flutter', 'Bootstrap', 'Javascript', 'Dart', 'HTML5', 'CSS3', 'Web Workers', 'Html5 Canvas', 'PixiJs', 'MongoDB', 'PostgreSQL', 'GCP', 'Firebase', 'Firestore', 'IndexedDB', 'SCRUM', 'KanBan', 'Git', 'Node', 'NPM', 'CapacitorJS', 'PWA'],
     },
     {
       name: 'PROGRAMAGOL · Autónomo',
       date: 'Diciembre 2019 - Noviembre 2020',
       position: 'Gerencia y Desarrollo de Software',
       description: 'Programagol es una plataforma de aprendizaje en línea para acercar el mundo de la programación al público general mediante divertidos cursos que parten enseñando desde los conceptos básicos hasta lo más avanzado, todo de manera práctica y ambientado dentro de partidos de fútbol.',
-      skills: ['ELearning', 'Soccer', 'JavasScript', 'VideoGame', 'Firebase', 'Html5', 'Css3', 'Web Workers', 'PWA'],
+      skills: ['Trabajo Remoto', 'Gerencia', 'ELearning', 'Soccer', 'JavasScript', 'VideoGame', 'Firebase', 'Html5', 'Css3', 'Web Workers', 'PWA'],
     },
     {
       name: 'ESINFA',
@@ -347,7 +351,7 @@ let info = {
       date: 'Enero 2010 - Enero 2016',
       position: 'Gerencia y Desarrollo de Software',
       description: 'Realizo funciones en la gerencia y desarrollo de software en KREADI. Se construyo un CMS sobre Google App Engine (Java), el cual permitió desarrollar y mantener sitios web de clientes. También, se desarrolló un visor de partidos WebGl para javaCup 2013, un motor de juego y editor de escenarios para concursos Square Enix Latin America Game 2012 y LG SmartTV 2012. Y se construyeron aplicaciones que usaban webcrawlers para la extracción de ofertas laborales y licitaciones de mercado libre.',
-      skills: ['Java', 'JavaScript', 'Google App Engine', 'Firebase', 'HTML5', 'CSS3', 'MySQL', 'MongoDB', 'Inkscape', 'Gimp', 'SCRUM', 'KanBan', 'Git', 'VideoGame'],
+      skills: ['Trabajo Remoto', 'Gerencia', 'Java', 'JavaScript', 'Google App Engine', 'Firebase', 'HTML5', 'CSS3', 'MySQL', 'MongoDB', 'Inkscape', 'Gimp', 'SCRUM', 'KanBan', 'Git', 'VideoGame'],
     },
     {
       name: 'OS.ONE',
@@ -387,7 +391,7 @@ let info = {
         info.pdf(inicia, termina, error);
       });
     } else {
-      _pdf(inicia, termina, error);
+      _pdf(inicia, termina, info);
     }
   },
 };
