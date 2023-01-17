@@ -25,13 +25,9 @@
 
 <script>
 import info from '../../info';
-import Wave from './helpers/Wave';
 
 export default {
   name: 'Home',
-  components: {
-    Wave,
-  },
   props: {
     nightMode: {
       type: Boolean,
