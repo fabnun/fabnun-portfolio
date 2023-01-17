@@ -276,4 +276,23 @@ table {
 *:focus {
   outline: none;
 }
+.badge {
+  background-image: linear-gradient(-30deg, rgba(32, 122, 163, 0.1) 0%, rgba(26, 99, 133, 0.2) 25%, rgba(56, 98, 109, 0.1) 51%, rgba(19, 36, 112, 0.3) 100%);
+  background-size: 150% 150%;
+  font-weight: bold;
+  font-size: 13px !important;
+  animation: AnimateBG 24s ease infinite;
+}
+
+@keyframes AnimateBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
 </style>

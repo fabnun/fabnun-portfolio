@@ -38,7 +38,7 @@ const pdf = () => {
         padding: 0;
       }
       .pdf img {
-          border-radius: 4px;
+          border-radius: 50%;
           margin:4px 16px 16px 0;
       }
       .pdf span {

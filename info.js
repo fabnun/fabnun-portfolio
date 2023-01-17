@@ -3,7 +3,7 @@ let _pdf = undefined;
 let info = {
   name: 'Fabián Núñez',
   logo_name: 'fabnun',
-  flat_picture: require('./src/assets/face.png'),
+  flat_picture: require('./src/assets/face.webp'),
   config: {
     use_cookies: true,
     navbar: {
@@ -31,22 +31,22 @@ let info = {
       name: 'ProgramaGol',
       pictures: [
         {
-          img: require('./src/assets/portfolio/PGol/logo.jpg'),
+          img: require('./src/assets/portfolio/PGol/logo.webp'),
         },
         {
           youtube: 'https://www.youtube.com/embed/pwPAasG_qmY',
         },
         {
-          img: require('./src/assets/portfolio/PGol/pgol0.jpg'),
+          img: require('./src/assets/portfolio/PGol/pgol0.webp'),
         },
         {
-          img: require('./src/assets/portfolio/PGol/pgol1.jpg'),
+          img: require('./src/assets/portfolio/PGol/pgol1.webp'),
         },
         {
-          img: require('./src/assets/portfolio/PGol/pgol2.jpg'),
+          img: require('./src/assets/portfolio/PGol/pgol2.webp'),
         },
         {
-          img: require('./src/assets/portfolio/PGol/pgol3.jpg'),
+          img: require('./src/assets/portfolio/PGol/pgol3.webp'),
         },
       ],
       technologies: ['ELearning', 'Soccer', 'JavasScript', 'VideoGame', 'Firebase', 'Html5', 'Css3', 'Web Workers', 'PWA'],
@@ -59,7 +59,7 @@ let info = {
       name: 'ConWords',
       pictures: [
         {
-          img: require('./src/assets/portfolio/ConWords/logo.jpg'),
+          img: require('./src/assets/portfolio/ConWords/logo.webp'),
         },
         {
           youtube: 'https://www.youtube.com/embed/noc6wxkFXG4',
@@ -68,16 +68,16 @@ let info = {
           youtube: 'https://www.youtube.com/embed/i_RKUUlSae8',
         },
         {
-          img: require('./src/assets/portfolio/ConWords/1.jpg'),
+          img: require('./src/assets/portfolio/ConWords/1.webp'),
         },
         {
-          img: require('./src/assets/portfolio/ConWords/2.jpg'),
+          img: require('./src/assets/portfolio/ConWords/2.webp'),
         },
         {
-          img: require('./src/assets/portfolio/ConWords/3.jpg'),
+          img: require('./src/assets/portfolio/ConWords/3.webp'),
         },
         {
-          img: require('./src/assets/portfolio/ConWords/4.jpg'),
+          img: require('./src/assets/portfolio/ConWords/4.webp'),
         },
       ],
       technologies: ['Colaborative', 'Crossword', 'Generator', 'VideoGame', 'JavasScript', 'Vue2', 'Firebase', 'Html5', 'Css3', 'CapacitorJS', 'html5Canvas', 'WebScrapping', 'Genetic Algorithm', 'PWA'],
@@ -104,13 +104,13 @@ let info = {
       name: 'Jobwus',
       pictures: [
         {
-          img: require('./src/assets/portfolio/Jobwus/logo.jpg'),
+          img: require('./src/assets/portfolio/Jobwus/logo.webp'),
         },
         {
           youtube: 'https://www.youtube.com/embed/gtr4vl3LXTk',
         },
         // {
-        //   img: require('./src/assets/portfolio/Jobwus/1.jpg'),
+        //   img: require('./src/assets/portfolio/Jobwus/1.webp'),
         // },
       ],
       technologies: ['Jobs', 'JavasScript', 'Node', 'Vue2', 'Firebase', 'Html5', 'Css3', 'WebScrapping', 'PWA'],
@@ -128,28 +128,28 @@ let info = {
       name: 'KCMS',
       pictures: [
         {
-          img: require('./src/assets/portfolio/kcms/logo.jpg'),
+          img: require('./src/assets/portfolio/kcms/logo.webp'),
         },
         {
-          img: require('./src/assets/portfolio/kcms/0.jpg'),
+          img: require('./src/assets/portfolio/kcms/0.webp'),
         },
         {
-          img: require('./src/assets/portfolio/kcms/1.jpg'),
+          img: require('./src/assets/portfolio/kcms/1.webp'),
         },
         {
-          img: require('./src/assets/portfolio/kcms/2.jpg'),
+          img: require('./src/assets/portfolio/kcms/2.webp'),
         },
         {
-          img: require('./src/assets/portfolio/kcms/3.jpg'),
+          img: require('./src/assets/portfolio/kcms/3.webp'),
         },
         {
-          img: require('./src/assets/portfolio/kcms/4.jpg'),
+          img: require('./src/assets/portfolio/kcms/4.webp'),
         },
         {
-          img: require('./src/assets/portfolio/kcms/6.jpg'),
+          img: require('./src/assets/portfolio/kcms/6.webp'),
         },
         {
-          img: require('./src/assets/portfolio/kcms/7.jpg'),
+          img: require('./src/assets/portfolio/kcms/7.webp'),
         },
       ],
       technologies: ['Java', 'CMS', 'Google App Engine', 'DataStore', 'objectify', 'BeanShell', 'Scriplets', 'Html5', 'Css3', 'WebDesign'],
@@ -162,19 +162,19 @@ let info = {
       name: 'JavaCup JavaHispano',
       pictures: [
         {
-          img: require('./src/assets/portfolio/JavaCup/logo.jpg'),
+          img: require('./src/assets/portfolio/JavaCup/logo.webp'),
         },
         {
           youtube: 'https://www.youtube.com/embed/hJdcK9MexOI',
         },
         {
-          img: require('./src/assets/portfolio/JavaCup/3.jpg'),
+          img: require('./src/assets/portfolio/JavaCup/3.webp'),
         },
         {
-          img: require('./src/assets/portfolio/JavaCup/4.jpg'),
+          img: require('./src/assets/portfolio/JavaCup/4.webp'),
         },
         {
-          img: require('./src/assets/portfolio/JavaCup/5.jpg'),
+          img: require('./src/assets/portfolio/JavaCup/5.webp'),
         },
       ],
       technologies: ['ELearning', 'Soccer', 'Java', 'VideoGame', 'Java Swing', 'Slick2D', 'PixiJs', 'Google App Engine'],
@@ -198,20 +198,20 @@ let info = {
       name: 'Imprenta Ges',
       pictures: [
         {
-          img: require('./src/assets/portfolio/ImprentaGes/logo.jpg'),
+          img: require('./src/assets/portfolio/ImprentaGes/logo.webp'),
         },
 
         {
-          img: require('./src/assets/portfolio/ImprentaGes/1.jpg'),
+          img: require('./src/assets/portfolio/ImprentaGes/1.webp'),
         },
         {
-          img: require('./src/assets/portfolio/ImprentaGes/2.jpg'),
+          img: require('./src/assets/portfolio/ImprentaGes/2.webp'),
         },
         {
-          img: require('./src/assets/portfolio/ImprentaGes/3.jpg'),
+          img: require('./src/assets/portfolio/ImprentaGes/3.webp'),
         },
         {
-          img: require('./src/assets/portfolio/ImprentaGes/4.jpg'),
+          img: require('./src/assets/portfolio/ImprentaGes/4.webp'),
         },
       ],
       technologies: ['Windows', 'POS', 'Java', 'Desktop App', 'PostgreSQL', 'Java Swing'],
@@ -226,7 +226,7 @@ let info = {
       name: 'KVentas',
       pictures: [
         {
-          img: require('./src/assets/portfolio/KVentas/logo.jpg'),
+          img: require('./src/assets/portfolio/KVentas/logo.webp'),
         },
         {
           youtube: 'https://www.youtube.com/embed/mOSZYswDCnM',

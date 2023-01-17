@@ -20,7 +20,7 @@
                   {{ e.description }}
                 </div>
                 <br />
-                <span class="mx-2 badge p-2 mb-2" v-for="s in e.skills" :key="s" :class="{ 'bg-dark2': nightMode }">{{ s }}</span>
+                <span class="mx-1 badge p-1 mb-2" v-for="s in e.skills" :key="s" :class="{ 'bg-dark2': nightMode }">{{ s }}</span>
                 <p class="m-2"></p>
               </div>
             </li>

@@ -1,4 +1,3 @@
-console.clear();
 import Vue from 'vue';
 import App from './App.vue';
 import AOS from 'aos';
@@ -27,3 +26,6 @@ new Vue({
   router,
   render: (h) => h(App),
 }).$mount('#app');
+document.addEventListener('DOMContentLoaded', function(event) {
+  console.clear();
+});
