@@ -16,7 +16,7 @@ let info = {
   description: 'Hola, soy Fabián Núñez, ingeniero civil en computación e informática de la USACH. Tengo ' + (new Date().getFullYear() - 2004) + ' años de experiencia implementando y modelando sistemas en diversos lenguajes y plataformas.<br><br>Me considero una persona creativa y curiosa, con capacidades teóricas y prácticas que me permiten abordar problemas complejos.<br><br>Si pudiera elegir, me gustaría trabajar en  frontend para proyectos del área educativa, ciencias, artes o videojuegos.<br><br>',
   links: {
     //fono: 'tel:+56 9 4246 8328',
-    cv: 'hhttps://github.com/fabnun/fabnun-portfolio/blob/main/src/assets/pdfs/CV - Fabián Núñez (17-1-2023).pdf',
+    cv: 'https://fabnun.web.app/pdfs/CV - Fabián Núñez (17-1-2023).pdf',
     email: 'mailto:fabnun@gmail.com',
     linkedin: 'https://linkedin.com/in/fabnun',
     github: 'https://github.com/fabnun',
@@ -244,6 +244,28 @@ let info = {
       date: ' Agosto 2007',
       project: 'https://github.com/fabnun/KVentas',
       description: 'KVentas es una aplicación POS (punto de ventas) para Windows desarrollada con Java y PostgreSQL. La aplicación permite gestionar órdenes de cotizaciones, boletas, facturas, contabilidad, productos, impresoras, cajas, usuarios, permisos de acceso, etc. Fue pensada para ser usada en una distribuidora de papeles, pero eso no impide que se pueda usar en otro tipo de negocio.',
+    },
+    {
+      name: 'fabnun-portfolio',
+      pictures: [
+        {
+          img: require('./src/assets/portfolio/fabnun-portfolio/logo.webp'),
+        },
+        {
+          img: require('./src/assets/portfolio/fabnun-portfolio/1.webp'),
+        },
+        {
+          img: require('./src/assets/portfolio/fabnun-portfolio/2.webp'),
+        },
+        {
+          img: require('./src/assets/portfolio/fabnun-portfolio/3.webp'),
+        },
+      ],
+      technologies: ['github', 'fork', 'portfolio', 'Vue2', 'JavasScript', 'Node', 'Vue2', 'Firebase', 'Html5', 'Css3', 'jspdf', 'qrcode'],
+      category: 'Java Swing App',
+      date: ' Agosto 2007',
+      project: 'https://github.com/fabnun/fabnun-portfolio',
+      description: 'Portafolio personal versión web. Se realizó una optimización de la carga de recursos, se eliminaron secciones y librerías. Además se agregó la funcionalidad de generar versión el portafolio en formato PDF con enlaces QR, que sirve como CV.<br><br><br>Este proyecto es un fork de <a href="https://github.com/hrishikeshpaul/portfolio-template" target="_blank">portfolio-template</a> y puedes acceder a él en <a href="https://github.com/fabnun/fabnun-portfolio" target="_blank">github</a>',
     },
   ],
   skills: [

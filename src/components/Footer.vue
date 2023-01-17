@@ -9,8 +9,12 @@
         </div>
         <div class="col-xl-7 col-bg-7 col-md-7 col-sm-12">
           <div class="text-center">
-            <!-- <button
-              :class="'btn btn-outline-secondary mx-2' + (process ? ' titila' : '')"
+            <button v-for="(value, key) in info.links" :key="key" class="btn btn-outline-secondary mx-2 " @click="open(value)" :title="key">
+              <svg class="icon"><use :xlink:href="'#icon-' + key"></use></svg>
+            </button>
+
+            <button
+              :class="'btn mx-2' + (process ? ' titila' : '')"
               @click="
                 info.pdf(
                   () => {
@@ -21,12 +25,9 @@
                   }
                 )
               "
-              title="generar cv"
+              title="generar cv desde json en el navegador"
             >
               <svg class="icon"><use xlink:href="#icon-cv"></use></svg>
-            </button> -->
-            <button v-for="(value, key) in info.links" :key="key" class="btn btn-outline-secondary mx-2 " @click="open(value)" :title="key">
-              <svg class="icon"><use :xlink:href="'#icon-' + key"></use></svg>
             </button>
           </div>
         </div>
