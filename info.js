@@ -32,6 +32,28 @@ let info = {
 
   portfolio: [
     {
+      name: 'fabnun-portfolio',
+      pictures: [
+        {
+          img: require('./src/assets/portfolio/fabnun-portfolio/logo.webp'),
+        },
+        {
+          img: require('./src/assets/portfolio/fabnun-portfolio/1.webp'),
+        },
+        {
+          img: require('./src/assets/portfolio/fabnun-portfolio/2.webp'),
+        },
+        {
+          img: require('./src/assets/portfolio/fabnun-portfolio/3.webp'),
+        },
+      ],
+      technologies: ['github', 'fork', 'portfolio', 'Vue2', 'JavasScript', 'Node', 'Vue2', 'Firebase', 'Html5', 'Css3', 'jspdf', 'qrcode'],
+      category: 'Java Swing App',
+      date: ' Agosto 2007',
+      project: 'https://github.com/fabnun/fabnun-portfolio',
+      description: 'Portafolio web desarrollado en Vue2 y alojado en Firebase. Se realizó una optimización de la carga de recursos, se eliminaron secciones y librerías. Además, se agregó la funcionalidad de generar el CV en formato <a href="https://github.com/parallax/jsPDF" target="_blank">PDF</a> con enlaces en <a href="https://github.com/soldair/node-qrcode" target="_blank">códigos QR</a>.<br><br><br>Este proyecto es un fork de <a href="https://github.com/hrishikeshpaul/portfolio-template" target="_blank">portfolio-template</a> y puedes acceder a él en <a href="https://github.com/fabnun/fabnun-portfolio" target="_blank">github</a>',
+    },
+    {
       name: 'ConWords',
       pictures: [
         {
@@ -245,28 +267,6 @@ let info = {
       project: 'https://github.com/fabnun/KVentas',
       description: 'KVentas es una aplicación POS (punto de ventas) para Windows desarrollada con Java y PostgreSQL. La aplicación permite gestionar órdenes de cotizaciones, boletas, facturas, contabilidad, productos, impresoras, cajas, usuarios, permisos de acceso, etc. Fue pensada para ser usada en una distribuidora de papeles, pero eso no impide que se pueda usar en otro tipo de negocio.',
     },
-    {
-      name: 'fabnun-portfolio',
-      pictures: [
-        {
-          img: require('./src/assets/portfolio/fabnun-portfolio/logo.webp'),
-        },
-        {
-          img: require('./src/assets/portfolio/fabnun-portfolio/1.webp'),
-        },
-        {
-          img: require('./src/assets/portfolio/fabnun-portfolio/2.webp'),
-        },
-        {
-          img: require('./src/assets/portfolio/fabnun-portfolio/3.webp'),
-        },
-      ],
-      technologies: ['github', 'fork', 'portfolio', 'Vue2', 'JavasScript', 'Node', 'Vue2', 'Firebase', 'Html5', 'Css3', 'jspdf', 'qrcode'],
-      category: 'Java Swing App',
-      date: ' Agosto 2007',
-      project: 'https://github.com/fabnun/fabnun-portfolio',
-      description: 'Portafolio personal versión web. Se realizó una optimización de la carga de recursos, se eliminaron secciones y librerías. Además se agregó la funcionalidad de generar versión el portafolio en formato PDF con enlaces QR, que sirve como CV.<br><br><br>Este proyecto es un fork de <a href="https://github.com/hrishikeshpaul/portfolio-template" target="_blank">portfolio-template</a> y puedes acceder a él en <a href="https://github.com/fabnun/fabnun-portfolio" target="_blank">github</a>',
-    },
   ],
   skills: [
     {
@@ -349,7 +349,7 @@ let info = {
   experience: [
     {
       name: 'FREELANCE · Autónomo',
-      date: 'Enero 2021 - Actualidad',
+      date: 'Marzo 2021 - Actualidad',
       position: 'Desarrollo de Software',
       description: 'Desarrollo freelance de aplicaciones java swing, aplicaciones web, sitios web y mantenimiento de sistemas existentes.',
       skills: ['Trabajo Remoto', 'Capacitación', 'Vue', 'Flutter', 'Bootstrap', 'Javascript', 'Dart', 'HTML5', 'CSS3', 'Web Workers', 'Html5 Canvas', 'PixiJs', 'MongoDB', 'PostgreSQL', 'GCP', 'Firebase', 'Firestore', 'IndexedDB', 'SCRUM', 'KanBan', 'Git', 'Node', 'NPM', 'CapacitorJS', 'PWA'],
