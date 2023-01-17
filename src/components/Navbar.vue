@@ -9,7 +9,7 @@
       }"
     >
       <div class="container">
-        <a class="navbar-brand" href="/" @click.prevent="scroll('home')">
+        <a class="navbar-brand" href="#" @click.prevent="scroll('home')">
           <Logo :nightMode="nightMode" />
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -21,7 +21,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item mx-2">
-              <a class="nav-link" href="/" @click.prevent="scroll('home')" :class="{ 'text-light': nightMode }">Inicio</a>
+              <a class="nav-link" href="#" @click.prevent="scroll('home')" :class="{ 'text-light': nightMode }">Inicio</a>
             </li>
             <li class="nav-item mx-2 ">
               <a class="nav-link" href="/portfolio" @click.prevent="scroll('portfolio')" :class="{ 'text-light': nightMode }">Portafolio</a>

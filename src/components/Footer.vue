@@ -13,7 +13,7 @@
             <button class="btn btn-outline-secondary mx-2" @click="info.pdf()" title="generar cv">
               <svg class="icon"><use xlink:href="#icon-profile"></use></svg>
             </button>
-            <button v-for="(value, key) in info.links" :key="key" class="btn btn-outline-secondary mx-2 " @click="open(value)" :title="'ver ' + key">
+            <button v-for="(value, key) in info.links" :key="key" class="btn btn-outline-secondary mx-2 " @click="open(value)" :title="key">
               <svg class="icon"><use :xlink:href="'#icon-' + key"></use></svg>
             </button>
           </div>
@@ -68,6 +68,9 @@ span {
 .btn {
   border-color: white;
   height: 2.4em;
+  width: 2.6em;
+  margin-bottom: 0.6em;
+  padding: 0.4em 0 0;
 }
 
 .btn:hover {

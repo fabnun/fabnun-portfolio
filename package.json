@@ -1,6 +1,6 @@
 {
   "name": "fabnun-portfolio",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -16,7 +16,6 @@
     "vue": "^2.6.11",
     "vue-cookie": "^1.1.4",
     "vue-nav-tabs": "^0.5.7",
-    "vue-parallax-js": "^0.2.3",
     "vue-router": "^3.3.4",
     "vue-scrollto": "^2.18.1",
     "vue-selector": "0.0.1",

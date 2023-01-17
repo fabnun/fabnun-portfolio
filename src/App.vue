@@ -2,7 +2,7 @@
   <div id="app" :class="{ 'text-dark': !nightMode, 'text-light': nightMode }">
     <Navbar @scroll="scrollTo" @nightMode="switchMode" :nightMode="nightMode" />
     <div class="parent">
-      <Home :nightMode="nightMode" />
+      <Home id="" :nightMode="nightMode" />
       <Portfolio id="portfolio" :nightMode="nightMode" />
       <Skills id="skills" :nightMode="nightMode" />
       <About id="about" :nightMode="nightMode" />
@@ -64,7 +64,7 @@ export default {
     },
     scrollTo(ele) {
       if (ele == 'home') {
-        this.$router.push(`/`);
+        if (this.$router.history.current.path !== '/') this.$router.push('/');
         window.scrollTo({ top: -80, behavior: 'smooth' });
       } else {
         var elementPosition = document.getElementById(ele).offsetTop;

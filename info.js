@@ -12,15 +12,18 @@ let info = {
   },
   description: 'Hola, soy Fabián Núñez, ingeniero civil en computación e informática de la USACH. Tengo ' + (new Date().getFullYear() - 2004) + ' años de experiencia implementando y modelando sistemas en diversos lenguajes y plataformas.<br><br>Me considero una persona creativa y curiosa, con capacidades teóricas y prácticas que me permiten abordar problemas complejos.<br><br>Si pudiera elegir, me gustaría trabajar en  frontend para proyectos del área educativa, ciencias, artes o videojuegos.<br><br>',
   links: {
-    linkedin: 'https://www.linkedin.com/in/fabnun',
+    linkedin: 'https://linkedin.com/in/fabnun',
     github: 'https://github.com/fabnun',
-    instagram: 'https://www.instagram.com/fabnun',
+    instagram: 'https://instagram.com/fabnun',
+    email: 'mailto:fabnun@gmail.com',
+    fono: 'tel:+56 9 4246 8328',
   },
   linksCV: {
-    portafolio: 'https://fabnun.web.app',
-    linkedin: 'https://www.linkedin.com/in/fabnun',
-    github: 'https://github.com/fabnun',
+    portafolio: 'fabnun.web.app',
+    linkedin: 'linkedin.com/in/fabnun',
+    github: 'github.com/fabnun',
     email: 'fabnun@gmail.com',
+    fono: '+56 9 4246 8328',
   },
 
   portfolio: [
@@ -376,6 +379,7 @@ let info = {
     },
   ],
   pdf: () => {
+    //Carga dinamica de funcion pdf()
     if (_pdf === undefined) {
       import('./pdf').then((module) => {
         _pdf = module.default;

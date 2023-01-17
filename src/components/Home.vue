@@ -13,7 +13,7 @@
             <button class="btn btn-outline-secondary mx-2" @click="info.pdf()" title="generar cv">
               <svg :style="{ filter: nightMode ? 'brightness(100)' : 'brightness(0)' }" class="icon"><use xlink:href="#icon-profile"></use></svg>
             </button>
-            <button v-for="(value, key) in info.links" :key="key" class="btn btn-outline-secondary mx-2 " @click="open(value)" :title="'ver ' + key">
+            <button v-for="(value, key) in info.links" :key="key" class="btn btn-outline-secondary mx-2 " @click="open(value)" :title="key">
               <svg :style="{ filter: nightMode ? 'brightness(100)' : 'brightness(0)' }" class="icon"><use :xlink:href="'#icon-' + key"></use></svg>
             </button>
           </div>
@@ -93,6 +93,9 @@ img {
   border-color: #669db3ff;
   color: #669db3ff;
   height: 2.4em;
+  margin-bottom: 0.6em;
+  width: 2.6em;
+  padding: 0.4em 0 0;
 }
 
 .btn2 {

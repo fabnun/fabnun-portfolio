@@ -47,8 +47,7 @@ const pdf = () => {
         text-align: center;
       }
     </style>
-    <p style="display:inline-block">${new Date().toLocaleString()}</p>
-    <p style="float:right">cv generado desde json en <a href="https://fabnun.web.app">fabnun.web.app</a></p>
+    <p style="float:right">cv generado el ${new Date().toLocaleString()}</p>
     <br style="clear:both">
     <h1>Curriculum Vitae<br>${info.name}</h1>
     <img style="float:left;width:100px" src="${info.flat_picture}" />
