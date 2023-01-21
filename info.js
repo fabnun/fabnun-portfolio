@@ -6,7 +6,7 @@ let info = {
   flat_picture: require('./src/assets/face.webp'),
   config: {
     use_cookies: true,
-    cv_qrcode: true,
+    cv_qrcode: false,
     cv_font: 'courier',
 
     navbar: {
