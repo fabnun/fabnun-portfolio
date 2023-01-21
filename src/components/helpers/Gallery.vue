@@ -3,7 +3,7 @@
     <div class="prow">
       <div class="pcolumn" v-for="(i, idx) in images" :key="i.title">
         <div
-          v-if="idx > 0"
+          v-if="idx >= 0"
           :class="{
             flex: design ? '100%' : '50%',
             '-ms-flex': design ? '100%' : '50%',

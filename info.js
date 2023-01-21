@@ -6,7 +6,7 @@ let info = {
   flat_picture: require('./src/assets/face.webp'),
   config: {
     use_cookies: true,
-    cv_qrcode: false,
+    cv_qrcode: true,
     cv_font: 'courier',
 
     navbar: {
@@ -38,20 +38,23 @@ let info = {
           img: require('./src/assets/portfolio/fabnun-portfolio/logo.webp'),
         },
         {
-          img: require('./src/assets/portfolio/fabnun-portfolio/1.webp'),
+          img: require('./src/assets/portfolio/fabnun-portfolio/0.webp'),
         },
         {
           img: require('./src/assets/portfolio/fabnun-portfolio/2.webp'),
         },
         {
+          img: require('./src/assets/portfolio/fabnun-portfolio/1.webp'),
+        },
+        {
           img: require('./src/assets/portfolio/fabnun-portfolio/3.webp'),
         },
       ],
-      technologies: ['github', 'fork', 'portfolio', 'Vue2', 'JavasScript', 'Node', 'Vue2', 'Firebase', 'Html5', 'Css3', 'jspdf', 'qrcode'],
+      technologies: ['github', 'fork', 'portfolio', 'Vue2', 'JavasScript', 'Node', 'Firebase', 'Html5', 'Css3', 'jspdf', 'qrcode'],
       category: 'Web App',
       date: ' Enero 2023',
       project: 'https://github.com/fabnun/fabnun-portfolio',
-      description: 'Portafolio web desarrollado en Vue2 y alojado en Firebase. Se realizó una optimización de la carga de recursos, se eliminaron secciones y librerías. Además, se agregó la funcionalidad de generar el CV en formato <a href="https://github.com/parallax/jsPDF" target="_blank">PDF</a> con enlaces en <a href="https://github.com/soldair/node-qrcode" target="_blank">códigos QR</a> desde un archivo json.<br><br><br>Este proyecto es un fork de <a href="https://github.com/hrishikeshpaul/portfolio-template" target="_blank">portfolio-template</a> y puedes acceder a él en <a href="https://github.com/fabnun/fabnun-portfolio" target="_blank">github</a>',
+      description: 'Portafolio web (fork de <a href="https://github.com/hrishikeshpaul/portfolio-template" target="_blank">portfolio-template</a>) desarrollado con VUE2 y alojado en FIREBASE. Se realizó una optimización de la configuración y de la carga de recursos, se eliminaron secciones y librerías. Se agregó la funcionalidad de generar automáticamente el CV en formato PDF con los mismos datos (JSON) que generan la página.<br>',
     },
     {
       name: 'ConWords',
@@ -133,7 +136,7 @@ let info = {
           img: require('./src/assets/portfolio/Jobwus/logo.webp'),
         },
         {
-          youtube: 'https://www.youtube.com/embed/gtr4vl3LXTk',
+          youtube: 'https://www.youtube.com/embed/9nzzK7aE9wg',
         },
       ],
       technologies: ['Jobs', 'JavasScript', 'WebScrapping', 'RegExp', 'Node', 'Vue2', 'Firebase', 'Html5', 'Css3', 'PWA'],
