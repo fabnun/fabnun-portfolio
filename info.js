@@ -136,7 +136,7 @@ let info = {
           youtube: 'https://www.youtube.com/embed/gtr4vl3LXTk',
         },
       ],
-      technologies: ['Jobs', 'JavasScript', 'Node', 'Vue2', 'Firebase', 'Html5', 'Css3', 'WebScrapping', 'PWA'],
+      technologies: ['Jobs', 'JavasScript', 'WebScrapping', 'RegExp', 'Node', 'Vue2', 'Firebase', 'Html5', 'Css3', 'PWA'],
       category: 'Web App',
       project: 'https://github.com/fabnun/vue-jobwus',
       date: 'Mayo 2020',
@@ -271,7 +271,7 @@ let info = {
   skills: [
     {
       title: 'Lenguajes de Programación y Estándares',
-      info: ['Javascript ES6', 'Java8', 'C', 'C++', 'Dart', 'SQL', 'NoSQL', 'HTML5', 'CSS3'],
+      info: ['Javascript ES6', 'Java8', 'C', 'C++', 'Dart', 'SQL', 'NoSQL', 'HTML5', 'CSS3', 'RegExp'],
       icon: 'embed',
     },
     {
