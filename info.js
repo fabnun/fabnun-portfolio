@@ -7,17 +7,17 @@ let info = {
   config: {
     use_cookies: true,
     cv_qrcode: false,
-    cv_font: 'courier',
-
+    cv_image_style: 'border-radius: 50%;margin:0 16px 0 0;width:90px',
     navbar: {
       blur: true,
     },
   },
-  description: 'Hola, soy Fabián Núñez, ingeniero civil en computación e informática de la USACH. Tengo ' + (new Date().getFullYear() - 2004) + ' años de experiencia implementando y modelando sistemas en diversos lenguajes y plataformas.<br><br>Me considero una persona creativa y curiosa, con capacidades teóricas y prácticas que me permiten abordar problemas complejos.<br><br>Si pudiera elegir, me gustaría trabajar en  frontend para proyectos del área educativa, ciencias, artes o videojuegos.<br><br>',
+  description: 'Hola, soy Fabián Núñez, ingeniero civil en computación e informática de la Universidad de Santiago de Chile, tengo ' + (new Date().getFullYear() - 2004) + ' años de experiencia en el desarrollo de software en diferentes lenguajes y plataformas.<br><br>Me considero una persona creativa con capacidades teóricas y prácticas que permiten abordar problemas complejos. Si pudiera elegir, me gustaría trabajar en  frontend para proyectos del área educativa, ciencias, artes o videojuegos.<br><br>',
+  description_cv: 'Ingeniero civil en computación e informática de la Universidad de Santiago de Chile con ' + (new Date().getFullYear() - 2004) + ' años de experiencia en el desarrollo de software en diferentes lenguajes y plataformas.<br><br>Me considero una persona creativa con capacidades teóricas y prácticas que permiten abordar problemas complejos. Si pudiera elegir, me gustaría trabajar en  frontend para proyectos del área educativa, ciencias, artes o videojuegos.<br><br>',
   links: {
-    //fono: 'tel:+56 9 4246 8328',
-    cv: '/pdfs/CV - Fabián Núñez (17-1-2023).pdf',
+    cv: '/pdfs/CV - Fabián Núñez (27-1-2023).pdf',
     email: 'mailto:fabnun@gmail.com',
+    fono: 'tel:+56 9 4246 8328',
     linkedin: 'https://linkedin.com/in/fabnun',
     github: 'https://github.com/fabnun',
     instagram: 'https://instagram.com/fabnun',
@@ -27,7 +27,7 @@ let info = {
     linkedin: 'https://linkedin.com/in/fabnun',
     github: 'https://github.com/fabnun',
     email: 'fabnun@gmail.com',
-    //fono: '+56 9 4246 8328',
+    fono: '+56 9 4246 8328',
   },
 
   portfolio: [
@@ -54,7 +54,7 @@ let info = {
       category: 'Web App',
       date: ' Enero 2023',
       project: 'https://github.com/fabnun/fabnun-portfolio',
-      description: 'Portafolio web (fork de <a href="https://github.com/hrishikeshpaul/portfolio-template" target="_blank">portfolio-template</a>) desarrollado con VUE2 y alojado en FIREBASE. Se realizó una optimización de la configuración y de la carga de recursos, se eliminaron secciones y librerías. Se agregó la funcionalidad de generar automáticamente el CV en formato PDF con los mismos datos (JSON) que generan la página.<br>',
+      description: 'Portafolio web desarrollado en VUE2 y alojado en FIREBASE. Se realizó una optimización de la configuración y de la carga de recursos, se eliminaron secciones y librerías. Se agregó la funcionalidad de generar automáticamente el CV en formato PDF desde los mismos datos (JSON) que generan la página.<br><br>El proyecto esta ajojado en <a target="_blank" href="https://github.com/fabnun/fabnun-portfolio">fabnun-portfolio</a> y es fork de <a href="https://github.com/hrishikeshpaul/portfolio-template" target="_blank">portfolio-template</a>',
     },
     {
       name: 'ConWords',
@@ -91,6 +91,7 @@ let info = {
       ConWords es un juego y editor de crucigramas online donde los usuarios pueden jugar, crear y compartir sus propios crucigramas. Actualmente, se pueden jugar las siguientes temáticas: <a target="_blank" href="https://conwords.app/#informatica">#informatica</a>, 
       <a target="_blank" href="https://conwords.app/#astronomia">#astronomia</a>,
       <a target="_blank" href="https://conwords.app/#ciencias">#ciencias</a>, 
+      <a target="_blank" href="https://conwords.app/#niños">#niños</a>, 
       <a target="_blank" href="https://conwords.app/#miscelaneo">#miscelaneo</a>, 
       <a target="_blank" href="https://conwords.app/#castellano">#castellano</a>, 
       <a target="_blank" href="https://conwords.app/#ingles_español">#ingles_español</a>, 
@@ -141,9 +142,9 @@ let info = {
       ],
       technologies: ['Jobs', 'JavasScript', 'WebScrapping', 'RegExp', 'Node', 'Vue2', 'Firebase', 'Html5', 'Css3', 'PWA'],
       category: 'Web App',
-      project: 'https://github.com/fabnun/vue-jobwus',
+      // project: 'https://github.com/fabnun/vue-jobwus',
       date: 'Mayo 2020',
-      visit: 'https://jobwus.com/',
+      visit: 'https://jobwus.com',
       description: `Directorio de ofertas laborales de portales de empleos en Chile. Las ofertas son extraídas, filtradas y agrupadas en las categorías: 
       <a href='https://jobwus.com/profes' target="_blank">Profesores</a>,
       <a href='https://jobwus.com/compliance' target="_blank">Compliance</a>,
@@ -183,6 +184,9 @@ let info = {
       date: 'Enero 2014',
       project: 'https://github.com/fabnun/kcms',
       description: `KCMS fue un sistema de gestión de contenidos desarrollado para Google App Engine (Java) con acceso al almacenamiento en DataStore. Tenía un funcionamiento similar a los Scriplets JSP mediante el uso de BeanShell. La información se organizaba en tablas, donde las columnas podían ser de diferentes tipos, como imágenes, texto o texto enriquecido. Lo utilicé ampliamente en el desarrollo y administración de sitios web.`,
+    },
+    {
+      space: 90,
     },
     {
       name: 'JavaCup JavaHispano',
@@ -273,8 +277,8 @@ let info = {
   ],
   skills: [
     {
-      title: 'Lenguajes de Programación y Estándares',
-      info: ['Javascript ES6', 'Java8', 'C', 'C++', 'Dart', 'SQL', 'NoSQL', 'HTML5', 'CSS3', 'RegExp'],
+      title: 'Lenguajes de programacíon, Idiomas y Estándares',
+      info: ['Javascript', 'Java', 'C', 'C++', 'Dart', 'Inglés escrito', 'SQL', 'NoSQL', 'HTML5', 'CSS3', 'RegExp'],
       icon: 'embed',
     },
     {
@@ -303,66 +307,20 @@ let info = {
       icon: 'cogs',
     },
   ],
-  education: [
-    {
-      name: 'GOOGLE FOR STARTUPS',
-      date: '2022',
-      description: 'ProgramaGol ingresa al programa de Google for Startups.',
-    },
-    {
-      name: 'CAPITAL SEMILLA DE CORFO',
-      date: '2019',
-      description: 'ProgramaGol obtiene el financiamiento del Capital Semilla de CORFO.',
-    },
-    {
-      name: 'FRAMEWORK JAVACUP DE JAVAHISPANO',
-      date: '2009 - 2013',
-      description: 'Desarrollo de la nueva versión del framework, gestión de foros y ejecución del torneo de programación de futbol virtual JavaCup de JavaHispano.',
-    },
-    {
-      name: 'TORNEO JAVACUP DE JAVAHISPANO',
-      date: '2007',
-      description: 'Campeón del torneo de programación de futbol virtual JavaCup de JavaHispano.',
-    },
-    {
-      space: 140,
-    },
-    {
-      name: 'UNIVERSIDAD DE SANTIAGO DE CHILE',
-      date: '1996 - 2002',
-      description: 'Ingeniería Civil en Computación e Informática.',
-    },
-
-    {
-      name: 'UNIVERSIDAD DE CHILE',
-      date: '1992 - 1995',
-      description: 'Ingeniería Civil en Computación e Informática (no terminado).',
-    },
-    {
-      name: 'PRUEBA DE APTITUD ACADÉMICA Y PRUEBAS ESPECÍFICAS',
-      date: '1991',
-      description: 'Obtengo puntaje nacional en la prueba de aptitud académica de matemáticas y en la específica de física.',
-    },
-    {
-      name: 'LICEO MANUEL ARRIARAN BARROS',
-      date: '1987 - 1991',
-      description: '8º Básico y Educación Media.',
-    },
-  ],
   experience: [
     {
       name: 'FREELANCE · Autónomo',
       date: 'Marzo 2021 - Actualidad',
       position: 'Desarrollo de Software',
-      description: 'Desarrollo freelance de aplicaciones java swing, aplicaciones web, sitios web y mantenimiento de sistemas existentes.',
-      skills: ['Trabajo Remoto', 'Capacitación', 'Vue', 'Flutter', 'Bootstrap', 'Javascript', 'Dart', 'HTML5', 'CSS3', 'Web Workers', 'Html5 Canvas', 'PixiJs', 'MongoDB', 'PostgreSQL', 'GCP', 'Firebase', 'Firestore', 'IndexedDB', 'SCRUM', 'KanBan', 'Git', 'Node', 'NPM', 'CapacitorJS', 'PWA'],
+      description: 'Trabajo freelance en aplicaciones web, aplicaciones híbridas, sitios web y aplicaciones java. Mantenimiento de sistemas existentes. Desarrollo de proyectos personales. Me capacito en nuevas tecnologías como vue, flutter, gcp, pwa, etc.',
+      skills: ['Trabajo Remoto', 'Capacitación', 'Vue', 'React', 'Flutter', 'Bootstrap', 'Javascript', 'Dart', 'HTML5', 'CSS3', 'Web Workers', 'Html5 Canvas', 'PixiJs', 'MongoDB', 'PostgreSQL', 'GCP', 'Firebase', 'Firestore', 'IndexedDB', 'SCRUM', 'KanBan', 'Git', 'Node', 'NPM', 'CapacitorJS', 'PWA'],
     },
     {
       name: 'PROGRAMAGOL · Autónomo',
       date: 'Diciembre 2019 - Noviembre 2020',
       position: 'Gerencia y Desarrollo de Software',
       description: 'Funciones de gerencia y desarrollo de software en la implementación de un MVP para ProgramaGol, una plataforma educativa en línea que une la enseñanza de JavaScript con desafíos lúdicos en un videojuego de fútbol. Este proyecto ha recibido el apoyo de inversión del Capital Semilla de Corfo en 2020 y del programa Google for Startups en 2022.',
-      skills: ['Trabajo Remoto', 'Gerencia', 'ELearning', 'Soccer', 'JavasScript', 'VideoGame', 'Firebase', 'Html5', 'Css3', 'Web Workers', 'PWA'],
+      skills: ['Trabajo Remoto', 'Gerencia', 'ELearning', 'MVP', 'Capital Semilla', 'Google for Startups', 'JavasScript', 'VideoGame', 'Firebase', 'Html5', 'Css3', 'Web Workers', 'PWA'],
     },
     {
       name: 'ESINFA',
@@ -407,7 +365,57 @@ let info = {
       description: 'Analista programador en Eje Digital, desarrollo y mantenimiento de aplicaciones web, generación de documentación UML de proyectos existentes.',
       skills: ['Java', 'WebSphere', 'JSP', 'Struts', 'Tomcat', 'SQL Server', 'Visual Basic', 'UML'],
     },
+    {
+      space: 40,
+    },
   ],
+  education: [
+    {
+      name: 'GOOGLE FOR STARTUPS',
+      date: '2022',
+      description: 'ProgramaGol ingresa al programa de Google for Startups.',
+    },
+    {
+      name: 'CAPITAL SEMILLA DE CORFO',
+      date: '2019',
+      description: 'ProgramaGol obtiene el financiamiento del Capital Semilla de CORFO.',
+    },
+    {
+      name: 'FRAMEWORK JAVACUP DE JAVAHISPANO',
+      date: '2009 - 2013',
+      description: 'Desarrollo de la nueva versión del framework, gestión de foros y ejecución del torneo de programación de futbol virtual JavaCup de JavaHispano.',
+    },
+    {
+      name: 'TORNEO JAVACUP DE JAVAHISPANO',
+      date: '2007',
+      description: 'Campeón del torneo de programación de futbol virtual JavaCup de JavaHispano.',
+    },
+    // {
+    //   space: 140,
+    // },
+    {
+      name: 'UNIVERSIDAD DE SANTIAGO DE CHILE',
+      date: '1996 - 2002',
+      description: 'Ingeniería Civil en Computación e Informática.',
+    },
+
+    {
+      name: 'UNIVERSIDAD DE CHILE',
+      date: '1992 - 1995',
+      description: 'Ingeniería Civil en Computación e Informática (no terminado).',
+    },
+    {
+      name: 'PRUEBA DE APTITUD ACADÉMICA Y PRUEBAS ESPECÍFICAS',
+      date: '1991',
+      description: 'Obtengo puntaje nacional en la prueba de aptitud académica de matemáticas y en la específica de física.',
+    },
+    {
+      name: 'LICEO MANUEL ARRIARAN BARROS',
+      date: '1987 - 1991',
+      description: '8º Básico y Educación Media.',
+    },
+  ],
+
   pdf: (inicia, termina, error) => {
     //Carga dinamica de funcion pdf()
     if (_pdf === undefined) {

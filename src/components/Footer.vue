@@ -53,17 +53,7 @@ export default {
   },
   methods: {
     open(link) {
-      switch (link) {
-        case 'linkedin':
-          window.open(this.linkedin, '_blank');
-          break;
-        case 'github':
-          window.open(this.github, '_blank');
-          break;
-        case 'instagram':
-          window.open(this.instagram, '_blank');
-          break;
-      }
+      window.open(link, '_blank');
     },
   },
 };

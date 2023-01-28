@@ -1,6 +1,6 @@
 {
   "name": "fabnun-portfolio",
-  "version": "0.1.35",
+  "version": "0.2.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
