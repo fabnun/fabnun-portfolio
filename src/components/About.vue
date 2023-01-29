@@ -42,11 +42,11 @@ export default {
     return {
       education: {
         title: 'Educación e Hitos Importantes',
-        data: info.education,
+        data: info.education.filter((item) => item.space === undefined),
       },
       experience: {
         title: 'Experiencia Laboral',
-        data: info.experience,
+        data: info.experience.filter((item) => item.space === undefined),
       },
     };
   },

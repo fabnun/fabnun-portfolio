@@ -44,7 +44,7 @@ const pdf = (inicia, termina, info) => {
         font-weight: bold;
       }
       .pdf p {
-        font-size:13px;
+        font-size:12.5px;
         text-align: justify;
         padding: 0;
       }
@@ -75,7 +75,7 @@ const pdf = (inicia, termina, info) => {
       }
 
     </style>
-    <p style="float:right">cv generado el ${new Date().toLocaleString()}</p>
+    <p style="float:right">cv autogenerado el ${new Date().toLocaleString()}</p>
     <br style="clear:both">
     <h1>Curriculum Vitae<br>${info.name}</h1>
     <img style="float:left;${info.config.cv_image_style}" src="${info.flat_picture}" />
@@ -110,11 +110,14 @@ const pdf = (inicia, termina, info) => {
         .join('')}
     <h2>Habilidades</h2>
       ${info.skills
-        .map(
-          (skill) => `
+        .map((skill) => {
+          console.log(skill.space);
+          return skill.space
+            ? `<p style="height:${skill.space}px">&nbsp;</p>`
+            : `
           <h3 style="display:inline-block;padding-bottom:0px">${skill.title.trim()} :</h3><p>&nbsp;${skill.info.join(', ')}</p><br>
-        `
-        )
+        `;
+        })
         .join('')}
     <h2>Proyectos</h2>
           

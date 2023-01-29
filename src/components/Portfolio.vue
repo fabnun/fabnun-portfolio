@@ -50,8 +50,7 @@ export default {
   },
   data() {
     return {
-      all_info: info.portfolio,
-      desgin_info: info.portfolio_design,
+      all_info: info.portfolio.filter((item) => item.space === undefined),
       portfolio_info: [],
       showModal: false,
       showDesignModal: false,

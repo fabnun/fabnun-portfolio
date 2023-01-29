@@ -32,7 +32,7 @@ export default {
   },
   data() {
     return {
-      skills: info.skills,
+      skills: info.skills.filter((item) => item.space === undefined),
     };
   },
 };
