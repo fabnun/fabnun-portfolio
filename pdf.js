@@ -44,7 +44,7 @@ const pdf = (inicia, termina, info) => {
         font-weight: bold;
       }
       .pdf p {
-        font-size:12.5px;
+        font-size:13px;
         text-align: justify;
         padding: 0;
       }
@@ -115,7 +115,7 @@ const pdf = (inicia, termina, info) => {
           return skill.space
             ? `<p style="height:${skill.space}px">&nbsp;</p>`
             : `
-          <h3 style="display:inline-block;padding-bottom:0px">${skill.title.trim()} :</h3><p>&nbsp;${skill.info.join(', ')}</p><br>
+          <h3 style="display:inline-block;padding-bottom:0px">${skill.title.trim()} :</h3><p>&nbsp;${skill.info.join(', ')}.</p><br>
         `;
         })
         .join('')}

@@ -13,11 +13,10 @@ let info = {
     },
   },
   description: 'Hola, soy Fabián Núñez, ingeniero civil en computación e informática egresado de la Universidad de Santiago de Chile, con ' + (new Date().getFullYear() - 2004) + ' años de experiencia en el desarrollo de software en diferentes lenguajes y plataformas.<br><br>Me considero una persona creativa con capacidades teóricas y prácticas que permiten abordar problemas complejos. Si pudiera elegir, me gustaría trabajar en  frontend para proyectos del área educativa, ciencias, artes o videojuegos.<br><br>',
-  description_cv: 'Ingeniero civil en computación e informática egresado de la Universidad de Santiago de Chile con ' + (new Date().getFullYear() - 2004) + ' años de experiencia en el desarrollo de software en diferentes lenguajes y plataformas.<br><br>Me considero una persona creativa con capacidades teóricas y prácticas que permiten abordar problemas complejos. Si pudiera elegir, me gustaría trabajar en  frontend para proyectos del área educativa, ciencias, artes o videojuegos.<br><br>',
+  description_cv: 'Ingeniero civil en computación e informática egresado de la Universidad de Santiago de Chile con ' + (new Date().getFullYear() - 2004) + ' años de experiencia en el desarrollo de software en diferentes lenguajes y plataformas.<br><br>Me considero una persona creativa con capacidades teóricas y prácticas que permiten abordar problemas complejos. Si pudiera elegir, me gustaría trabajar en frontend para proyectos del área educativa, ciencias, artes o videojuegos.<br><br>',
   links: {
-    cv: '/pdfs/CV - Fabián Núñez (28-1-2023).pdf',
+    cv: '/pdfs/CV - Fabián Núñez (30-1-2023).pdf',
     email: 'mailto:fabnun@gmail.com',
-    fono: 'tel:+56 9 4246 8328',
     linkedin: 'https://linkedin.com/in/fabnun',
     github: 'https://github.com/fabnun',
     instagram: 'https://instagram.com/fabnun',
@@ -27,7 +26,7 @@ let info = {
     linkedin: 'https://linkedin.com/in/fabnun',
     github: 'https://github.com/fabnun',
     email: 'fabnun@gmail.com',
-    fono: '+56 9 4246 8328',
+    edad: 'Edad: ' + (new Date().getFullYear() - 1974) + ' años',
   },
 
   portfolio: [
@@ -41,7 +40,7 @@ let info = {
           youtube: 'https://www.youtube.com/embed/9nzzK7aE9wg',
         },
       ],
-      technologies: ['Jobs', 'JavasScript', 'WebScrapping', 'RegExp', 'Node', 'Vue2', 'Firebase', 'Html5', 'Css3', 'PWA'],
+      technologies: ['Jobs', 'JavasScript', 'WebScraping', 'RegExp', 'Node', 'Vue2', 'Firebase', 'Html5', 'Css3', 'PWA'],
       category: 'Web App',
       // project: 'https://github.com/fabnun/vue-jobwus',
       date: 'octubre 2022',
@@ -79,7 +78,7 @@ let info = {
           img: require('./src/assets/portfolio/ConWords/4.webp'),
         },
       ],
-      technologies: ['Colaborative', 'Crossword', 'Generator', 'VideoGame', 'JavasScript', 'Vue2', 'Firebase', 'Html5', 'Css3', 'CapacitorJS', 'html5Canvas', 'WebScrapping', 'Genetic Algorithm', 'PWA'],
+      technologies: ['Colaborative', 'Crossword', 'Generator', 'VideoGame', 'JavasScript', 'Vue2', 'Firebase', 'Html5', 'Css3', 'CapacitorJS', 'html5Canvas', 'WebScraping', 'Genetic Algorithm', 'PWA'],
       category: 'Web App',
       date: 'Diciembre 2022',
       project: 'https://github.com/fabnun/conwords-generator',
@@ -189,7 +188,7 @@ let info = {
       description: 'Portafolio web desarrollado en VUE2 y alojado en FIREBASE. Se realizó una optimización de la configuración y de la carga de recursos, se eliminaron secciones y librerías. Se agregó la funcionalidad de generar automáticamente el CV en formato PDF desde los mismos datos (JSON) que generan la página.<br><br>El proyecto esta ajojado en <a target="_blank" href="https://github.com/fabnun/fabnun-portfolio">fabnun-portfolio</a> y es fork de <a href="https://github.com/hrishikeshpaul/portfolio-template" target="_blank">portfolio-template</a>',
     },
     {
-      space: 120,
+      space: 90,
     },
     {
       name: 'KCMS',
@@ -278,14 +277,14 @@ let info = {
   ],
   skills: [
     {
-      title: 'Lenguajes de programacíon, Idiomas y Estándares',
-      info: ['Javascript', 'Java', 'C', 'C++', 'Dart', 'Inglés escrito', 'SQL', 'NoSQL', 'HTML5', 'CSS3', 'RegExp'],
+      title: 'Lenguajes de programacíon y Estándares',
+      info: ['Javascript', 'Java', 'C', 'C++', 'Dart', 'SQL', 'NoSQL', 'HTML5', 'CSS3', 'RegExp'],
       icon: 'embed',
     },
 
     {
       title: 'Frameworks y APIs',
-      info: ['Vue2', 'Flutter', 'Bootstrap', 'Java Swing', 'Web Workers', 'Html5 Canvas', 'PixiJs'],
+      info: ['Vue2', 'Flutter', 'Bootstrap', 'Java Swing', 'Web Workers', 'Html5 Canvas', 'PixiJs', 'TreeJs', 'CapacitorJS'],
       icon: 'cube',
     },
     {
@@ -295,17 +294,17 @@ let info = {
     },
     {
       title: 'Sistemas Operativos y Plataformas Cloud',
-      info: ['Windows', 'Ubuntu', 'Android', 'GCP', 'Firebase'],
+      info: ['Windows', 'Ubuntu', 'Debian', 'Android', 'GCP', 'Firebase'],
       icon: 'tools',
     },
     {
       title: 'IDEs y Editores',
-      info: ['VSCode', 'Eclipse', 'Netbeans', 'Android Studio', 'Gimp', 'Photoshop', 'Premiere', 'Inkscape', 'VSDC Video Editor'],
+      info: ['VSCode', 'Eclipse', 'Netbeans', 'Android Studio', 'Photoshop', 'Premiere', 'Gimp', 'Inkscape', 'VSDC Video Editor'],
       icon: 'pencil',
     },
     {
-      title: 'Metodologías, Paradigmas y Herramientas',
-      info: ['UML', 'SCRUM', 'KanBan', 'POO', 'Git', 'Node', 'NPM', 'CapacitorJS'],
+      title: 'Idiomas, Metodologías, Paradigmas y Herramientas',
+      info: ['Inglés escrito', 'UML', 'SCRUM', 'KanBan', 'POO', 'Git', 'Node', 'NPM'],
       icon: 'cogs',
     },
   ],
@@ -335,14 +334,14 @@ let info = {
       name: 'KREADI · Autónomo',
       date: 'Enero 2010 - Enero 2016',
       position: 'Gerencia y Desarrollo de Software',
-      description: 'Funciones de gerencia y desarrollo de software en KREADI. Desarrollo de CMS basado en Google App Engine (Java) que permitió construir y mantener sitios web de clientes. Desarrollo del framework de javaCup y un visor de partidos WebGl para javaCup 2013. Creación de un motor de videojuegos en html5 canvas y un editor de escenarios en java para los concursos Square Enix Latin America Game 2012 y LG SmartTV 2012. Desarrolló de aplicaciones y webcrawlers para la extracción, procesamiento de ofertas laborales y licitaciones en Mercado Publico.',
+      description: 'Funciones de gerencia y desarrollo de software en KREADI. Desarrollo de CMS basado en Google App Engine (Java) que permitió construir y mantener sitios web de clientes. Desarrollo del framework de javaCup y un visor de partidos WebGl para javaCup 2013. Creación de un motor de videojuegos en html5 canvas y un editor de escenarios en java para los concursos Square Enix Latin America Game 2012 y LG SmartTV 2012. Desarrolló de aplicaciones y webcrawlers para la extracción, procesamiento de ofertas laborales y licitaciones en Mercado Público.',
       skills: ['Trabajo Remoto', 'Gerencia', 'Java', 'JavaScript', 'Google App Engine', 'Firebase', 'HTML5', 'CSS3', 'MySQL', 'MongoDB', 'Inkscape', 'Gimp', 'SCRUM', 'KanBan', 'Git', 'VideoGame'],
     },
     {
       name: 'OS.ONE',
       date: 'Mayo 2009 - Diciembre 2009',
       position: 'Desarrollo de Software',
-      description: 'Trabajo como analista programador en OS1, participé en la configuración y administración de Petals ESB para un proyecto en CAT Chile. Tambien, desarrollé una aplicación para generar archivos de configuració de Petals ESBn. ',
+      description: 'Trabajo como analista programador en OS1, participé en la configuración y administración de Petals ESB para un proyecto en CAT Chile. También, desarrollé una aplicación para generar archivos de configuració de Petals ESB. ',
       skills: ['SCRUM', 'Petals ESB', 'Java', 'Java Swing', 'PHP', 'Struts', 'Tomcat', 'Jetty', 'Oracle Database', 'SQL Server'],
     },
     {
@@ -367,7 +366,7 @@ let info = {
       skills: ['Java', 'WebSphere', 'JSP', 'Struts', 'Tomcat', 'SQL Server', 'Visual Basic', 'UML'],
     },
     {
-      space: 60,
+      space: 40,
     },
   ],
   education: [
@@ -394,7 +393,7 @@ let info = {
     {
       name: 'UNIVERSIDAD DE SANTIAGO DE CHILE',
       date: '1996 - 2002',
-      description: 'Ingeniería Civil en Computación e Informática.',
+      description: 'Egresado de Ingeniería Civil en Computación e Informática.',
     },
 
     {
