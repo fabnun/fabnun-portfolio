@@ -15,8 +15,9 @@ let info = {
   description: 'Hola, soy Fabián Núñez, ingeniero civil en computación e informática egresado de la Universidad de Santiago de Chile, con ' + (new Date().getFullYear() - 2004) + ' años de experiencia en el desarrollo de software en diferentes lenguajes y plataformas.<br><br>Me considero una persona creativa con capacidades teóricas y prácticas que permiten abordar problemas complejos. Si pudiera elegir, me gustaría trabajar en  frontend para proyectos del área educativa, ciencias, artes o videojuegos.<br><br>',
   description_cv: 'Ingeniero civil en computación e informática egresado de la Universidad de Santiago de Chile con ' + (new Date().getFullYear() - 2004) + ' años de experiencia en el desarrollo de software en diferentes lenguajes y plataformas.<br><br>Me considero una persona creativa con capacidades teóricas y prácticas que permiten abordar problemas complejos. Si pudiera elegir, me gustaría trabajar en frontend para proyectos del área educativa, ciencias, artes o videojuegos.<br><br>',
   links: {
-    cv: '/pdfs/CV - Fabián Núñez (30-1-2023).pdf',
+    cv: '/pdfs/CV - Fabián Núñez (31-1-2023).pdf',
     email: 'mailto:fabnun@gmail.com',
+    fono: 'tel:+569 4246 8328',
     linkedin: 'https://linkedin.com/in/fabnun',
     github: 'https://github.com/fabnun',
     instagram: 'https://instagram.com/fabnun',
@@ -26,7 +27,8 @@ let info = {
     linkedin: 'https://linkedin.com/in/fabnun',
     github: 'https://github.com/fabnun',
     email: 'fabnun@gmail.com',
-    edad: 'Edad: ' + (new Date().getFullYear() - 1974) + ' años',
+    fono: '+569 4246 8328',
+    //edad: 'Edad: ' + (new Date().getFullYear() - 1974) + ' años',
   },
 
   portfolio: [

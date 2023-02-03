@@ -32,10 +32,10 @@
 
         <div class="my-3" data-aos="fade-up" data-aos-once="true" data-aos-duration="1000">
           <input
-            type="email"
-            name="user_email"
-            v-model="email"
-            placeholder="email"
+            type="text"
+            name="user_subject"
+            v-model="subject"
+            placeholder="Asunto"
             class="pinput"
             :class="{
               pgray: !nightMode,
@@ -63,11 +63,9 @@
         </div>
 
         <button @click.prevent="sendEmail" class="mt-1 btn mb-3" data-aos="fade" data-aos-once="true" data-aos-duration="1000" data-aos-offset="50">
-          Enviar
+          Enviar en tu Cliente de Correo
         </button>
       </div>
-
-      <Snackbar :showSnackbar="showSnackbar" @close="closeSnackbar" :snackbarMessage="snackbarMessage" :snackbarColor="snackbarColor" />
     </div>
   </div>
 </template>
@@ -75,13 +73,9 @@
 <script>
 import config from '../../config';
 
-import Snackbar from './helpers/Snackbar';
-
 export default {
   name: 'Contact',
-  components: {
-    Snackbar,
-  },
+
   props: {
     nightMode: {
       type: Boolean,
@@ -89,57 +83,21 @@ export default {
   },
   data() {
     return {
-      email: '',
       name: '',
+      subject: '',
       text: '',
-      showSnackbar: false,
-      snackbarMessage: '',
-      snackbarColor: '',
     };
   },
   methods: {
-    closeSnackbar(val) {
-      if (!val) {
-        setTimeout(() => {
-          this.showSnackbar = val;
-        }, 1000);
-      }
-    },
     sendEmail() {
-      this.showSnackbar = true;
-      this.snackbarMessage = 'Por ahora enviar esta deshabilitado, use linkedin, github o instagram para contactar';
-      this.snackbarColor = 'rgb(212, 149, 97)';
-      this.snackbarTimeout = 15000;
-      return;
-      // if (!this.email || !this.name || !this.text) {
-      //   this.showSnackbar = true;
-      //   this.snackbarMessage = 'Please all the fields';
-      //   this.snackbarColor = 'rgb(212, 149, 97)';
-      // } else {
-      //   var obj = {
-      //     user_email: this.email,
-      //     from_name: this.name,
-      //     message_html: this.text,
-      //     to_name: 'Hrishikesh Paul',
-      //   };
-
-      //   emailjs.send(config.emailjs.serviceID, config.emailjs.templateID, obj, config.emailjs.userID).then(
-      //     (result) => {
-      //       this.showSnackbar = true;
-      //       this.snackbarMessage = 'Thanks! Message recieved.';
-      //       this.snackbarColor = '#1aa260';
-
-      //       this.email = '';
-      //       this.text = '';
-      //       this.name = '';
-      //     },
-      //     (error) => {
-      //       this.showSnackbar = true;
-      //       this.snackbarMessage = 'Oops! Something went wrong.';
-      //       this.snackbarColor = 'rgb(212, 149, 97)';
-      //     }
-      //   );
-      // }
+      const asunto = encodeURI(`fabnun.web.app [${this.subject}]`);
+      const text = encodeURI(`Correo enviado por ${this.name}.\n\n${this.text}\n\n`);
+      const a = document.createElement('a');
+      a.setAttribute('href', `mailto:fabnun@gmail.com?&subject=${asunto}&body=${text}`);
+      a.click();
+      // this.subject = '';
+      // this.text = '';
+      // this.name = '';
     },
   },
 };
