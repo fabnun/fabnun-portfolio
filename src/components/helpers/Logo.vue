@@ -1,19 +1,14 @@
 <template>
   <div class="logo-div">
-    <span
-      class="logo-title-name"
-      :class="{ pgray: !nightMode, 'text-light': nightMode }"
-      >{{ name }}</span
-    >
-    <span class="logo-title-dot pblue">{{ dot }}</span>
+    <span class="logo-title-name" :class="{ pgray: !nightMode, 'text-light': nightMode }">{{ name }}</span>
   </div>
 </template>
 
 <script>
-import info from "../../../info";
+import info from '../../../info';
 
 export default {
-  name: "Logo",
+  name: 'Logo',
   props: {
     nightMode: {
       type: Boolean,
@@ -22,7 +17,6 @@ export default {
   data() {
     return {
       name: info.logo_name,
-      dot: ".",
     };
   },
 };
@@ -39,10 +33,5 @@ export default {
   font-weight: 500;
   letter-spacing: 2px;
   transition: 0.5s all;
-}
-
-.logo-title-dot {
-  font-size: 30px;
-  font-weight: 700;
 }
 </style>

@@ -1,10 +1,11 @@
 let _pdf = undefined;
 
 let info = {
-  name: 'Fabián Núñez',
+  name: 'Fabián Edgardo Núñez Pérez',
   logo_name: 'fabnun',
   flat_picture: require('./src/assets/face.webp'),
   config: {
+    show_blog: true,
     use_cookies: true,
     cv_qrcode: false,
     cv_image_style: 'border-radius: 50%;margin:0 16px 0 0;width:90px',
@@ -12,10 +13,10 @@ let info = {
       blur: true,
     },
   },
-  description: 'Hola, soy Fabián Núñez, ingeniero civil en computación e informática egresado de la Universidad de Santiago de Chile, con ' + (new Date().getFullYear() - 2004) + ' años de experiencia en el desarrollo de software en diferentes lenguajes y plataformas.<br><br>Me considero una persona creativa con capacidades teóricas y prácticas que permiten abordar problemas complejos. Si pudiera elegir, me gustaría trabajar en  frontend para proyectos del área educativa, ciencias, artes o videojuegos.<br><br>',
-  description_cv: 'Ingeniero civil en computación e informática egresado de la Universidad de Santiago de Chile con ' + (new Date().getFullYear() - 2004) + ' años de experiencia en el desarrollo de software en diferentes lenguajes y plataformas.<br><br>Me considero una persona creativa con capacidades teóricas y prácticas que permiten abordar problemas complejos. Si pudiera elegir, me gustaría trabajar en frontend para proyectos del área educativa, ciencias, artes o videojuegos.<br><br>',
+  description: 'Hola, soy Fabián Núñez, ingeniero civil en computación e informática egresado de la Universidad de Santiago de Chile, con ' + (new Date().getFullYear() - 2004) + ' años de experiencia en el desarrollo de software en diferentes lenguajes y plataformas.<br><br>Me considero una persona creativa con capacidades teóricas y prácticas que permiten abordar problemas complejos. Si pudiera elegir, me gustaría trabajar en el desarrollo de algoritmos o en frontend para proyectos del área educativa, ciencias, artes o videojuegos.<br><br>',
+  description_cv: 'Ingeniero civil en computación e informática egresado de la Universidad de Santiago de Chile con ' + (new Date().getFullYear() - 2004) + ' años de experiencia en el desarrollo de software en diferentes lenguajes y plataformas.<br><br>Me considero una persona creativa con capacidades teóricas y prácticas que permiten abordar problemas complejos. Si pudiera elegir, me gustaría trabajar en el desarrollo de algoritmos o en frontend para proyectos del área educativa, ciencias, artes o videojuegos.',
   links: {
-    cv: '/pdfs/CV - Fabián Núñez (31-1-2023).pdf',
+    cv: '/pdfs/CV - Fabián Edgardo Núñez Pérez (9-2-2023).pdf',
     email: 'mailto:fabnun@gmail.com',
     fono: 'tel:+569 4246 8328',
     linkedin: 'https://linkedin.com/in/fabnun',
@@ -52,7 +53,8 @@ let info = {
       <a href='https://jobwus.com/profes' target="_blank">Profesores</a>,
       <a href='https://jobwus.com/sts' target="_blank">Trabajo Social</a> y 
       <a href='https://jobwus.com/compliance' target="_blank">Compliance</a>.
-      <br>Las ofertas similares se agrupan usando <a href='https://github.com/stephenjjbrown/string-similarity-js' targer="_blank">string-similarity-js</a> y <a href='https://github.com/deestan/set-clustering' targer="_blank">set-clustering</a>. Este agrupamiento permite revisar las ofertas laborales de forma más eficiente, ya que podemos identificar las ofertas duplicadas o del mismo tipo.`,
+      <br>Las ofertas similares se agrupan usando <a href='https://github.com/stephenjjbrown/string-similarity-js' targer="_blank">string-similarity-js</a> y <a href='https://github.com/deestan/set-clustering' targer="_blank">set-clustering</a>. Este agrupamiento permite revisar las ofertas laborales de forma más eficiente, ya que podemos identificar las ofertas duplicadas o del mismo tipo.<br><br>
+      Desgarga la versión para Android <a href='/apk/jobwus.0.7.5.apk' target="_blank">jobwus.0.7.5.apk</a>`,
     },
 
     {
@@ -62,10 +64,10 @@ let info = {
           img: require('./src/assets/portfolio/ConWords/logo.webp'),
         },
         {
-          youtube: 'https://www.youtube.com/embed/noc6wxkFXG4',
+          youtube: 'https://www.youtube.com/embed/iKCwpN4xuQw',
         },
         {
-          youtube: 'https://www.youtube.com/embed/i_RKUUlSae8',
+          youtube: 'https://www.youtube.com/embed/noc6wxkFXG4',
         },
         {
           img: require('./src/assets/portfolio/ConWords/1.webp'),
@@ -99,6 +101,8 @@ let info = {
       <a target="_blank" href="https://conwords.app/#mapudungun">#mapudungun</a>, 
       <a target="_blank" href="https://conwords.app/#adultos">#adultos</a><br><br>
       El algoritmo para la generación de crucigramas está disponible en <a target="_blank" href="https://github.com/fabnun/conwords-generator">github</a> y <a target="_blank" href="https://www.npmjs.com/package/conwords-generator">npm</a>.
+      <br><br>
+      Desgarga la versión para Android <a href='https://conwords.app/apk/conwords.0.8.2.apk' target="_blank">conwords.0.8.2.apk</a>
       `,
     },
     {
@@ -286,7 +290,7 @@ let info = {
 
     {
       title: 'Frameworks y APIs',
-      info: ['Vue2', 'Flutter', 'Bootstrap', 'Java Swing', 'Web Workers', 'Html5 Canvas', 'PixiJs', 'TreeJs', 'CapacitorJS'],
+      info: ['Vue', 'Nuxt', 'Flutter', 'Bootstrap', 'Java Swing', 'Web Workers', 'Html5 Canvas', 'PixiJs', 'TreeJs', 'CapacitorJS'],
       icon: 'cube',
     },
     {
@@ -315,8 +319,8 @@ let info = {
       name: 'FREELANCE · Autónomo',
       date: 'Marzo 2021 - Actualidad',
       position: 'Desarrollo de Software',
-      description: 'Trabajo freelance en aplicaciones web, aplicaciones híbridas, sitios web y aplicaciones java. Mantenimiento de sistemas existentes. Desarrollo de proyectos personales. Me capacito en nuevas tecnologías como vue, flutter, gcp, pwa, etc.',
-      skills: ['Trabajo Remoto', 'Capacitación', 'Vue', 'React', 'Flutter', 'Bootstrap', 'Javascript', 'Dart', 'HTML5', 'CSS3', 'Web Workers', 'Html5 Canvas', 'PixiJs', 'MongoDB', 'PostgreSQL', 'GCP', 'Firebase', 'Firestore', 'IndexedDB', 'SCRUM', 'KanBan', 'Git', 'Node', 'NPM', 'CapacitorJS', 'PWA'],
+      description: 'Trabajo freelance en aplicaciones web, aplicaciones híbridas, sitios web y aplicaciones java. Mantenimiento de sistemas existentes. Desarrollo de proyectos personales. Me capacito en nuevas tecnologías como Vue, Nuxt, Flutter, GCP, PWA, etc.',
+      skills: ['Trabajo Remoto', 'Capacitación', 'Vue', 'NUXT', 'React', 'Flutter', 'Bootstrap', 'Javascript', 'Dart', 'HTML5', 'CSS3', 'Web Workers', 'Html5 Canvas', 'PixiJs', 'MongoDB', 'PostgreSQL', 'GCP', 'Firebase', 'Firestore', 'IndexedDB', 'SCRUM', 'KanBan', 'Git', 'Node', 'NPM', 'CapacitorJS', 'PWA'],
     },
     {
       name: 'PROGRAMAGOL · Autónomo',
@@ -344,21 +348,21 @@ let info = {
       date: 'Mayo 2009 - Diciembre 2009',
       position: 'Desarrollo de Software',
       description: 'Trabajo como analista programador en OS1, participé en la configuración y administración de Petals ESB para un proyecto en CAT Chile. También, desarrollé una aplicación para generar archivos de configuració de Petals ESB. ',
-      skills: ['SCRUM', 'Petals ESB', 'Java', 'Java Swing', 'PHP', 'Struts', 'Tomcat', 'Jetty', 'Oracle Database', 'SQL Server'],
+      skills: ['SCRUM', 'Petals ESB', 'Java', 'Java Swing', 'Tomcat', 'Jetty', 'SQL Server'],
     },
     {
       name: 'INDRA',
       date: 'Enero 2008 - Abril 2009',
       position: 'Desarrollo de Software',
       description: 'Analista programador en Indra Chile para Telefónica Chile, administración y soporte para proyectos Portal de Proveedores, Proyecto Autentica y Proyecto Control de Mando. También, se realizó optimización de procesos en la aplicación Coordinador y mantenimiento de otras aplicaciones web.',
-      skills: ['Java', 'JSP', 'PHP', 'Struts', 'Tomcat', 'Oracle Database', 'SQL Server', 'UML'],
+      skills: ['Java', 'JSP', 'PHP', 'Struts', 'Tomcat', 'SQL Server', 'UML'],
     },
     {
       name: 'TELEFONICA',
       date: 'Enero 2006 - Diciembre 2007',
       position: 'Desarrollo de Software',
       description: 'Analista programador en Telefónica Chile, creación y actualización de aplicaciones de intranet, desarrollo de encuesta 360° y del sistema global pago de comisiones SUCOM donde se implementó un lenguaje simple para la codificación y actualización de criterios de comisión.',
-      skills: ['Java', 'JavaCC', 'Java Swing', 'Java Dynamic Execution', 'WebSphere', 'JSP', 'Struts', 'Tomcat', 'Oracle Database', 'SQL Server', 'UML'],
+      skills: ['Java', 'JavaCC', 'Java Swing', 'Java Dynamic Execution', 'WebSphere', 'JSP', 'Struts', 'Tomcat', 'SQL Server', 'UML'],
     },
     {
       name: 'EJE DIGITAL',
@@ -368,7 +372,7 @@ let info = {
       skills: ['Java', 'WebSphere', 'JSP', 'Struts', 'Tomcat', 'SQL Server', 'Visual Basic', 'UML'],
     },
     {
-      space: 40,
+      space: 20,
     },
   ],
   education: [

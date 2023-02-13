@@ -26,7 +26,7 @@
             >
               <svg :style="{ filter: nightMode ? 'brightness(100)' : 'brightness(0)' }" class="icon"><use xlink:href="#icon-cv"></use></svg>
             </button> -->
-            <button v-for="(value, key) in info.links" :key="key" class="btn btn-outline-secondary mx-2 " @click="open(value)" :title="key">
+            <button v-for="(value, key) in info.links" :key="key" class="btn btn-outline-secondary mx-1 " @click="open(value)" :title="key">
               <svg :style="{ filter: nightMode ? 'brightness(100)' : 'brightness(0)' }" class="icon"><use :xlink:href="'#icon-' + key"></use></svg>
             </button>
           </div>

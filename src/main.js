@@ -12,7 +12,14 @@ Vue.use(VueCookie);
 
 Vue.config.productionTip = false;
 
-const routes = [{ path: '/' }];
+const routes = [
+  { path: '/xml-namespace-to-camelcase-converter', component: () => import('./utils/xml-namespace-to-camelcase-converter.vue') },
+  // { path: '/blog/(.+):post', component: () => import('./components/Post.vue') },
+  {
+    path: '*',
+    component: () => import('./components/App.vue'),
+  },
+];
 
 const router = new VueRouter({
   mode: 'history',

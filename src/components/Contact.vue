@@ -63,7 +63,7 @@
         </div>
 
         <button @click.prevent="sendEmail" class="mt-1 btn mb-3" data-aos="fade" data-aos-once="true" data-aos-duration="1000" data-aos-offset="50">
-          Enviar en tu Cliente de Correo
+          Enviar Email con Cliente de Correo
         </button>
       </div>
     </div>

@@ -26,6 +26,9 @@
             <li class="nav-item mx-2 ">
               <a class="nav-link" href="/portfolio" @click.prevent="scroll('portfolio')" :class="{ 'text-light': nightMode }">Portafolio</a>
             </li>
+            <li class="nav-item mx-2" v-if="showBlog">
+              <a class="nav-link" href="/blog" @click.prevent="scroll('blog')" :class="{ 'text-light': nightMode }">Blog</a>
+            </li>
             <li class="nav-item mx-2">
               <a class="nav-link" href="/skills" @click.prevent="scroll('skills')" :class="{ 'text-light': nightMode }">Habilidades</a>
             </li>
@@ -63,6 +66,7 @@ export default {
   },
   data() {
     return {
+      showBlog: info.config.show_blog,
       navbarConfig: info.config.navbar,
       localNightMode: this.nightMode,
     };

@@ -9,12 +9,12 @@
         </div>
         <div class="col-xl-7 col-bg-7 col-md-7 col-sm-12">
           <div class="text-center">
-            <button v-for="(value, key) in info.links" :key="key" class="btn btn-outline-secondary mx-2 " @click="open(value)" :title="key">
+            <button v-for="(value, key) in info.links" :key="key" class="btn btn-outline-secondary mx-1" @click="open(value)" :title="key">
               <svg class="icon"><use :xlink:href="'#icon-' + key"></use></svg>
             </button>
 
             <button
-              :class="'btn mx-2' + (process ? ' titila' : '')"
+              :class="'btn mx-1' + (process ? ' titila' : '')"
               @click="
                 info.pdf(
                   () => {

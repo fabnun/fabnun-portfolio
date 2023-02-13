@@ -17,8 +17,8 @@
           <Card :style="{ 'transition-delay': (idx % 3) / 4.2 + 's' }" :portfolio="portfolio" @show="showModalFn" data-aos="fade-up" :nightMode="nightMode" data-aos-offset="100" data-aos-delay="10" data-aos-duration="500" data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="true" />
         </div>
       </div>
-      <div class="text-center py-3" v-if="showBtn !== 'show less'">
-        <button class="btn" @click.prevent="showMore">{{ showBtn }}</button>
+      <div class="text-center py-3" v-if="showBtn !== 'mostrar menos'">
+        <button v-if="number != all_info.length" class="btn" @click.prevent="showMore">{{ showBtn }}</button>
       </div>
     </div>
     <transition name="modal">
@@ -58,7 +58,6 @@ export default {
       design_modal_info: {},
       number: 3,
       showBtn: 'mostrar mas',
-      shower: 0,
       data: ['<div class="example-slide">Slide 1</div>', '<div class="example-slide">Slide 2</div>', '<div class="example-slide">Slide 3</div>'],
     };
   },
@@ -99,24 +98,7 @@ export default {
     showMore() {
       if (this.number != this.all_info.length) {
         this.number += 3;
-
-        window.scrollBy({
-          top: document.getElementsByClassName('smcard')[0].clientHeight,
-          behavior: 'smooth',
-        });
-
         if (this.number > this.all_info.length) this.number = this.all_info.length;
-      }
-
-      if (this.number == this.all_info.length && this.shower == 0) {
-        this.shower = 1;
-        this.showBtn = 'show less';
-      } else if (this.number == this.all_info.length && this.shower == 1) {
-        var elementPosition = document.getElementById('portfolio').offsetTop;
-        window.scrollTo({ top: elementPosition, behavior: 'smooth' });
-        this.shower = 0;
-        this.number = 3;
-        this.showBtn = 'show more';
       }
     },
   },
