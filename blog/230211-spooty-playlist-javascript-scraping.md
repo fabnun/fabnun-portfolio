@@ -1,17 +1,16 @@
-# Como obtener las canciones de una playlist de Spootify con JavaScript
+# Como obtener las canciones de una playlist en Spotify con JavaScript
 
-## javascript,spootify,playlist,dynamic-web-scraping
+## javascript,spotify,playlist,dynamic-web-scraping
 
 Si quieres migrar tus playlists favoritas de Spotify a YouTube Music y ahorrar algunos pesos, una opción es hacerlo por tu cuenta. Con un poco de conocimiento técnico, puedes utilizar JavaScript para obtener los datos de tus canciones y guardarlos en un archivo CSV.
 
 En este artículo, te mostraré los pasos que debes seguir para lograrlo:
 
 1. Inicia sesión en Spotify en tu navegador y abre la playlist que deseas migrar.
-1. Accede a las herramientas de desarrollador de tu navegador (Presionando F12 en Chrome o Edge).
-1. Dirígete a la pestaña Console.
-1. Copia, pega y ejecuta el siguiente script en la consola. Es importante destacar que, aunque comparto este script con fines educativos y he comentado todo el código, debes tener precaución al ejecutar scripts de terceros, puede ser que algunos scripts no sean seguros y puedan poner en riesgo la seguridad de tus datos.
+1. Accede a las herramientas de desarrollador de tu navegador (presionando F12 en Chrome o Edge).
+1. Dirígete a la pestaña Console. Copia, pega y ejecuta el siguiente script en la consola. Es importante destacar que, aunque comparto este script con fines educativos y he comentado todo el código, debes tener precaución al ejecutar scripts de terceros, puede ser que algunos scripts no sean seguros y puedan poner en riesgo la seguridad de tus datos.
 
-Al ejecutar el script, se definen dos métodos: start() y stop(). El método start() captura los datos de las canciones mientras haces scroll manualmente y el método stop() detiene el proceso y descarga un archivo CSV con los datos de tus canciones. Si tienes alguna duda o necesitas más información sobre el código, no dudes en preguntar en los comentarios.
+Al ejecutar el script, se definen dos métodos: start() y stop(). El método start() captura los datos de las canciones mientras haces scroll manualmente y el método stop() detiene el proceso y descarga un archivo CSV con los datos de tus canciones.
 
 ```javascript
 //interval representa la búsqueda que se ejecutara cada 100ms, mientras hacemos el scroll manual
@@ -88,7 +87,7 @@ const stop = () => {
 };
 ```
 
-Para ejecutar el script, escribimos start() y presionamos [enter], luego hacemos scroll hasta el final de la página. Una vez que hayas terminado, escribe stop() y presiona [enter] para detener el proceso y descargar el archivo CSV.
+Para ejecutar el script, escribimos start() y presionamos [enter], luego hacemos scroll hasta el final de la página. Una vez que hayas terminado, escribe stop() y presiona [enter] para detener el proceso y descargar el archivo CSV. Si tienes alguna duda o necesitas más información sobre el código, no dudes en preguntar en los comentarios.
 
 https://youtu.be/-Ladto5MJEs
 

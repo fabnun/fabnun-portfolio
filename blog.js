@@ -1,5 +1,11 @@
 const blog = [
   {
+    "date": "11/02/23",
+    "title": "Como obtener las canciones de una playlist en Spotify con JavaScript",
+    "url": "spooty-playlist-javascript-scraping",
+    "fixed": false
+  },
+  {
     "date": "10/02/23",
     "title": "Conversor de namespaces a camelCase en XML",
     "url": "xml-namespace-to-camelcase-converter",
@@ -7,7 +13,7 @@ const blog = [
   },
   {
     "date": "11/02/23",
-    "title": "Como obtener las canciones de una playlist de Spootify con JavaScript",
+    "title": "Como obtener las canciones de una playlist en Spotify con JavaScript",
     "url": "spooty-playlist-javascript-scraping",
     "fixed": false
   }

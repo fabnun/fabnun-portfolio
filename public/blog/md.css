@@ -1,3 +1,26 @@
+body {
+  font-family: 'Montserrat', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.date {
+  font-size: 0.8em;
+  border: 1px solid lightblue;
+  color: white !important;
+  text-decoration: none !important;
+  padding: 0.15em 0.5em;
+  border-radius: 0.3em;
+  font-weight: bolder;
+  font-size: 1em;
+  display: inline-block;
+  margin: 0.5em 0 0 0.5em;
+  min-width: 96px;
+}
+.date a {
+  color: white;
+}
+
 .md {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -989,6 +1012,8 @@
   overflow-y: auto;
   white-space: pre-wrap;
   border-radius: 0.25em;
+  font-family: 12px !important;
+  zoom: 90%;
 }
 
 .header {
@@ -998,12 +1023,7 @@
   margin-bottom: 16px;
 }
 
-ol {
-  counter-reset: LIST-ITEMS 0;
-}
-
-.md li:before {
-  content: counter(LIST-ITEMS) '. ';
-  counter-increment: LIST-ITEMS;
-  font-weight: bold;
+h3 {
+  font-weight: 600;
+  font-size: 1.2em !important;
 }

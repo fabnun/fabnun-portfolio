@@ -55,8 +55,8 @@ export default {
 
     if (['', 'about', 'contact', 'skills', 'portfolio', 'blog'].includes(path)) {
       setTimeout(() => {
-        var elementPosition = '' === path ? 35 : document.getElementById(path).offsetTop;
-        window.scroll({ top: elementPosition - 35, behavior: 'smooth' });
+        var elementPosition = '' === path ? 60 : document.getElementById(path).offsetTop;
+        window.scroll({ top: elementPosition - 60, behavior: 'smooth' });
       }, 250);
     }
   },
@@ -70,12 +70,12 @@ export default {
     scrollTo(ele) {
       if (ele == 'home') {
         if (this.$router.history.current.path !== '/') this.$router.push('/');
-        window.scrollTo({ top: -80, behavior: 'smooth' });
+        window.scrollTo({ top: -60, behavior: 'smooth' });
       } else {
         let path = this.$router.history.current.path;
         if (path[path.length - 1] === '/') path = path.substring(0, path.length - 1);
         var elementPosition = document.getElementById(ele).offsetTop;
-        window.scrollTo({ top: elementPosition - 35, behavior: 'smooth' });
+        window.scrollTo({ top: elementPosition - 60, behavior: 'smooth' });
         if (path !== `/${ele}`) this.$router.push(`/${ele}`);
       }
     },
