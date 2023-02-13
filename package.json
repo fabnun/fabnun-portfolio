@@ -1,12 +1,14 @@
 {
   "name": "fabnun-portfolio",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "private": true,
   "scripts": {
     "serve": "concurrently -r \"node blogBuild.js\" \"vue-cli-service serve\"",
     "serve-blog": "node blogBuild.js",
     "serve-vue": "vue-cli-service serve",
-    "deploy": "vue-cli-service build && firebase deploy --only hosting:fabnun"
+    "deploy": "vue-cli-service build && firebase deploy --only hosting:fabnun",
+    "deploy-build": "vue-cli-service build",
+    "deploy-hosting": "firebase deploy --only hosting:fabnun"
   },
   "dependencies": {
     "aos": "^3.0.0-beta.6",

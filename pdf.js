@@ -71,14 +71,17 @@ const pdf = (inicia, termina, info) => {
         text-decoration: underline;
         display: inline-block;
         white-space: nowrap;
-        margin-right: 12px;
+        margin: 0 8px 0 0;
+        padding: 0;
+        position: relative;
+        top:-4px;
+
       }
 
     </style>
-    <p style="float:right">cv autogenerado el ${new Date().toLocaleString()}</p>
-    <br style="clear:both">
+    <div style="text-align:right;margin:0;padding:0;font-size:12px">cv autogenerado el ${new Date().toLocaleString()}</div>
     <h1>Curriculum Vitae<br>${info.name}</h1>
-    <img style="float:left;${info.config.cv_image_style}" src="${info.flat_picture}" />
+    <img style="float:left;margin-top:0;${info.config.cv_image_style}" src="${info.flat_picture}" />
     
     <p>${info.description_cv}</p>
     <div style="clear:both;" id="qr-links"></div>
@@ -91,11 +94,10 @@ const pdf = (inicia, termina, info) => {
           <h3>${exp.name} - ${exp.position}</h3>
           <h3 style="float:right">${exp.date}</h3>
           <p style="clear:both">${exp.description}<br>
-          <span style="text-decoration:underline">keywords:</span> ${exp.skills.join(', ')}.<br><br></p>
+          <span style="text-decoration:underline">keywords:</span> ${exp.skills.join(', ')}.<br></p>
         `
         )
         .join('')}
-        <br>
     <h2>Educación e Hitos Importantes</h2>
       ${info.education
         .map((exp) =>
@@ -104,7 +106,7 @@ const pdf = (inicia, termina, info) => {
             : `
           <h3>${exp.name}</h3>
           <h3 style="float:right">${exp.date}</h3>
-          <p style="clear:both">${exp.description}<br><br>
+          <p style="clear:both">${exp.description}<br></p>
         `
         )
         .join('')}
@@ -115,8 +117,7 @@ const pdf = (inicia, termina, info) => {
           return skill.space
             ? `<p style="height:${skill.space}px">&nbsp;</p>`
             : `
-          <h3 style="display:inline-block;padding-bottom:0px">${skill.title.trim()} :</h3><p>&nbsp;${skill.info.join(', ')}.</p><br>
-        `;
+          <h3 style="display:inline-block;padding-bottom:0px">${skill.title.trim()} :</h3><p>&nbsp;${skill.info.join(', ')}.</p>`;
         })
         .join('')}
     <h2>Proyectos</h2>
@@ -126,7 +127,7 @@ const pdf = (inicia, termina, info) => {
           project.space
             ? `<p style="height:${project.space}px">&nbsp;</p>`
             : `
-          <h3>${project.name} - ${project.date}</h3><br>
+          <h3>${project.name} - ${project.date}</h3><br style="height:0">
             ${project.project ? '<div class="underline">' + project.project + '</div>' : ''}
             ${project.visit ? '<div class="underline">' + project.visit + '</div>' : ''}
           <br><br>

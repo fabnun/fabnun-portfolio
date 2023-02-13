@@ -2,7 +2,7 @@
 
 ## xml,namespace,camelcase,converter,react,svg,xml-js
 
-Cuando trabajamos con archivos SVG en React, es común encontrar el siguiente error:
+Cuando trabajamos con archivos SVG en React, es probable que nos ocurra el siguiente error:
 
 ```error
 SyntaxError: unknown file: Namespace tags are not supported by default. React's JSX doesn't support namespace tags. You can set `throwIfNamespace: false` to bypass this warning.

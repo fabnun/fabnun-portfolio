@@ -8,15 +8,16 @@ let info = {
     show_blog: true,
     use_cookies: true,
     cv_qrcode: false,
-    cv_image_style: 'border-radius: 50%;margin:0 16px 0 0;width:90px',
+    cv_image_style: 'border-radius: 50%;margin:0 16px 0 0;width:80px',
     navbar: {
       blur: true,
     },
   },
-  description: 'Hola, soy Fabián Núñez, ingeniero civil en computación e informática egresado de la Universidad de Santiago de Chile, con ' + (new Date().getFullYear() - 2004) + ' años de experiencia en el desarrollo de software en diferentes lenguajes y plataformas.<br><br>Me considero una persona creativa con capacidades teóricas y prácticas que permiten abordar problemas complejos. Si pudiera elegir, me gustaría trabajar en el desarrollo de algoritmos o en frontend para proyectos del área educativa, ciencias, artes o videojuegos.<br><br>',
-  description_cv: 'Ingeniero civil en computación e informática egresado de la Universidad de Santiago de Chile con ' + (new Date().getFullYear() - 2004) + ' años de experiencia en el desarrollo de software en diferentes lenguajes y plataformas.<br><br>Me considero una persona creativa con capacidades teóricas y prácticas que permiten abordar problemas complejos. Si pudiera elegir, me gustaría trabajar en el desarrollo de algoritmos o en frontend para proyectos del área educativa, ciencias, artes o videojuegos.',
+
+  description: `Hola, soy Fabián Núñez, ingeniero civil en computación e informática de la Universidad de Santiago de Chile, con ${new Date().getFullYear() - 2004} años de experiencia en el desarrollo de aplicaciones web, híbridas y de escritorio, usando Java, JavaScript, Node, Vue, Flutter, MongoDB, PostgreSQL, GCP, Firebase, SCRUM, POO, etc. He participado de proyectos de software libre y he sido apoyado por el capital semilla y Google for Startups.<br><br>Me considero una persona creativa con capacidades teóricas y prácticas que permiten abordar problemas complejos.<br><br>`,
+  description_cv: 'Ingeniero civil en computación e informática egresado de la Universidad de Santiago de Chile con ' + (new Date().getFullYear() - 2004) + ' años de experiencia en el desarrollo de software, usando Java, JavaScript, Node, Vue, Flutter, MongoDB, PostgreSQL, GCP, Firebase, SCRUM, POO, etc. Me considero una persona creativa con capacidades teóricas y prácticas que permiten abordar problemas complejos.',
   links: {
-    cv: '/pdfs/CV - Fabián Edgardo Núñez Pérez (9-2-2023).pdf',
+    cv: '/pdfs/CV - Fabián Edgardo Núñez Pérez (13-2-2023).pdf',
     email: 'mailto:fabnun@gmail.com',
     fono: 'tel:+569 4246 8328',
     linkedin: 'https://linkedin.com/in/fabnun',
@@ -106,6 +107,9 @@ let info = {
       `,
     },
     {
+      space: 50,
+    },
+    {
       name: 'ProgramaGol',
       pictures: [
         {
@@ -193,9 +197,7 @@ let info = {
       project: 'https://github.com/fabnun/fabnun-portfolio',
       description: 'Portafolio web desarrollado en VUE2 y alojado en FIREBASE. Se realizó una optimización de la configuración y de la carga de recursos, se eliminaron secciones y librerías. Se agregó la funcionalidad de generar automáticamente el CV en formato PDF desde los mismos datos (JSON) que generan la página.<br><br>El proyecto esta ajojado en <a target="_blank" href="https://github.com/fabnun/fabnun-portfolio">fabnun-portfolio</a> y es fork de <a href="https://github.com/hrishikeshpaul/portfolio-template" target="_blank">portfolio-template</a>',
     },
-    {
-      space: 90,
-    },
+
     {
       name: 'KCMS',
       pictures: [
@@ -358,6 +360,9 @@ let info = {
       skills: ['Java', 'JSP', 'PHP', 'Struts', 'Tomcat', 'SQL Server', 'UML'],
     },
     {
+      space: 90,
+    },
+    {
       name: 'TELEFONICA',
       date: 'Enero 2006 - Diciembre 2007',
       position: 'Desarrollo de Software',
@@ -370,9 +375,6 @@ let info = {
       position: 'Desarrollo de Software',
       description: 'Analista programador en Eje Digital, desarrollo y mantenimiento de aplicaciones web, generación de documentación UML de proyectos existentes.',
       skills: ['Java', 'WebSphere', 'JSP', 'Struts', 'Tomcat', 'SQL Server', 'Visual Basic', 'UML'],
-    },
-    {
-      space: 20,
     },
   ],
   education: [
@@ -398,10 +400,9 @@ let info = {
     },
     {
       name: 'UNIVERSIDAD DE SANTIAGO DE CHILE',
-      date: '1996 - 2002',
+      date: '1996 - 2003',
       description: 'Egresado de Ingeniería Civil en Computación e Informática.',
     },
-
     {
       name: 'UNIVERSIDAD DE CHILE',
       date: '1992 - 1995',

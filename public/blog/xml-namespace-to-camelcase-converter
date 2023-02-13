@@ -13,10 +13,10 @@
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
             <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;400&display=swap" />
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" crossorigin="anonymous" />
-            <link rel="stylesheet" href="/blog/style.css?v=1676264127344">
-            <link rel="stylesheet" href="/blog/normalize.css?v=1676264127344">
+            <link rel="stylesheet" href="/blog/style.css?v=1676298333389">
+            <link rel="stylesheet" href="/blog/normalize.css?v=1676298333389">
             <link rel="stylesheet" href="/blog/styles/paraiso-dark.min.css">
-            <link rel="stylesheet" href="/blog/md.css?v=1676264127344">
+            <link rel="stylesheet" href="/blog/md.css?v=1676298333389">
             <script src="/blog/highlight.min.js"></script>
             
             <style>
@@ -44,7 +44,7 @@
               <div class="row">
                 <div id="app" class="md col-12">
 
-<p>Cuando trabajamos con archivos SVG en React, es común encontrar el siguiente error:</p>
+<p>Cuando trabajamos con archivos SVG en React, es probable que nos ocurra el siguiente error:</p>
 <pre>error:<button onclick="copy(event)" style="float:right;color:yellow;font-weight:bolder;background:transparent;border:none;outline:none;">copiar</button><code class="language-error">SyntaxError: unknown file: Namespace tags are not supported by default. React&apos;s JSX doesn&apos;t support namespace tags. You can set `throwIfNamespace: false` to bypass this warning.</code></pre><p>Este error surge debido a que React JSX no admite componentes que utilizan namespaces en etiquetas o atributos.</p>
 <p>En mi caso, me topé con este problema cuando edité un archivo SVG en Inkscape. Afortunadamente, existe una solución sencilla para este problema: convertir los namespaces a formato camelCase.</p>
 <p>Ejemplo: sketch:type -&gt; sketchType</p>

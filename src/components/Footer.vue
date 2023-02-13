@@ -12,7 +12,6 @@
             <button v-for="(value, key) in info.links" :key="key" class="btn btn-outline-secondary mx-1" @click="open(value)" :title="key">
               <svg class="icon"><use :xlink:href="'#icon-' + key"></use></svg>
             </button>
-
             <button
               :class="'btn mx-1' + (process ? ' titila' : '')"
               @click="

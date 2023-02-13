@@ -71,8 +71,6 @@
 </template>
 
 <script>
-import config from '../../config';
-
 export default {
   name: 'Contact',
 
