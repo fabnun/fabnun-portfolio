@@ -1002,7 +1002,7 @@ body {
   filter: invert(50%);
 }
 
-.md code {
+.md pre > code {
   background-color: #161c20;
   color: #fff !important;
   padding: 1em 0.5em;
@@ -1012,8 +1012,11 @@ body {
   overflow-y: auto;
   white-space: pre-wrap;
   border-radius: 0.25em;
-  font-family: 12px !important;
   zoom: 90%;
+
+  font-family: 'Sans Mono', 'Consolas', 'Courier', monospace;
+  font-size: 16px !important;
+  font-weight: 100;
 }
 
 .header {

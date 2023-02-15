@@ -19,7 +19,7 @@
             type="text"
             name="user_name"
             v-model="name"
-            placeholder="nombre"
+            placeholder="Nombre"
             class="pinput"
             :class="{
               pgray: !nightMode,
@@ -50,7 +50,7 @@
           <textarea
             name="message"
             v-model="text"
-            placeholder="mensaje"
+            placeholder="Mensaje"
             class="pinput"
             rows="4"
             :class="{
@@ -63,7 +63,7 @@
         </div>
 
         <button @click.prevent="sendEmail" class="mt-1 btn mb-3" data-aos="fade" data-aos-once="true" data-aos-duration="1000" data-aos-offset="50">
-          Enviar Email con Cliente de Correo
+          Enviar Email con mi Cliente de Correo
         </button>
       </div>
     </div>
@@ -88,10 +88,19 @@ export default {
   },
   methods: {
     sendEmail() {
-      const asunto = encodeURI(`fabnun.web.app [${this.subject}]`);
-      const text = encodeURI(`Correo enviado por ${this.name}.\n\n${this.text}\n\n`);
+      this.name = this.name.trim();
+      this.text = this.text.trim();
+      this.subject = this.subject.trim();
+      if (this.name === '' || this.text === '' || this.subject === '') {
+        alert('Los campos nombre, asunto y mensaje son obligatorios.');
+        return;
+      }
+      const asunto = encodeURI(this.subject);
+      const texto = encodeURI(`Correo desde Formulario\n
+Nombre: ${this.name}
+Mensaje: ${this.text}\n\n`);
       const a = document.createElement('a');
-      a.setAttribute('href', `mailto:fabnun@gmail.com?&subject=${asunto}&body=${text}`);
+      a.setAttribute('href', `mailto:fabnun@gmail.com?&subject=${asunto}&body=${texto}`);
       a.click();
       // this.subject = '';
       // this.text = '';

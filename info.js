@@ -14,7 +14,7 @@ let info = {
     },
   },
 
-  description: `Hola, soy Fabián Núñez, ingeniero civil en computación e informática de la Universidad de Santiago de Chile, con ${new Date().getFullYear() - 2004} años de experiencia en el desarrollo de aplicaciones web, híbridas y de escritorio, usando Java, JavaScript, Node, Vue, Flutter, MongoDB, PostgreSQL, GCP, Firebase, SCRUM, POO, etc. He participado de proyectos de software libre y he sido apoyado por el capital semilla y Google for Startups.<br><br>Me considero una persona creativa con capacidades teóricas y prácticas que permiten abordar problemas complejos.<br><br>`,
+  description: `Hola, soy Fabián Núñez, ingeniero civil en computación e informática de la Universidad de Santiago de Chile, con ${new Date().getFullYear() - 2004} años de experiencia en el desarrollo de aplicaciones web, híbridas y de escritorio, usando Java, JavaScript, Node, Vue, Flutter, MongoDB, PostgreSQL, GCP, Firebase, SCRUM, POO, etc. He participado de proyectos de software libre y he sido apoyado por el Capital Semilla de Corfo y Google for Startups.<br><br>Me considero una persona creativa con capacidades teóricas y prácticas que permiten abordar problemas complejos.<br><br>`,
   description_cv: 'Ingeniero civil en computación e informática egresado de la Universidad de Santiago de Chile con ' + (new Date().getFullYear() - 2004) + ' años de experiencia en el desarrollo de software, usando Java, JavaScript, Node, Vue, Flutter, MongoDB, PostgreSQL, GCP, Firebase, SCRUM, POO, etc. Me considero una persona creativa con capacidades teóricas y prácticas que permiten abordar problemas complejos.',
   links: {
     cv: '/pdfs/CV - Fabián Edgardo Núñez Pérez (13-2-2023).pdf',

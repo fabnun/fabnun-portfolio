@@ -13,12 +13,17 @@ renderer.link = function(href, title, text) {
   if (videoId) {
     return `<div style="position: relative;padding-bottom: 56.25%;"><iframe width="560" height="315" src="https://www.youtube.com/embed/${videoId}?rel=0&amp;controls=1&amp;mute=0&amp;showinfo=0&amp;version=3" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" style="border-radius:8px;position: absolute;top: 0;left: 0;width: 100%;height: 100%;" allowfullscreen></iframe></div>
     `;
-  } else return '<a' + (href[0] !== '/' ? ' target="_blank"' : '') + ' href="' + href + '" title="' + title + '">' + text + '</a>';
+  } else return '<a' + (href[0] !== '/' ? ' target="_blank"' : '') + ' href="' + href + '" title="' + (title ? title : href[0] !== '/' ? ' abrir en pestaña ' + href : ' abrir ' + href) + '">' + text + '</a>';
 };
 
 renderer.code = function(code, language) {
   return `<pre>${language}:<button onclick="copy(event)" style="float:right;color:yellow;font-weight:bolder;background:transparent;border:none;outline:none;">copiar</button><code class="language-${language}">${encode(code)}</code></pre>`;
 };
+
+marked.setOptions({
+  lexer: marked.lexer,
+  parser: marked.Parser,
+});
 
 let timer = [];
 const debounce = (fn, delay, id = 0) => {
@@ -45,20 +50,16 @@ function updateTime() {
   }, 250);
 }
 
-let blogArray = [];
+let blogArray = undefined;
 //-------------------- BLOG.JS --------------------
 function blogJS() {
-  blogArray = blogArray.sort((a, b) => b.date - a.date).reverse();
-  console.log('BLOG ', blogArray);
   const code = `const blog = ${JSON.stringify(blogArray, null, 2)};export default blog;`;
   fs.writeFile(path.join(__dirname, './blog.js'), code, (error) => {
     if (error) {
       console.log('Error generando el archivo blog.js', error);
     } else {
       updateTime();
-      //console.log('Archivo blog.js generado correctamente');
     }
-    blogArray = [];
   });
 }
 
@@ -66,32 +67,36 @@ function blogJS() {
 //TODO: Solo actualizar los archivos que han cambiado, incluir copiar imagenes, (imagen principal: se muestra en el listado), mostrar y filtrar por tags, agregar un buscador de texto... integrar con nuxt.
 const now = Date.now();
 const mdPath = path.join(__dirname, './blog');
-function htmlUpdate() {
+async function htmlUpdate() {
+  if (blogArray === undefined) {
+    let blogStr = await fs.promises.readFile(path.join(__dirname, './blog.js'), 'utf-8');
+    blogStr = blogStr.substring(blogStr.indexOf('['), blogStr.lastIndexOf(']') + 1);
+    blogArray = JSON.parse(blogStr);
+  }
   const htmlPath = path.join(__dirname, './public/blog');
   fs.readdir(mdPath, function(err, files) {
-    const markdownFiles = files.filter((file) => file.endsWith('.md')).sort();
+    const markdownFiles = files.filter((file) => file.endsWith('.md'));
     for (let file of markdownFiles) {
       const dateString = file.substring(0, 6);
       const date = dateString.substring(4, 6) + '/' + dateString.substring(2, 4) + '/' + dateString.substring(0, 2);
-
       const uri = file.substring(7, file.length - 3);
       fs.readFile(path.join(mdPath, file), 'utf-8', function(err, data) {
-        marked.setOptions({
-          lexer: marked.lexer,
-          parser: marked.Parser,
-        });
+        const old = blogArray.find((item) => item.url === uri);
+        if (data.length === old?.size) {
+          return;
+        }
 
         let tokens = marked.lexer(data);
         //console.log(tokens);
         if (tokens.length < 3) {
-          console.error('Error en el archivo', file, '. Debe tener al menos 3 secciones: # título, ## tags y contenido');
+          console.error('Blog Error -> ', file, '. Debe tener: # título, ## tags y contenido');
           return;
         }
 
         if (tokens[0].type === 'heading' && tokens[0].depth === 1) {
           var title = tokens[0].text;
         } else {
-          console.error('Error en el archivo', file, '. El primer elemento debe ser un título de nivel 1 (#)');
+          console.error('Blog Error -> ', file, '. El primer elemento debe ser (#)');
           return;
         }
 
@@ -101,7 +106,7 @@ function htmlUpdate() {
             .replace(/\s/g, '')
             .split(',');
         } else {
-          console.error('Error en el archivo', file, '. El segundo elemento debe ser un título de nivel 2 (##) con una lista de tags separados por comas');
+          console.error('Blog Error -> ', file, '. El segundo elemento debe ser (##) con una lista de tags separados por comas');
           return;
         }
         tokens = tokens.slice(2);
@@ -121,6 +126,7 @@ function htmlUpdate() {
             <link rel="icon" href="/icon.svg" />
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
             <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;400&display=swap" />
+            
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" crossorigin="anonymous" />
             <link rel="stylesheet" href="/blog/style.css?v=${now}">
             <link rel="stylesheet" href="/blog/normalize.css?v=${now}">
@@ -210,16 +216,25 @@ ${htmlContent}
         fs.writeFile(path.join(htmlPath, uri), html, (error) => {
           if (error) {
             console.log('Error generando el archivo', uri, error);
-          } else {
-            console.log('HTML', uri, 'generado correctamente');
           }
         });
-        blogArray.push({
+        //get index of blogArray with same url
+        const index = blogArray.findIndex((blog) => blog.url === uri);
+        const objectEdit = {
           date,
+          dateTime: parseInt(dateString),
           title,
+          tags,
+          size: data.length,
           url: uri,
           fixed: false,
-        });
+        };
+        if (index > -1) {
+          blogArray[index] = objectEdit;
+        } else {
+          blogArray.push(objectEdit);
+        }
+        console.log('Blog Atualizado -> ', file);
         debounce(blogJS, 1000, 'blog')();
       });
     }

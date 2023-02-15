@@ -12,12 +12,11 @@
             <link rel="icon" href="/icon.svg" />
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
             <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;400&display=swap" />
-            
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" crossorigin="anonymous" />
-            <link rel="stylesheet" href="/blog/style.css?v=1676430971349">
-            <link rel="stylesheet" href="/blog/normalize.css?v=1676430971349">
+            <link rel="stylesheet" href="/blog/style.css?v=1676315428588">
+            <link rel="stylesheet" href="/blog/normalize.css?v=1676315428588">
             <link rel="stylesheet" href="/blog/styles/paraiso-dark.min.css">
-            <link rel="stylesheet" href="/blog/md.css?v=1676430971349">
+            <link rel="stylesheet" href="/blog/md.css?v=1676315428588">
             <script src="/blog/highlight.min.js"></script>
             
             <style>
@@ -25,19 +24,19 @@
                 display: none;
               }
             </style>
-            <title>Conversor de namespaces a camelCase en XML</title>
+            <title>Como buscar y agregar canciones a YouTube Music con JavaScript y Puppeteer</title>
           </head>
           <body>
             
             <div class="header">
               <div class="container">
                 <div style="float: right;width: 90px;">
-                  <span class="date">10/02/23</span><br>
+                  <span class="date">13/02/23</span><br>
                   <a class="date" href="/blog/">< Volver</a>
                 </div>
-                <h1 style="margin-top:0;font-size:28px">Conversor de namespaces a camelCase en XML</h1>
+                <h1 style="margin-top:0;font-size:28px">Como buscar y agregar canciones a YouTube Music con JavaScript y Puppeteer</h1>
                 <hr>
-                <h3>TAGS: xml, namespace, camelcase, converter, react, svg, xml-js</h3>
+                <h3>TAGS: youtube-music, playlist, javascript, puppeteer, scraping</h3>
               </div>
             </div>
             <div class="container">
@@ -45,47 +44,7 @@
               <div class="row">
                 <div id="app" class="md col-12">
 
-<p>Cuando trabajamos con archivos SVG en React, es probable que nos ocurra el siguiente error:</p>
-<pre>error:<button onclick="copy(event)" style="float:right;color:yellow;font-weight:bolder;background:transparent;border:none;outline:none;">copiar</button><code class="language-error">SyntaxError: unknown file: Namespace tags are not supported by default. React&apos;s JSX doesn&apos;t support namespace tags. You can set `throwIfNamespace: false` to bypass this warning.</code></pre><p>Este error surge debido a que React JSX no admite componentes que utilizan namespaces en etiquetas o atributos.</p>
-<p>En mi caso, me topé con este problema cuando edité un archivo SVG en Inkscape. Afortunadamente, existe una solución sencilla para este problema: convertir los namespaces a formato camelCase.</p>
-<p>Ejemplo: sketch:type -&gt; sketchType</p>
-<p>Para llevar a cabo esta solución, utilizaremos la librería <a target="_blank" href="https://www.npmjs.com/package/xml-js" title=" abrir en pestaña https://www.npmjs.com/package/xml-js">xml-js</a>, una librería que nos permite convertir xml a json y viceversa. Asi que comenzemos instalando xml-js:</p>
-<pre>bash:<button onclick="copy(event)" style="float:right;color:yellow;font-weight:bolder;background:transparent;border:none;outline:none;">copiar</button><code class="language-bash">npm i xml-js</code></pre><p>y lo usamos de la siguiente forma:</p>
-<pre>javascript:<button onclick="copy(event)" style="float:right;color:yellow;font-weight:bolder;background:transparent;border:none;outline:none;">copiar</button><code class="language-javascript">const xml2js = require(&apos;xml-js&apos;);
-
-//XML DE EJEMPLO
-const xml = `
-&lt;foo:root xmlns:foo=&quot;http://ex.com/foo&quot;&gt;
-  &lt;noChange&gt;value1&lt;/noChange&gt;
-  &lt;foo:elem&gt;value2&lt;/foo:elem&gt;
-&lt;/foo:root&gt;
-`;
-
-//FUNCION PARA CONVERTIR UN NAMESPACE A FORMATO CAMELCASE
-const fnNameSpace2CamelCase = (val) =&gt; {
-  if (val.indexOf(&apos;:&apos;) &gt; -1) {
-    const parts = val.split(&apos;:&apos;);
-    return parts[0] + parts[1].charAt(0).toUpperCase() + parts[1].slice(1);
-  } else {
-    return val;
-  }
-};
-
-//OPCIONES PARA XML2JS
-const options = {
-  ignoreComment: true,
-  //CONVIERTE LOS ELEMENTOS
-  elementNameFn: fnNameSpace2CamelCase,
-  //CONVIERTE LOS ATRIBUTOS
-  attributeNameFn: fnNameSpace2CamelCase,
-};
-
-//CONVERTIMOS XML A JSON APLICANDO LAS OPCIONES ANTERIORES
-const result = xml2js.xml2js(xml, options);
-//Y LUEGO VOLVEMOS A CONVERTIR EL JSON A XML
-const xmlModified = xml2js.js2xml(result);
-console.log(xmlModified);</code></pre><p>Ahora, si quieres ahorrarte el trabajo, puedes usar el siguiente conversor online que construí en:</p>
-<p><a href="/xml-namespace-to-camelcase-converter" title=" abrir /xml-namespace-to-camelcase-converter">fabnun.web.app/xml-namespace-to-camelcase-converter</a></p>
+<p>hola</p>
 
 
 

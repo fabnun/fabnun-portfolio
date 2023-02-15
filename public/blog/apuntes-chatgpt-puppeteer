@@ -1,0 +1,409 @@
+
+        <!DOCTYPE html>
+        <html lang="es">
+        
+          <head>
+            <meta charset="utf-8" />
+            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+            <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+            <meta name="author" content="Fabián Núñez" />
+            <meta name="description" content="Portafolio, Curriculum y Blog de Fabián Núñez" />
+            <base href="/" />
+            <link rel="icon" href="/icon.svg" />
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;400&display=swap" />
+            
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" crossorigin="anonymous" />
+            <link rel="stylesheet" href="/blog/style.css?v=1676430971349">
+            <link rel="stylesheet" href="/blog/normalize.css?v=1676430971349">
+            <link rel="stylesheet" href="/blog/styles/paraiso-dark.min.css">
+            <link rel="stylesheet" href="/blog/md.css?v=1676430971349">
+            <script src="/blog/highlight.min.js"></script>
+            
+            <style>
+              #idc-container-parent{
+                display: none;
+              }
+            </style>
+            <title>Apuntes de Puppeteer</title>
+          </head>
+          <body>
+            
+            <div class="header">
+              <div class="container">
+                <div style="float: right;width: 90px;">
+                  <span class="date">14/02/23</span><br>
+                  <a class="date" href="/blog/">< Volver</a>
+                </div>
+                <h1 style="margin-top:0;font-size:28px">Apuntes de Puppeteer</h1>
+                <hr>
+                <h3>TAGS: puppeteer, javascript, web-scraping, automation, chat-gpt</h3>
+              </div>
+            </div>
+            <div class="container">
+              
+              <div class="row">
+                <div id="app" class="md col-12">
+
+<p><em>Esta documentación fue construida con la ayuda de <a target="_blank" href="https://chat.openai.com/" title=" abrir en pestaña https://chat.openai.com/">ChatGPT</a> de OpenAI (la verdad es que ChatGPT la escribio y yo solo revice 😂).</em></p>
+<p>Puppeteer es una biblioteca de Node.js que permite controlar un navegador mediante código para realizar tareas de automatización web.</p>
+<p>Instalación de Puppeteer:</p>
+<pre>bash:<button onclick="copy(event)" style="float:right;color:yellow;font-weight:bolder;background:transparent;border:none;outline:none;">copiar</button><code class="language-bash">npm install puppeteer</code></pre><hr>
+<p>Ejemplo básico de cómo usar Puppeteer:</p>
+<pre>javascript:<button onclick="copy(event)" style="float:right;color:yellow;font-weight:bolder;background:transparent;border:none;outline:none;">copiar</button><code class="language-javascript">const puppeteer = require(&apos;puppeteer&apos;);
+
+(async () =&gt; {
+  const browser = await puppeteer.launch(); //1
+  const page = await browser.newPage(); //2
+  await page.goto(&apos;https://www.example.com&apos;); //3
+  await page.screenshot({ path: &apos;example.png&apos; }); //4
+  await browser.close(); //5
+})();</code></pre><ol>
+<li>Inicia un navegador 2. Abre una nueva página 3. Navega a <a target="_blank" href="https://www.example.com" title=" abrir en pestaña https://www.example.com">https://www.example.com</a> 4. Captura una captura de pantalla y la guarda en un archivo llamado example.png 5. Cierra el navegador.</li>
+</ol>
+<hr>
+<p>Aquí tienes algunos métodos para interactuar con los elementos de la página:</p>
+<pre>javascript:<button onclick="copy(event)" style="float:right;color:yellow;font-weight:bolder;background:transparent;border:none;outline:none;">copiar</button><code class="language-javascript">// Obtener un elemento por su selector CSS
+const element = await page.$(&apos;#myElement&apos;);
+
+// Obtener varios elementos por su selector CSS
+const elements = await page.$$(&apos;.myElements&apos;);
+
+// Hacer clic en un elemento
+await element.click();
+
+// Escribir texto en un elemento
+await element.type(&apos;Hello, world!&apos;);
+
+// Obtener el valor de un atributo de un elemento
+const value = await element.getProperty(&apos;value&apos;).jsonValue();
+
+// Obtener el texto de un elemento
+const text = await element.evaluate((node) =&gt; node.innerText);</code></pre><hr>
+<p>Puppeteer puede esperar a que ocurran ciertas cosas en la página antes de continuar:</p>
+<pre>javascript:<button onclick="copy(event)" style="float:right;color:yellow;font-weight:bolder;background:transparent;border:none;outline:none;">copiar</button><code class="language-javascript">// Esperar a que la página cargue
+await page.waitForNavigation();
+
+// Esperar a que un elemento aparezca
+await page.waitForSelector(&apos;#myElement&apos;);
+
+// Esperar a que un elemento desaparezca
+await page.waitForSelector(&apos;#myElement&apos;, { hidden: true });
+
+// Esperar un tiempo específico
+await page.waitForTimeout(1000);</code></pre><hr>
+<p>Aquí tienes algunos eventos del navegador a los que puedes suscribirte:</p>
+<pre>javascript:<button onclick="copy(event)" style="float:right;color:yellow;font-weight:bolder;background:transparent;border:none;outline:none;">copiar</button><code class="language-javascript">// Escuchar cuando se abre una nueva página
+browser.on(&apos;targetcreated&apos;, (target) =&gt; {
+  if (target.type() === &apos;page&apos;) {
+    console.log(&apos;New page:&apos;, target.url());
+  }
+});
+
+// Escuchar cuando se cierra una página
+browser.on(&apos;targetdestroyed&apos;, (target) =&gt; {
+  if (target.type() === &apos;page&apos;) {
+    console.log(&apos;Page closed&apos;);
+  }
+});
+
+// Escuchar cuando se produce un error en el navegador
+browser.on(&apos;error&apos;, (error) =&gt; {
+  console.error(&apos;Browser error:&apos;, error);
+});</code></pre><hr>
+<h1>Documentación detallada de Puppeteer</h1>
+<p>El objeto <strong><em>puppeteer</em></strong> es el punto de entrada a la biblioteca de Puppeteer. Contiene métodos para crear un navegador y conectarse a uno ya existente.</p>
+<h3><strong><em>puppeteer.launch([options])</em></strong></h3>
+<p>Crea una instancia de un navegador Chromium y devuelve una promesa que se resuelve en una instancia de <strong><em>Browser</em></strong>.</p>
+<p>Opciones admitidas:</p>
+<ul>
+<li><strong><em>headless</em></strong> (boolean): si es <strong><em>true</em></strong>, el navegador se ejecutará en modo sin cabeza (es decir, sin interfaz gráfica de usuario). Por defecto es <strong><em>true</em></strong>.</li>
+<li><strong><em>slowMo</em></strong> (number): ralentiza el navegador en milisegundos. Por defecto es <strong><em>0</em></strong>.</li>
+<li><strong><em>devtools</em></strong> (boolean): si es <strong><em>true</em></strong>, abre las herramientas de desarrollo de Chromium. Por defecto es <strong><em>false</em></strong>.</li>
+<li><strong><em>args</em></strong> (string[]): un array de argumentos de línea de comandos para pasar al navegador. Por defecto es <strong><em>[]</em></strong>.</li>
+<li><strong><em>executablePath</em></strong> (string): la ruta al ejecutable de Chromium que se va a utilizar. Si no se especifica, Puppeteer buscará un ejecutable en el sistema.</li>
+</ul>
+<pre>javascript:<button onclick="copy(event)" style="float:right;color:yellow;font-weight:bolder;background:transparent;border:none;outline:none;">copiar</button><code class="language-javascript">const puppeteer = require(&apos;puppeteer&apos;);
+
+puppeteer
+  .launch({
+    headless: false,
+    slowMo: 100,
+    devtools: true,
+    args: [&apos;--disable-infobars&apos;],
+    executablePath: &apos;/path/to/chromium&apos;,
+  })
+  .then((browser) =&gt; {
+    // ...
+  });</code></pre><h3><strong><em>puppeteer.connect([options])</em></strong></h3>
+<p>Crea una conexión a una instancia ya existente de Chromium y devuelve una promesa que se resuelve en una instancia de <strong><em>Browser</em></strong>.</p>
+<p>Opciones admitidas:</p>
+<ul>
+<li><strong><em>browserURL</em></strong> (string): la URL a la que se debe conectar Puppeteer para conectarse al navegador existente. Esta URL debe estar en el formato <strong><em>ws://</em></strong> o <strong><em>wss://</em></strong>.</li>
+<li><strong><em>browserWSEndpoint</em></strong> (string): el endpoint de WebSockets a través del cual Puppeteer puede conectarse al navegador existente.</li>
+</ul>
+<pre>javascript:<button onclick="copy(event)" style="float:right;color:yellow;font-weight:bolder;background:transparent;border:none;outline:none;">copiar</button><code class="language-javascript">const puppeteer = require(&apos;puppeteer&apos;);
+
+puppeteer
+  .connect({
+    browserURL: &apos;http://localhost:9222&apos;,
+  })
+  .then((browser) =&gt; {
+    // ...
+  });</code></pre><hr>
+<p>El objeto <strong><em>browser</em></strong> representa una instancia de un navegador Chromium. Contiene métodos para crear nuevas páginas y controlar el navegador en sí mismo.</p>
+<h3><strong><em>browser.newPage()</em></strong></h3>
+<p>Crea una nueva instancia de <strong><em>Page</em></strong> en el navegador y devuelve una promesa que se resuelve en la nueva página.</p>
+<pre>javascript:<button onclick="copy(event)" style="float:right;color:yellow;font-weight:bolder;background:transparent;border:none;outline:none;">copiar</button><code class="language-javascript">const page = await browser.newPage();</code></pre><h3><strong><em>browser.pages()</em></strong></h3>
+<p>Devuelve una promesa que se resuelve en un array de todas las instancias de <strong><em>Page</em></strong> abiertas en el navegador.</p>
+<pre>javascript:<button onclick="copy(event)" style="float:right;color:yellow;font-weight:bolder;background:transparent;border:none;outline:none;">copiar</button><code class="language-javascript">const pages = await browser.pages();</code></pre><h3>browser.close()</h3>
+<p>Cierra el navegador y todas las páginas que contiene.</p>
+<pre>javascript:<button onclick="copy(event)" style="float:right;color:yellow;font-weight:bolder;background:transparent;border:none;outline:none;">copiar</button><code class="language-javascript">await browser.close();</code></pre><h3>browser.on(event, callback)</h3>
+<p>Registra un <strong><em>callback</em></strong> para ser llamado cada vez que se produce el evento especificado.</p>
+<p>Eventos admitidos:</p>
+<ul>
+<li><strong><em>disconnected</em></strong>: se produce cuando la conexión entre Puppeteer y el navegador se pierde.</li>
+<li><strong><em>targetcreated</em></strong>: se produce cuando se crea un nuevo objeto <strong><em>Target</em></strong> en el navegador</li>
+</ul>
+<hr>
+<p>El objeto <strong><em>page</em></strong> representa una página web en el navegador. Contiene métodos para interactuar con la página, manipular su contenido y realizar capturas de pantalla.</p>
+<h3>page.goto(url[, options])</h3>
+<p>Navega a la URL especificada y devuelve una promesa que se resuelve cuando la navegación ha terminado.</p>
+<p>Opciones admitidas:</p>
+<ul>
+<li><strong><em>timeout</em></strong> (number): el tiempo de espera en milisegundos antes de que la navegación falle. Por defecto es 30 segundos.</li>
+<li><strong><em>waitUntil</em></strong> (string | string[]): una o varias cadenas que especifican cuándo considerar que la navegación ha terminado. Los valores admitidos son <strong><em>&quot;load&quot;</em></strong>, <strong><em>&quot;domcontentloaded&quot;</em></strong>, <strong><em>&quot;networkidle0&quot;</em></strong> y <strong><em>&quot;networkidle2&quot;</em></strong>. Por defecto es <strong><em>&quot;load&quot;</em></strong>.</li>
+</ul>
+<pre>javascript:<button onclick="copy(event)" style="float:right;color:yellow;font-weight:bolder;background:transparent;border:none;outline:none;">copiar</button><code class="language-javascript">await page.goto(&apos;https://example.com&apos;);</code></pre><h3>page.waitForSelector(selector[, options])</h3>
+<p>Espera a que el selector especificado esté presente en la página y devuelve una promesa que se resuelve cuando se encuentra.</p>
+<p>Opciones admitidas:</p>
+<ul>
+<li><strong><em>visible</em></strong> (boolean): si es <strong><em>true</em></strong>, espera a que el selector esté visible. Si es <strong><em>false</em></strong>, espera a que el selector exista en el DOM. Por defecto es <strong><em>false</em></strong>.</li>
+<li><strong><em>hidden</em></strong> (boolean): si es <strong><em>true</em></strong>, espera a que el selector esté oculto. Por defecto es <strong><em>false</em></strong>.</li>
+<li><strong><em>timeout</em></strong> (number): el tiempo de espera en milisegundos antes de que la espera falle. Por defecto es 30 segundos.</li>
+</ul>
+<pre>javascript:<button onclick="copy(event)" style="float:right;color:yellow;font-weight:bolder;background:transparent;border:none;outline:none;">copiar</button><code class="language-javascript">await page.waitForSelector(&apos;#myElement&apos;);</code></pre><h3>page.click(selector[, options])</h3>
+<p>Hace clic en el elemento especificado por el selector y devuelve una promesa que se resuelve cuando se completa la acción.</p>
+<p>Opciones admitidas:</p>
+<ul>
+<li><strong><em>button</em></strong> (string): el botón del ratón que se debe utilizar para hacer clic. Los valores admitidos son <strong><em>&quot;left&quot;</em></strong>, <em><strong>&quot;right&quot;</strong></em> y <strong><em>&quot;middle&quot;</em></strong>. Por defecto es <strong><em>&quot;left&quot;</em></strong>.</li>
+<li><strong><em>clickCount</em></strong> (number): el número de clics que se deben realizar. Por defecto es <strong><em>1</em></strong>.</li>
+<li><strong><em>delay</em></strong> (number): el tiempo de espera en milisegundos antes de hacer clic en el elemento. Por defecto es <strong><em>0</em></strong>.</li>
+</ul>
+<pre>javascript:<button onclick="copy(event)" style="float:right;color:yellow;font-weight:bolder;background:transparent;border:none;outline:none;">copiar</button><code class="language-javascript">await page.click(&apos;#myButton&apos;);</code></pre><h3>page.type(selector, text[, options])</h3>
+<p>Escribe el texto especificado en el elemento especificado por el selector y devuelve una promesa que se resuelve cuando se completa la acción.</p>
+<p>Opciones admitidas:</p>
+<ul>
+<li><strong><em>delay</em></strong> (number): el tiempo de espera en milisegundos entre las pulsaciones de teclas. Por defecto es <strong><em>0</em></strong>.</li>
+</ul>
+<pre>javascript:<button onclick="copy(event)" style="float:right;color:yellow;font-weight:bolder;background:transparent;border:none;outline:none;">copiar</button><code class="language-javascript">await page.type(&apos;#myInput&apos;, &apos;Hello, world!&apos;);</code></pre><h3>page.screenshot([options])</h3>
+<p>Toma una captura de pantalla de la página y devuelve una promesa que se resuelve con los datos de la imagen en formato PNG.</p>
+<p>Opciones admitidas:</p>
+<ul>
+<li><strong><em>path</em></strong> (string): la ruta al archivo en el que se debe guardar la imagen.</li>
+<li><strong><em>type</em></strong> (string): el formato de la imagen. Los valores admitidos son <strong><em>&quot;jpeg&quot;</em></strong> y <strong><em>&quot;png&quot;</em></strong>. Por defecto es <strong><em>&quot;png&quot;</em></strong>.</li>
+<li><strong><em>quality</em></strong> (number): la calidad de la imagen en caso de que se utilice el formato JPEG. Por defecto es <strong><em>80</em></strong>.</li>
+<li>fullPage ...........</li>
+</ul>
+<hr>
+<p>El objeto <strong><em>elementHandle</em></strong> representa un elemento en la página. Contiene métodos para interactuar con el elemento y obtener información sobre él.</p>
+<h3>elementHandle.click([options])</h3>
+<p>Hace clic en el elemento y devuelve una promesa que se resuelve cuando se completa la acción.</p>
+<p>Opciones admitidas:</p>
+<ul>
+<li><strong><em>button</em></strong> (string): el botón del ratón que se debe utilizar para hacer clic. Los valores admitidos son <strong><em>&quot;left&quot;</em></strong>, <strong><em>&quot;right&quot;</em></strong> y <strong><em>&quot;middle&quot;</em></strong>. Por defecto es <strong><em>&quot;left&quot;</em></strong>.</li>
+<li><strong><em>clickCount</em></strong> (number): el número de clics que se deben realizar. Por defecto es <strong><em>1</em></strong>.</li>
+<li><strong><em>delay</em></strong> (number): el tiempo de espera en milisegundos antes de hacer clic en el elemento. Por defecto es <strong><em>0</em></strong>.</li>
+</ul>
+<pre>javascript:<button onclick="copy(event)" style="float:right;color:yellow;font-weight:bolder;background:transparent;border:none;outline:none;">copiar</button><code class="language-javascript">const button = await page.$(&apos;#myButton&apos;);
+await button.click();</code></pre><h3>elementHandle.type(text[, options])</h3>
+<p>Escribe el texto especificado en el elemento y devuelve una promesa que se resuelve cuando se completa la acción.</p>
+<p>Opciones admitidas:</p>
+<ul>
+<li><strong><em>delay</em></strong> (number): el tiempo de espera en milisegundos entre las pulsaciones de teclas. Por defecto es <strong><em>0</em></strong>.</li>
+</ul>
+<pre>javascript:<button onclick="copy(event)" style="float:right;color:yellow;font-weight:bolder;background:transparent;border:none;outline:none;">copiar</button><code class="language-javascript">const input = await page.$(&apos;#myInput&apos;);
+await input.type(&apos;Hello, world!&apos;);</code></pre><h3>elementHandle.getProperty(propertyName)</h3>
+<p>Obtiene la propiedad especificada del elemento y devuelve una promesa que se resuelve con su valor.</p>
+<pre>javascript:<button onclick="copy(event)" style="float:right;color:yellow;font-weight:bolder;background:transparent;border:none;outline:none;">copiar</button><code class="language-javascript">const element = await page.$(&apos;#myElement&apos;);
+const className = await element.getProperty(&apos;className&apos;);
+console.log(className);</code></pre><h3>elementHandle.boundingBox()</h3>
+<p>Obtiene las coordenadas del cuadro delimitador del elemento y devuelve una promesa que se resuelve con un objeto con las propiedades **_x<code>, _**y</code>, <strong><em>width</em></strong> y <strong><em>height</em></strong>.</p>
+<pre>javascript:<button onclick="copy(event)" style="float:right;color:yellow;font-weight:bolder;background:transparent;border:none;outline:none;">copiar</button><code class="language-javascript">const element = await page.$(&apos;#myElement&apos;);
+const box = await element.boundingBox();
+console.log(box);</code></pre><h3>elementHandle.screenshot([options])</h3>
+<p>Toma una captura de pantalla del elemento y devuelve una promesa que se resuelve con los datos de la imagen en formato PNG.</p>
+<p>Opciones admitidas:</p>
+<ul>
+<li><strong><em>path</em></strong> (string): la ruta al archivo en el que se debe guardar la imagen.</li>
+<li><strong><em>type</em></strong> (string): el formato de la imagen. Los valores admitidos son <strong><em>&quot;jpeg&quot;</em></strong> y <strong><em>&quot;png&quot;</em></strong>. Por defecto es <strong><em>&quot;png&quot;</em></strong>.</li>
+<li><strong><em>quality</em></strong> (number): la calidad de la imagen en caso de que se utilice el formato JPEG. Por defecto es <strong><em>80</em></strong>.</li>
+<li><strong><em>omitBackground</em></strong> (boolean): si es <strong><em>true</em></strong>, no se incluye el fondo de la página en la captura de pantalla. Por defecto es <strong><em>false</em></strong>.</li>
+</ul>
+<pre>javascript:<button onclick="copy(event)" style="float:right;color:yellow;font-weight:bolder;background:transparent;border:none;outline:none;">copiar</button><code class="language-javascript">const element = await page.$(&apos;#myElement&apos;);
+const screenshot = await element.screenshot();
+console.log(screenshot);</code></pre><hr>
+<p>El objeto <strong><em>keyboard</em></strong> representa el teclado en el navegador. Contiene métodos para emular pulsaciones de teclas.</p>
+<h3>keyboard.type(text[, options])</h3>
+<p>Escribe el texto especificado y devuelve una promesa que se resuelve cuando se completa la acción.</p>
+<p>Opciones admitidas:</p>
+<ul>
+<li><strong><em>delay</em></strong> (number): el tiempo de espera en milisegundos entre las pulsaciones de teclas. Por defecto es <strong><em>0</em></strong>.</li>
+</ul>
+<pre>javascript:<button onclick="copy(event)" style="float:right;color:yellow;font-weight:bolder;background:transparent;border:none;outline:none;">copiar</button><code class="language-javascript">await page.keyboard.type(&apos;Hello, world!&apos;);</code></pre><h3>keyboard.press(key[, options])</h3>
+<p>Simula la pulsación de una tecla y devuelve una promesa que se resuelve cuando se completa la acción.</p>
+<p><strong><em>key</em></strong> es una cadena que especifica la tecla a pulsar. Los valores admitidos son las teclas que aparecen en un teclado estándar, como <strong><em>&quot;ArrowUp&quot;</em></strong>, **_&quot;Enter&quot;<code>, _**&quot;Backspace&quot;</code>, etc. También se admiten códigos de tecla numéricos, como <strong><em>&quot;\u0008&quot;</em></strong> para <strong><em>&quot;Backspace&quot;</em></strong>. Puedes encontrar una lista completa de teclas en la <a target="_blank" href="https://pptr.dev/#?product=Puppeteer&version=v10.4.0&show=api-keyboardpresskey-options" title=" abrir en pestaña https://pptr.dev/#?product=Puppeteer&version=v10.4.0&show=api-keyboardpresskey-options">documentación de Puppeteer</a>.</p>
+<p>Opciones admitidas:</p>
+<ul>
+<li><strong><em>delay</em></strong> (number): el tiempo de espera en milisegundos antes de soltar la tecla. Por defecto es <strong><em>0</em></strong>.</li>
+</ul>
+<pre>javascript:<button onclick="copy(event)" style="float:right;color:yellow;font-weight:bolder;background:transparent;border:none;outline:none;">copiar</button><code class="language-javascript">await page.keyboard.press(&apos;ArrowDown&apos;);</code></pre><h3>keyboard.up(key)</h3>
+<p>Simula la liberación de una tecla y devuelve una promesa que se resuelve cuando se completa la acción.</p>
+<p><strong><em>key</em></strong> es una cadena que especifica la tecla a liberar. Los valores admitidos son los mismos que para <strong><em>keyboard.press()</em></strong>.</p>
+<pre>javascript:<button onclick="copy(event)" style="float:right;color:yellow;font-weight:bolder;background:transparent;border:none;outline:none;">copiar</button><code class="language-javascript">await page.keyboard.up(&apos;ArrowDown&apos;);</code></pre><h3>keyboard.down(key)</h3>
+<p>Simula la pulsación de una tecla y devuelve una promesa que se resuelve cuando se completa la acción.</p>
+<p><strong><em>key</em></strong> es una cadena que especifica la tecla a pulsar. Los valores admitidos son los mismos que para <strong><em>keyboard.press()</em></strong>.</p>
+<pre>javascript:<button onclick="copy(event)" style="float:right;color:yellow;font-weight:bolder;background:transparent;border:none;outline:none;">copiar</button><code class="language-javascript">await page.keyboard.down(&apos;Shift&apos;);
+await page.keyboard.press(&apos;KeyA&apos;);
+await page.keyboard.up(&apos;Shift&apos;);</code></pre><hr>
+<p>El objeto <strong><em>mouse</em></strong> representa el ratón en el navegador. Contiene métodos para mover y hacer clic con el ratón.</p>
+<h3>mouse.move(x, y[, options])</h3>
+<p>Mueve el ratón a las coordenadas especificadas y devuelve una promesa que se resuelve cuando se completa la acción.</p>
+<p>Opciones admitidas:</p>
+<ul>
+<li><strong><em>steps</em></strong> (number): el número de pasos intermedios que se deben realizar al mover el ratón. Por defecto es <strong><em>1</em></strong>.</li>
+<li><strong><em>delay</em></strong> (number): el tiempo de espera en milisegundos entre cada paso intermedio. Por defecto es <strong><em>0</em></strong>.</li>
+</ul>
+<pre>javascript:<button onclick="copy(event)" style="float:right;color:yellow;font-weight:bolder;background:transparent;border:none;outline:none;">copiar</button><code class="language-javascript">await page.mouse.move(100, 200);</code></pre><h3>mouse.click(x, y[, options])</h3>
+<p>Hace clic con el ratón en las coordenadas especificadas y devuelve una promesa que se resuelve cuando se completa la acción.</p>
+<p>Opciones admitidas:</p>
+<ul>
+<li><strong><em>button</em></strong> (string): el botón del ratón que se debe utilizar para hacer clic. Los valores admitidos son <strong><em>&quot;left&quot;</em></strong>, **_&quot;right&quot;<em>**y **</em>&quot;middle&quot;<em>**. Por defecto es **</em>&quot;left&quot;_**.</li>
+<li><strong><em>clickCount</em></strong> (number): el número de clics que se deben realizar. Por defecto es <strong><em>1</em></strong>.</li>
+<li><strong><em>delay</em></strong> (number): el tiempo de espera en milisegundos antes de hacer clic con el ratón. Por defecto es <strong><em>0</em></strong>.</li>
+</ul>
+<pre>javascript:<button onclick="copy(event)" style="float:right;color:yellow;font-weight:bolder;background:transparent;border:none;outline:none;">copiar</button><code class="language-javascript">await page.mouse.click(100, 200);</code></pre><h3>mouse.down([options])</h3>
+<p>Mantiene presionado un botón del ratón y devuelve una promesa que se resuelve cuando se completa la acción.</p>
+<p>Opciones admitidas:</p>
+<ul>
+<li><strong><em>button</em></strong> (string): el botón del ratón que se debe mantener presionado.</li>
+</ul>
+<p>Los valores admitidos son los mismos que para <strong><em>mouse.click()</em></strong>.</p>
+<pre>javascript:<button onclick="copy(event)" style="float:right;color:yellow;font-weight:bolder;background:transparent;border:none;outline:none;">copiar</button><code class="language-javascript">await page.mouse.down();</code></pre><h3>mouse.up([options])</h3>
+<p>Liberar el botón del ratón y devuelve una promesa que se resuelve cuando se completa la acción.</p>
+<p>Opciones admitidas:</p>
+<ul>
+<li><strong><em>button</em></strong> (string): el botón del ratón que se debe liberar. Los valores admitidos son los mismos que para <strong><em>mouse.click()</em></strong>.</li>
+</ul>
+<pre>javascript:<button onclick="copy(event)" style="float:right;color:yellow;font-weight:bolder;background:transparent;border:none;outline:none;">copiar</button><code class="language-javascript">await page.mouse.up();</code></pre><hr>
+<p>El objeto <strong><em>touchscreen</em></strong> representa una pantalla táctil en el navegador. Contiene métodos para simular eventos táctiles, como toques, desplazamientos y pellizcos.</p>
+<h3>touchscreen.tap(x, y)</h3>
+<p>Simula un toque en las coordenadas especificadas y devuelve una promesa que se resuelve cuando se completa la acción.</p>
+<pre>javascript:<button onclick="copy(event)" style="float:right;color:yellow;font-weight:bolder;background:transparent;border:none;outline:none;">copiar</button><code class="language-javascript">await page.touchscreen.tap(100, 200);</code></pre><h3>touchscreen.down(x, y)</h3>
+<p>Simula el inicio de un toque en las coordenadas especificadas y devuelve una promesa que se resuelve cuando se completa la acción.</p>
+<pre>javascript:<button onclick="copy(event)" style="float:right;color:yellow;font-weight:bolder;background:transparent;border:none;outline:none;">copiar</button><code class="language-javascript">await page.touchscreen.down(100, 200);</code></pre><h3>touchscreen.move(x, y)</h3>
+<p>Simula el movimiento de un toque a las coordenadas especificadas y devuelve una promesa que se resuelve cuando se completa la acción.</p>
+<pre>javascript:<button onclick="copy(event)" style="float:right;color:yellow;font-weight:bolder;background:transparent;border:none;outline:none;">copiar</button><code class="language-javascript">await page.touchscreen.move(150, 250);</code></pre><h3>touchscreen.up()</h3>
+<p>Simula el final de un toque y devuelve una promesa que se resuelve cuando se completa la acción.</p>
+<pre>javascript:<button onclick="copy(event)" style="float:right;color:yellow;font-weight:bolder;background:transparent;border:none;outline:none;">copiar</button><code class="language-javascript">await page.touchscreen.up();</code></pre><h3>touchscreen.cancel()</h3>
+<p>Cancela el evento táctil actual y devuelve una promesa que se resuelve cuando se completa la acción.</p>
+<pre>javascript:<button onclick="copy(event)" style="float:right;color:yellow;font-weight:bolder;background:transparent;border:none;outline:none;">copiar</button><code class="language-javascript">await page.touchscreen.cancel();</code></pre><h3>touchscreen.scroll(x, y)</h3>
+<p>Simula un desplazamiento en la pantalla táctil y devuelve una promesa que se resuelve cuando se completa la acción.</p>
+<pre>javascript:<button onclick="copy(event)" style="float:right;color:yellow;font-weight:bolder;background:transparent;border:none;outline:none;">copiar</button><code class="language-javascript">await page.touchscreen.scroll(0, 100);</code></pre><h3>touchscreen.pinch(x, y)</h3>
+<p>Simula un pellizco en la pantalla táctil y devuelve una promesa que se resuelve cuando se completa la acción.</p>
+<pre>javascript:<button onclick="copy(event)" style="float:right;color:yellow;font-weight:bolder;background:transparent;border:none;outline:none;">copiar</button><code class="language-javascript">await page.touchscreen.pinch(100, 200);</code></pre><h3>touchscreen.pinchMove(x, y, scale)</h3>
+<p>Simula un movimiento de pellizco en la pantalla táctil y devuelve una promesa que se resuelve cuando se completa la acción.</p>
+<pre>javascript:<button onclick="copy(event)" style="float:right;color:yellow;font-weight:bolder;background:transparent;border:none;outline:none;">copiar</button><code class="language-javascript">await page.touchscreen.pinchMove(150, 250, 0.5);</code></pre><hr>
+<p>El objeto <strong><em>coverage</em></strong> le permite recopilar información sobre el código que se ejecuta en la página. Puede recopilar información sobre el código JavaScript, CSS y de recursos.</p>
+<h3>coverage.startJSCoverage([options])</h3>
+<p>Comienza a recopilar información de cobertura de código JavaScript y devuelve una promesa que se resuelve cuando la acción está completa. De forma predeterminada, se recopila información de cobertura para todo el código cargado en la página, pero se puede limitar a un solo archivo usando la opción <strong><em>resetOnNavigation</em></strong>.</p>
+<p>Opciones admitidas:</p>
+<ul>
+<li><strong><em>resetOnNavigation</em></strong> (boolean): si es <strong><em>true</em></strong>, se restablece la información de cobertura de código cada vez que se navega a una nueva URL. De forma predeterminada, es <strong><em>true</em></strong>.</li>
+</ul>
+<pre>javascript:<button onclick="copy(event)" style="float:right;color:yellow;font-weight:bolder;background:transparent;border:none;outline:none;">copiar</button><code class="language-javascript">await page.coverage.startJSCoverage();</code></pre><h3>coverage.stopJSCoverage()</h3>
+<p>Detiene la recopilación de información de cobertura de código JavaScript y devuelve una promesa que se resuelve con los datos de cobertura. Los datos de cobertura se presentan como una matriz de objetos que tienen las siguientes propiedades:</p>
+<ul>
+<li><strong><em>url</em></strong> (string): la URL del archivo cubierto.</li>
+<li><strong><em>text</em></strong> (string): el código fuente cubierto.</li>
+<li><strong><em>ranges</em></strong> (array): una matriz de objetos que representan los rangos de código cubiertos. Cada objeto tiene las siguientes propiedades:<ul>
+<li><strong><em>start</em></strong> (number): el índice del primer carácter del rango cubierto.</li>
+<li><strong><em>end</em></strong> (number): el índice del último carácter del rango cubierto.</li>
+<li><strong><em>count</em></strong> (number): el número de veces que se ejecutó el rango cubierto.</li>
+</ul>
+</li>
+</ul>
+<pre>javascript:<button onclick="copy(event)" style="float:right;color:yellow;font-weight:bolder;background:transparent;border:none;outline:none;">copiar</button><code class="language-javascript">const coverage = await page.coverage.stopJSCoverage();
+console.log(coverage);</code></pre><h3>coverage.startCSSCoverage([options])</h3>
+<p>Comienza a recopilar información de cobertura de código CSS y devuelve una promesa que se resuelve cuando la acción está completa. De forma predeterminada, se recopila información de cobertura para todo el código cargado en la página, pero se puede limitar a un solo archivo usando la opción <strong><em>resetOnNavigation</em></strong>.</p>
+<p>Opciones admitidas:</p>
+<ul>
+<li><strong><em>resetOnNavigation</em></strong> (boolean): si es <strong><em>true</em></strong>, se restablece la información de cobertura de código cada vez que se navega a una nueva URL. De forma predeterminada, es <strong><em>true</em></strong>.</li>
+</ul>
+<pre>javascript:<button onclick="copy(event)" style="float:right;color:yellow;font-weight:bolder;background:transparent;border:none;outline:none;">copiar</button><code class="language-javascript">await page.coverage.startCSSCoverage();</code></pre><h3>coverage.stopCSSCoverage()</h3>
+<p>Detiene la recopilación de información de cobertura de código CSS y devuelve una promesa que se resuelve con los datos de cobertura. Los datos de cobertura se presentan como una matriz de objetos que tienen las siguientes propiedades:</p>
+<ul>
+<li><strong><em>url</em></strong> (string): la URL del archivo cubierto.</li>
+<li><strong><em>ranges</em></strong> (array): una matriz de objetos que representan los rangos de código cubiertos. Cada objeto tiene las siguientes propiedades:<ul>
+<li><strong><em>start</em></strong> (number): el índice del primer carácter del rango cubierto.</li>
+<li><strong><em>end</em></strong> (number): el índice del último carácter del rango cubierto.</li>
+</ul>
+</li>
+</ul>
+<pre>javascript:<button onclick="copy(event)" style="float:right;color:yellow;font-weight:bolder;background:transparent;border:none;outline:none;">copiar</button><code class="language-javascript">const coverage = await page.coverage.stopCSSCoverage();
+console.log(coverage);</code></pre><h3>coverage.startJSCoverage(options)</h3>
+<p>Comienza a recopilar información de cobertura de código JavaScript y devuelve</p>
+
+
+
+                </div>
+              </div>
+            </div>
+            <span id="IDCommentsPostTitle" style="display:none"></span>
+          </body>
+          
+          <script>
+
+            async function copy(event) {
+              try {
+                const code=event.target.parentElement.children[1].innerText
+                await navigator.clipboard.writeText(code);
+                alert('Texto copiado al portapapeles.');
+              } catch (err) {
+                alert('Error al copiar texto al portapapeles: '+ err.message);
+              }
+            }
+            var idcomments_acct = '7133cfcf914d938be0f4d8672fffda74';
+            var idcomments_post_id;
+            var idcomments_post_url;
+            if(window.location.port==="8080"){
+              let lastTime=window.localStorage.getItem('lastTime')||"0";
+              setInterval(async () => {
+                const resp=await fetch("/blog/updateTime?timestamp="+Date.now(),{
+                  method: 'get'
+                });
+                const updateTime=await resp.text();
+                if(updateTime!==lastTime){
+                  console.log(lastTime, updateTime);
+                  lastTime=updateTime;
+                  window.localStorage.setItem('lastTime',lastTime);
+                  window.location.reload();
+                }
+              }, 1000);
+            }
+          </script>
+          <script type="text/javascript" src="https://www.intensedebate.com/js/genericCommentWrapperV2.js"></script>
+          <script>
+          const interval=setInterval(() => {
+            const div=document.getElementById('idc-container-parent')
+            if (div?.style){
+              div.style.display='block';
+              clearInterval(interval);
+            }
+          }, 200);
+          document.querySelectorAll('.language-javascript,.language-html,.language-css,.language-java').forEach((el) => {
+            hljs.highlightElement(el);
+          });
+          </script>
+        </html>
+      

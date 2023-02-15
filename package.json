@@ -1,6 +1,6 @@
 {
   "name": "fabnun-portfolio",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "private": true,
   "scripts": {
     "serve": "concurrently -r \"node blogBuild.js\" \"vue-cli-service serve\"",
