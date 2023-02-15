@@ -9,7 +9,7 @@
       <div class="row">
         <div class="col-xl-4 col-bg-4 col-md-4 col-sm-12 text-center pb-5 px-4" v-for="(post, idx) in postsOrded" :key="post.title" data-aos="fade-up" data-aos-offset="10" data-aos-delay="30" :style="{ 'transition-delay': idx / 4.2 + 's' }" data-aos-duration="500" data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="true">
           <div class="title2 pt-2" style="border:1px solid gray;padding:8px;border-radius: .5em;">
-            <a :href="'/blog/' + post.url" :class="{ pgray: !nightMode, 'text-light': nightMode }" style="text-decoration: none;">
+            <a :href="'/blog/' + post.url" :class="{ pgray: !nightMode, 'text-light': nightMode }" style="text-decoration: none;color: gray">
               <h2 class="title2 pt-2">{{ post.title }}</h2>
               <span style="display:block;font-size:12px;text-align:right;padding:0;margin:0">{{ post.date }}</span>
               <h3 style="font-size:14px">{{ post.tags.join(', ') }}</h3>
