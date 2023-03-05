@@ -14,11 +14,23 @@
             <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;400&display=swap" />
             
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" crossorigin="anonymous" />
-            <link rel="stylesheet" href="/blog/style.css?v=1676430971349">
-            <link rel="stylesheet" href="/blog/normalize.css?v=1676430971349">
+            <link rel="stylesheet" href="/blog/style.css?v=1677816387342">
+            <link rel="stylesheet" href="/blog/normalize.css?v=1677816387342">
             <link rel="stylesheet" href="/blog/styles/paraiso-dark.min.css">
-            <link rel="stylesheet" href="/blog/md.css?v=1676430971349">
+            <link rel="stylesheet" href="/blog/md.css?v=1677816387342">
             <script src="/blog/highlight.min.js"></script>
+            
+            <!-- Google tag (gtag.js) -->
+            <script async src="https://www.googletagmanager.com/gtag/js?id=G-GG4SKFV18W"></script>
+            <script>
+              window.dataLayer = window.dataLayer || [];
+              function gtag() {
+                dataLayer.push(arguments);
+              }
+              gtag('js', new Date());
+        
+              gtag('config', 'G-GG4SKFV18W');
+            </script>
             
             <style>
               #idc-container-parent{
@@ -228,7 +240,7 @@ await input.type(&apos;Hello, world!&apos;);</code></pre><h3>elementHandle.getPr
 <pre>javascript:<button onclick="copy(event)" style="float:right;color:yellow;font-weight:bolder;background:transparent;border:none;outline:none;">copiar</button><code class="language-javascript">const element = await page.$(&apos;#myElement&apos;);
 const className = await element.getProperty(&apos;className&apos;);
 console.log(className);</code></pre><h3>elementHandle.boundingBox()</h3>
-<p>Obtiene las coordenadas del cuadro delimitador del elemento y devuelve una promesa que se resuelve con un objeto con las propiedades **_x<code>, _**y</code>, <strong><em>width</em></strong> y <strong><em>height</em></strong>.</p>
+<p>Obtiene las coordenadas del cuadro delimitador del elemento y devuelve una promesa que se resuelve con un objeto con las propiedades <strong><em>x</em></strong>, <strong><em>y</em></strong>, <strong><em>width</em></strong> y <strong><em>height</em></strong>.</p>
 <pre>javascript:<button onclick="copy(event)" style="float:right;color:yellow;font-weight:bolder;background:transparent;border:none;outline:none;">copiar</button><code class="language-javascript">const element = await page.$(&apos;#myElement&apos;);
 const box = await element.boundingBox();
 console.log(box);</code></pre><h3>elementHandle.screenshot([options])</h3>
@@ -252,7 +264,7 @@ console.log(screenshot);</code></pre><hr>
 </ul>
 <pre>javascript:<button onclick="copy(event)" style="float:right;color:yellow;font-weight:bolder;background:transparent;border:none;outline:none;">copiar</button><code class="language-javascript">await page.keyboard.type(&apos;Hello, world!&apos;);</code></pre><h3>keyboard.press(key[, options])</h3>
 <p>Simula la pulsación de una tecla y devuelve una promesa que se resuelve cuando se completa la acción.</p>
-<p><strong><em>key</em></strong> es una cadena que especifica la tecla a pulsar. Los valores admitidos son las teclas que aparecen en un teclado estándar, como <strong><em>&quot;ArrowUp&quot;</em></strong>, **_&quot;Enter&quot;<code>, _**&quot;Backspace&quot;</code>, etc. También se admiten códigos de tecla numéricos, como <strong><em>&quot;\u0008&quot;</em></strong> para <strong><em>&quot;Backspace&quot;</em></strong>. Puedes encontrar una lista completa de teclas en la <a target="_blank" href="https://pptr.dev/#?product=Puppeteer&version=v10.4.0&show=api-keyboardpresskey-options" title=" abrir en pestaña https://pptr.dev/#?product=Puppeteer&version=v10.4.0&show=api-keyboardpresskey-options">documentación de Puppeteer</a>.</p>
+<p><strong><em>key</em></strong> es una cadena que especifica la tecla a pulsar. Los valores admitidos son las teclas que aparecen en un teclado estándar, como <strong><em>&quot;ArrowUp&quot;</em></strong>, <strong><em>&quot;Enter&quot;</em></strong>, <strong><em>&quot;Backspace&quot;</em></strong>, etc. También se admiten códigos de tecla numéricos, como <strong><em>&quot;\u0008&quot;</em></strong> para <strong><em>&quot;Backspace&quot;</em></strong>. Puedes encontrar una lista completa de teclas en la <a target="_blank" href="https://pptr.dev/#?product=Puppeteer&version=v10.4.0&show=api-keyboardpresskey-options" title=" abrir en pestaña https://pptr.dev/#?product=Puppeteer&version=v10.4.0&show=api-keyboardpresskey-options">documentación de Puppeteer</a>.</p>
 <p>Opciones admitidas:</p>
 <ul>
 <li><strong><em>delay</em></strong> (number): el tiempo de espera en milisegundos antes de soltar la tecla. Por defecto es <strong><em>0</em></strong>.</li>
@@ -278,7 +290,7 @@ await page.keyboard.up(&apos;Shift&apos;);</code></pre><hr>
 <p>Hace clic con el ratón en las coordenadas especificadas y devuelve una promesa que se resuelve cuando se completa la acción.</p>
 <p>Opciones admitidas:</p>
 <ul>
-<li><strong><em>button</em></strong> (string): el botón del ratón que se debe utilizar para hacer clic. Los valores admitidos son <strong><em>&quot;left&quot;</em></strong>, **_&quot;right&quot;<em>**y **</em>&quot;middle&quot;<em>**. Por defecto es **</em>&quot;left&quot;_**.</li>
+<li><strong><em>button</em></strong> (string): el botón del ratón que se debe utilizar para hacer clic. Los valores admitidos son <strong><em>&quot;left&quot;</em></strong>, <strong><em>&quot;right&quot;</em></strong> y <strong><em>&quot;middle&quot;</em></strong> . Por defecto es <strong><em>&quot;left&quot;</em></strong> .</li>
 <li><strong><em>clickCount</em></strong> (number): el número de clics que se deben realizar. Por defecto es <strong><em>1</em></strong>.</li>
 <li><strong><em>delay</em></strong> (number): el tiempo de espera en milisegundos antes de hacer clic con el ratón. Por defecto es <strong><em>0</em></strong>.</li>
 </ul>

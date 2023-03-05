@@ -63,6 +63,37 @@ function blogJS() {
   });
 }
 
+//-------------------- SITEMAP.XML --------------------
+function sitemap() {
+  let otherSites = ['https://fabnun.web.app/', 'https://fabnun.web.app/xml-namespace-to-camelcase-converter', 'https://fabnun.web.app/pdfs/CV.pdf'];
+  otherSites = otherSites.concat(blogArray.map((item) => 'https://fabnun.web.app/blog/' + item.url));
+  const code = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+  ${otherSites
+    .map(
+      (url, idx) =>
+        `\t<url>
+\t\t<loc>${url}</loc>
+\t\t<lastmod>${new Date().toISOString()}</lastmod>
+\t\t<priority>${idx === 0 ? '1.00' : '0.80'}</priority>
+\t</url>
+`
+    )
+    .join('')}
+</urlset>`;
+  fs.writeFile(path.join(__dirname, './public/sitemap.xml'), code, (error) => {
+    if (error) {
+      console.log('Error generando el archivo sitemap.xml', error);
+    } else {
+      updateTime();
+    }
+  });
+}
+
 //-------------------- HTML --------------------
 //TODO: Solo actualizar los archivos que han cambiado, incluir copiar imagenes, (imagen principal: se muestra en el listado), mostrar y filtrar por tags, agregar un buscador de texto... integrar con nuxt.
 const now = Date.now();
@@ -77,6 +108,9 @@ async function htmlUpdate() {
   fs.readdir(mdPath, function(err, files) {
     const markdownFiles = files.filter((file) => file.endsWith('.md'));
     for (let file of markdownFiles) {
+      if (!/^\d{6}(\-\w+)+\.md$/gi.test(file)) {
+        continue;
+      }
       const dateString = file.substring(0, 6);
       const date = dateString.substring(4, 6) + '/' + dateString.substring(2, 4) + '/' + dateString.substring(0, 2);
       const uri = file.substring(7, file.length - 3);
@@ -130,9 +164,21 @@ async function htmlUpdate() {
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" crossorigin="anonymous" />
             <link rel="stylesheet" href="/blog/style.css?v=${now}">
             <link rel="stylesheet" href="/blog/normalize.css?v=${now}">
-            <link rel="stylesheet" href="/blog/styles/paraiso-dark.min.css">
+            <link rel="stylesheet" href="/blog/styles/monokai.min.css">
             <link rel="stylesheet" href="/blog/md.css?v=${now}">
             <script src="/blog/highlight.min.js"></script>
+            
+            <!-- Google tag (gtag.js) -->
+            <script async src="https://www.googletagmanager.com/gtag/js?id=G-GG4SKFV18W"></script>
+            <script>
+              window.dataLayer = window.dataLayer || [];
+              function gtag() {
+                dataLayer.push(arguments);
+              }
+              gtag('js', new Date());
+        
+              gtag('config', 'G-GG4SKFV18W');
+            </script>
             
             <style>
               #idc-container-parent{
@@ -236,6 +282,7 @@ ${htmlContent}
         }
         console.log('Blog Atualizado -> ', file);
         debounce(blogJS, 1000, 'blog')();
+        debounce(sitemap, 1000, 'sitemap')();
       });
     }
   });

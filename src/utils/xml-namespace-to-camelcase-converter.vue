@@ -3,12 +3,16 @@
     <h2 class="mt-5">XML NameSpace to CamelCase Converter</h2>
     <button class="m-5 p-5" @click="loadSVG" @dragover.prevent="onDragOver" @dragleave.prevent="onDragLeave" @drop.prevent="onDrop">Click or Drag<br />to load your SVG file</button>
     <br />
-    <a href="/blog/xml-namespace-to-camelcase-converter">View blog post</a>
+    <a href="/blog/xml-namespace-to-camelcase-converter">View blog post</a><br />
+    <a href="https://github.com/fabnun/fabnun-portfolio/blob/main/src/utils/xml-namespace-to-camelcase-converter.vue" target="_blank">View converter in github</a>
   </div>
 </template>
 <script>
 const xml2js = require('xml-js');
 export default {
+  metaInfo: {
+    title: 'XML NameSpace to CamelCase Converter',
+  },
   name: 'XmlConverter',
   data() {
     return {};

@@ -40,6 +40,9 @@
 import info from '../../info';
 
 export default {
+  metaInfo: {
+    title: 'fabnun • Portafolio • Blog • Skills • About • Contact',
+  },
   name: 'Home',
   props: {
     nightMode: {

@@ -1,2 +1,3 @@
 User-agent: *
 Allow: /
+Sitemap: http://fabnun.web.app/sitemap.xml

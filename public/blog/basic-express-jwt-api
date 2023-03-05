@@ -1,0 +1,301 @@
+
+        <!DOCTYPE html>
+        <html lang="es">
+        
+          <head>
+            <meta charset="utf-8" />
+            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+            <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+            <meta name="author" content="Fabián Núñez" />
+            <meta name="description" content="Portafolio, Curriculum y Blog de Fabián Núñez" />
+            <base href="/" />
+            <link rel="icon" href="/icon.svg" />
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;400&display=swap" />
+            
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" crossorigin="anonymous" />
+            <link rel="stylesheet" href="/blog/style.css?v=1677990434554">
+            <link rel="stylesheet" href="/blog/normalize.css?v=1677990434554">
+            <link rel="stylesheet" href="/blog/styles/monokai.min.css">
+            <link rel="stylesheet" href="/blog/md.css?v=1677990434554">
+            <script src="/blog/highlight.min.js"></script>
+            
+            <!-- Google tag (gtag.js) -->
+            <script async src="https://www.googletagmanager.com/gtag/js?id=G-GG4SKFV18W"></script>
+            <script>
+              window.dataLayer = window.dataLayer || [];
+              function gtag() {
+                dataLayer.push(arguments);
+              }
+              gtag('js', new Date());
+        
+              gtag('config', 'G-GG4SKFV18W');
+            </script>
+            
+            <style>
+              #idc-container-parent{
+                display: none;
+              }
+            </style>
+            <title>Basic API (Node, Express, Jwt, Ejs)</title>
+          </head>
+          <body>
+            
+            <div class="header">
+              <div class="container">
+                <div style="float: right;width: 90px;">
+                  <span class="date">06/03/23</span><br>
+                  <a class="date" href="/blog/">< Volver</a>
+                </div>
+                <h1 style="margin-top:0;font-size:28px">Basic API (Node, Express, Jwt, Ejs)</h1>
+                <hr>
+                <h3>TAGS: node, express, jwt, ejs, api</h3>
+              </div>
+            </div>
+            <div class="container">
+              
+              <div class="row">
+                <div id="app" class="md col-12">
+
+<p><div style="position: relative;padding-bottom: 56.25%;"><iframe width="560" height="315" src="https://www.youtube.com/embed/ZDggvJSeSS4?rel=0&amp;controls=1&amp;mute=0&amp;showinfo=0&amp;version=3" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" style="border-radius:8px;position: absolute;top: 0;left: 0;width: 100%;height: 100%;" allowfullscreen></iframe></div>
+    </p>
+<p><a target="_blank" href="https://github.com/fabnun/template-jwt-express-api" title=" abrir en pestaña https://github.com/fabnun/template-jwt-express-api">Ver proyecto en Github</a></p>
+<p>El siguiente código un ejemplo de una API básica en Node utilizando Express, JsonWebToken (JWT) y Ejs. Esta API ofrece tres endpoints: /login, /logout y /sumar.</p>
+<p>El endpoint /login recibe los datos de usuario y contraseña y verifica si son válidos. Si las credenciales son correctas, la API genera un token de autenticación JWT, lo devuelve y lo utiliza para las siguientes solicitudes.</p>
+<p>El endpoint /logout requiere una validación de token, y si es exitosa, devuelve un mensaje de éxito.</p>
+<p>El endpoint /sumar también requiere una validación de token, y si es exitosa, suma dos números y devuelve el resultado.</p>
+<p>La API utiliza la biblioteca Ejs para renderizar un archivo HTML que muestra la lista de los endpoints disponibles y botones para llamarlos.</p>
+<p>El código también incluye una función de validación de token (validateToken), que se utiliza para verificar si un token es válido antes de permitir el acceso a los endpoints que lo requieren.</p>
+<h3>index.js (Servidor / Express)</h3>
+<pre>javascript:<button onclick="copy(event)" style="float:right;color:yellow;font-weight:bolder;background:transparent;border:none;outline:none;">copiar</button><code class="language-javascript">const jwt = require(&apos;jsonwebtoken&apos;);
+const express = require(&apos;express&apos;);
+const ejs = require(&apos;ejs&apos;);
+
+// Inicia la aplicación
+const app = express();
+
+// Permite usar archivos estáticos de la carpeta public
+app.use(express.static(&apos;public&apos;));
+
+// Renderiza archivos html de la carpeta views con ejs
+app.engine(&apos;html&apos;, ejs.renderFile);
+app.set(&apos;view engine&apos;, &apos;html&apos;);
+
+// Permite recibir datos en formato JSON
+app.use(express.json());
+
+// El home se renderiza con ejs, usando un titulo y un mensaje
+app.get(&apos;/&apos;, function(req, res) {
+  const titulo = &apos;Basic API (Node, Express, Jwt, Ejs)&apos;;
+  res.render(&apos;index&apos;, {
+    titulo: titulo,
+    mensaje: `
+    &lt;h1&gt;${titulo}&lt;/h1&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;code&gt;/login&lt;/code&gt; iniciar sesión&lt;/li&gt;
+        &lt;li&gt;&lt;code&gt;/logout&lt;/code&gt; cerrar sesión&lt;/li&gt;
+        &lt;li&gt;&lt;code&gt;/sumar&lt;/code&gt; sumar dos números (requiere token valido)&lt;/li&gt;
+    &lt;/ul&gt; 
+  `,
+  });
+});
+
+// API login
+app.post(&apos;/login&apos;, (req, res) =&gt; {
+  // Recibe los datos del usuario y la contraseña
+  const { username, password } = req.body;
+  // Verifica las credenciales con valores de ejemplo (deberia usar una base de datos y encriptar la contraseña)
+  if (username === &apos;usuario&apos; &amp;&amp; password === &apos;contraseña&apos;) {
+    // Genera el token de autenticación, usando el nombre de usuario como payload
+    const token = jwt.sign({ username }, &apos;secret-key&apos;);
+    // Devuelve el token
+    res.json({ token });
+  } else {
+    // Devuelve un error si las credenciales son inválidas
+    res.status(401).json({ mensaje: &apos;Credenciales inválidas&apos; });
+  }
+});
+
+//API logout, requiere validar token
+app.post(&apos;/logout&apos;, validateToken, (req, res) =&gt; {
+  // Devuelve mensaje de exito
+  res.json({ mensaje: &apos;Logout exitoso&apos; });
+});
+
+//API sumar, requiere validar token
+app.post(&apos;/sumar&apos;, validateToken, (req, res) =&gt; {
+  // Recibe los datos del formulario
+  const { num1, num2 } = req.body;
+  // Suma los números
+  const resultado = num1 + num2;
+  // Devuelve el resultado
+  res.json({ resultado });
+});
+
+// Función para validar el token
+function validateToken(req, res, next) {
+  // Obtiene el token del header de la petición
+  const token = req.headers.authorization;
+  try {
+    // Verifica que el token sea del tipo Bearer
+    if (token.startsWith(&apos;Bearer &apos;)) {
+      // Verifica que el token sea válido
+      jwt.verify(token.substring(7), &apos;secret-key&apos;);
+      // Continua con la petición
+      next();
+    } else {
+      // Devuelve un error si el token no es del tipo Bearer
+      res.status(401).json({ mensaje: &apos;Sin autorización, Token inválido&apos; });
+    }
+  } catch (err) {
+    // Devuelve un error si se genera un error al verificar el token
+    res.status(401).json({ mensaje: &apos;Sin autorización, Token inválido&apos; });
+  }
+}
+
+// Inicia el servidor en el puerto 3000
+const port = 3000;
+app.listen(port, () =&gt; console.log(&apos;http://localhost:&apos; + port));</code></pre><p>.Y este segundo código es un ejemplo de cómo llamar a la API desde el lado del cliente utilizando JavaScript.</p>
+<p>La función login() realiza una solicitud POST al endpoint /login con las credenciales del usuario y contraseña en formato JSON. Si la respuesta es exitosa, el token de autenticación se guarda en el localStorage. Si hay un error, se muestra en la consola.</p>
+<p>La función logout() realiza una solicitud POST al endpoint /logout con el token de autorización en el header. Si la respuesta es exitosa, el token se elimina del localStorage. Si hay un error, se muestra en la consola.</p>
+<p>La función sumar() genera dos números aleatorios y realiza una solicitud POST al endpoint /sumar con el token de autorización en el header y los números a sumar en formato JSON en el cuerpo de la solicitud. Si la respuesta es exitosa, muestra el resultado en la consola. Si hay un error, se muestra en la consola.</p>
+<h3>index.js (Cliente / JavaScript)</h3>
+<pre>javascript:<button onclick="copy(event)" style="float:right;color:yellow;font-weight:bolder;background:transparent;border:none;outline:none;">copiar</button><code class="language-javascript">// API login
+const login = async () =&gt; {
+  try {
+    // Hace un post a /login, pasando el usuario y contraseña
+    const resp = await fetch(&apos;/login&apos;, {
+      method: &apos;POST&apos;,
+      headers: {
+        &apos;Content-Type&apos;: &apos;application/json&apos;,
+      },
+      body: JSON.stringify({ username: &apos;usuario&apos;, password: &apos;contraseña&apos; }),
+    });
+    //Obtiene la respuesta en formato json
+    const data = await resp.json();
+    // Si la respuesta no es ok, lanza el error indicado en &quot;mensaje&quot;
+    if (!resp.ok) {
+      throw new Error(data.mensaje);
+    }
+    // Si login esta ok, guarda el token en el localStorage
+    localStorage.setItem(&apos;token&apos;, data.token);
+    // Muestra el mensaje de exito
+    console.log(&apos;Login correcto, token guardado&apos;);
+  } catch (error) {
+    // Si hay error, lo muestra en la consola
+    console.error(error.message);
+  }
+};
+
+// API logout
+const logout = async () =&gt; {
+  try {
+    // Hace un post a /logout, pasando el token de autorización
+    const resp = await fetch(&apos;/logout&apos;, {
+      method: &apos;POST&apos;,
+      headers: {
+        &apos;Content-Type&apos;: &apos;application/json&apos;,
+        //Bearer es el tipo de token que se usa, y el token se obtiene del localStorage
+        Authorization: &apos;Bearer &apos; + localStorage.getItem(&apos;token&apos;),
+      },
+    });
+    //Obtiene la respuesta en formato json
+    const data = await resp.json();
+    // Si la respuesta no es ok, lanza el error indicado en &quot;mensaje&quot;
+    if (!resp.ok) {
+      throw new Error(data.mensaje);
+    }
+    // Si logout esta ok, elimina el token del localStorage
+    localStorage.removeItem(&apos;token&apos;);
+    // Muestra el mensaje de exito
+    console.log(data.mensaje);
+  } catch (error) {
+    // Si hay error, lo muestra en la consola
+    console.error(error.message);
+  }
+};
+
+// API sumar
+const sumar = async () =&gt; {
+  try {
+    // numero aleatorio entre 0 y 10
+    const num1 = Math.trunc(Math.random() * 10);
+    // numero aleatorio entre 0 y 10
+    const num2 = Math.trunc(Math.random() * 10);
+    // Hace un post a /sumar, pasando el token de autorización y los numeros a sumar
+    const resp = await fetch(&apos;/sumar&apos;, {
+      method: &apos;POST&apos;,
+      headers: {
+        &apos;Content-Type&apos;: &apos;application/json&apos;,
+        //Bearer es el tipo de token que se usa, y el token se obtiene del localStorage
+        Authorization: &apos;Bearer &apos; + localStorage.getItem(&apos;token&apos;),
+      },
+      body: JSON.stringify({ num1, num2 }),
+    });
+    //Obtiene la respuesta en formato json
+    const data = await resp.json();
+    // Si la respuesta no es ok, lanza el error indicado en &quot;mensaje&quot;
+    if (!resp.ok) {
+      throw new Error(data.mensaje);
+    }
+    // Si sumar esta ok, muestra el resultado
+    console.log(`${num1} + ${num2} = ${data.resultado}`);
+  } catch (error) {
+    // Si hay error, lo muestra en la consola
+    console.error(error.mensaje);
+  }
+};</code></pre><p>Espero que este ejemplo sirva como introducción a la autenticación con JWT, cualquier duda, critica o comentario pueden dejarlo en los comentarios.</p>
+
+
+
+                </div>
+              </div>
+            </div>
+            <span id="IDCommentsPostTitle" style="display:none"></span>
+          </body>
+          
+          <script>
+
+            async function copy(event) {
+              try {
+                const code=event.target.parentElement.children[1].innerText
+                await navigator.clipboard.writeText(code);
+                alert('Texto copiado al portapapeles.');
+              } catch (err) {
+                alert('Error al copiar texto al portapapeles: '+ err.message);
+              }
+            }
+            var idcomments_acct = '7133cfcf914d938be0f4d8672fffda74';
+            var idcomments_post_id;
+            var idcomments_post_url;
+            if(window.location.port==="8080"){
+              let lastTime=window.localStorage.getItem('lastTime')||"0";
+              setInterval(async () => {
+                const resp=await fetch("/blog/updateTime?timestamp="+Date.now(),{
+                  method: 'get'
+                });
+                const updateTime=await resp.text();
+                if(updateTime!==lastTime){
+                  console.log(lastTime, updateTime);
+                  lastTime=updateTime;
+                  window.localStorage.setItem('lastTime',lastTime);
+                  window.location.reload();
+                }
+              }, 1000);
+            }
+          </script>
+          <script type="text/javascript" src="https://www.intensedebate.com/js/genericCommentWrapperV2.js"></script>
+          <script>
+          const interval=setInterval(() => {
+            const div=document.getElementById('idc-container-parent')
+            if (div?.style){
+              div.style.display='block';
+              clearInterval(interval);
+            }
+          }, 200);
+          document.querySelectorAll('.language-javascript,.language-html,.language-css,.language-java').forEach((el) => {
+            hljs.highlightElement(el);
+          });
+          </script>
+        </html>
+      

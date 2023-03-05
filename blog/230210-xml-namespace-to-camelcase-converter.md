@@ -62,3 +62,5 @@ console.log(xmlModified);
 Ahora, si quieres ahorrarte el trabajo, puedes usar el siguiente conversor online que construí en:
 
 [fabnun.web.app/xml-namespace-to-camelcase-converter](/xml-namespace-to-camelcase-converter)
+
+[Conversor en github](https://github.com/fabnun/fabnun-portfolio/blob/main/src/utils/xml-namespace-to-camelcase-converter.vue)

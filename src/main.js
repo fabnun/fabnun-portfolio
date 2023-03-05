@@ -5,10 +5,15 @@ import 'aos/dist/aos.css';
 import VueScrollTo from 'vue-scrollto';
 import VueRouter from 'vue-router';
 var VueCookie = require('vue-cookie');
+import VueMeta from 'vue-meta';
 
 Vue.use(VueRouter);
 Vue.use(VueScrollTo);
 Vue.use(VueCookie);
+Vue.use(VueMeta, {
+  // optional pluginOptions
+  refreshOnceOnNavigation: true,
+});
 
 Vue.config.productionTip = false;
 

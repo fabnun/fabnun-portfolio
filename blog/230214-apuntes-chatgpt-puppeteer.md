@@ -301,7 +301,7 @@ console.log(className);
 
 ### elementHandle.boundingBox()
 
-Obtiene las coordenadas del cuadro delimitador del elemento y devuelve una promesa que se resuelve con un objeto con las propiedades **_x`, _**y`, **_width_** y **_height_**.
+Obtiene las coordenadas del cuadro delimitador del elemento y devuelve una promesa que se resuelve con un objeto con las propiedades **_x_**, **_y_**, **_width_** y **_height_**.
 
 ```javascript
 const element = await page.$('#myElement');
@@ -346,7 +346,7 @@ await page.keyboard.type('Hello, world!');
 
 Simula la pulsación de una tecla y devuelve una promesa que se resuelve cuando se completa la acción.
 
-**_key_** es una cadena que especifica la tecla a pulsar. Los valores admitidos son las teclas que aparecen en un teclado estándar, como **_"ArrowUp"_**, **_"Enter"`, _**"Backspace"`, etc. También se admiten códigos de tecla numéricos, como **_"\u0008"_** para **_"Backspace"_**. Puedes encontrar una lista completa de teclas en la [documentación de Puppeteer](https://pptr.dev/#?product=Puppeteer&version=v10.4.0&show=api-keyboardpresskey-options).
+**_key_** es una cadena que especifica la tecla a pulsar. Los valores admitidos son las teclas que aparecen en un teclado estándar, como **_"ArrowUp"_**, **_"Enter"_**, **_"Backspace"_**, etc. También se admiten códigos de tecla numéricos, como **_"\u0008"_** para **_"Backspace"_**. Puedes encontrar una lista completa de teclas en la [documentación de Puppeteer](https://pptr.dev/#?product=Puppeteer&version=v10.4.0&show=api-keyboardpresskey-options).
 
 Opciones admitidas:
 
@@ -401,7 +401,7 @@ Hace clic con el ratón en las coordenadas especificadas y devuelve una promesa 
 
 Opciones admitidas:
 
-- **_button_** (string): el botón del ratón que se debe utilizar para hacer clic. Los valores admitidos son **_"left"_**, **_"right"_**y **_"middle"_**. Por defecto es **_"left"_**.
+- **_button_** (string): el botón del ratón que se debe utilizar para hacer clic. Los valores admitidos son **_"left"_**, **_"right"_** y **_"middle"_** . Por defecto es **_"left"_** .
 - **_clickCount_** (number): el número de clics que se deben realizar. Por defecto es **_1_**.
 - **_delay_** (number): el tiempo de espera en milisegundos antes de hacer clic con el ratón. Por defecto es **_0_**.
 

@@ -13,13 +13,45 @@
       </div>
       <hr width="50%" :class="{ pgray: !nightMode, 'bg-secondary': nightMode }" />
       <br />
-      <div class="text-center">
+      <form class="text-center" action="https://formsubmit.co/3c6d6b545e4b45329ddf429e0783e156" method="POST">
         <div class="mb-3" data-aos="fade-up" data-aos-once="true" data-aos-duration="1000">
           <input
             type="text"
-            name="user_name"
-            v-model="name"
+            name="name"
             placeholder="Nombre"
+            required
+            class="pinput"
+            :class="{
+              pgray: !nightMode,
+              'pgray-dark': nightMode,
+              'text-light': nightMode,
+            }"
+            style="transition-delay: 0.2s"
+          />
+        </div>
+
+        <div class="mb-3" data-aos="fade-up" data-aos-once="true" data-aos-duration="1000">
+          <input
+            type="text"
+            name="name"
+            placeholder="Nombre"
+            required
+            class="pinput"
+            :class="{
+              pgray: !nightMode,
+              'pgray-dark': nightMode,
+              'text-light': nightMode,
+            }"
+            style="transition-delay: 0.2s"
+          />
+        </div>
+
+        <div class="mb-3" data-aos="fade-up" data-aos-once="true" data-aos-duration="1000">
+          <input
+            type="email"
+            name="email"
+            placeholder="E-Mail"
+            required
             class="pinput"
             :class="{
               pgray: !nightMode,
@@ -31,26 +63,10 @@
         </div>
 
         <div class="my-3" data-aos="fade-up" data-aos-once="true" data-aos-duration="1000">
-          <input
-            type="text"
-            name="user_subject"
-            v-model="subject"
-            placeholder="Asunto"
-            class="pinput"
-            :class="{
-              pgray: !nightMode,
-              'pgray-dark': nightMode,
-              'text-light': nightMode,
-            }"
-            style="transition-delay: 0.4s"
-          />
-        </div>
-
-        <div class="my-3" data-aos="fade-up" data-aos-once="true" data-aos-duration="1000">
           <textarea
             name="message"
-            v-model="text"
             placeholder="Mensaje"
+            required
             class="pinput"
             rows="4"
             :class="{
@@ -62,10 +78,15 @@
           ></textarea>
         </div>
 
-        <button @click.prevent="sendEmail" class="mt-1 btn mb-3" data-aos="fade" data-aos-once="true" data-aos-duration="1000" data-aos-offset="50">
-          Enviar Email con mi Cliente de Correo
+        <input type="hidden" name="_next" value="https://fabnun.web.app/contact?mailOk" />
+        <input type="hidden" name="_subject" value="Mensaje del formulario de contacto" />
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_template" value="box" />
+
+        <button type="submit" class="mt-1 btn mb-3" data-aos="fade" data-aos-once="true" data-aos-duration="1000" data-aos-offset="50">
+          Enviar Mensaje
         </button>
-      </div>
+      </form>
     </div>
   </div>
 </template>
@@ -74,37 +95,17 @@
 export default {
   name: 'Contact',
 
+  mounted() {
+    if (window.location.href.endsWith('?mailOk')) {
+      setTimeout(() => {
+        alert('He recibido tu mensaje, pronto enviare la respuesta. Saludos.');
+      }, 1000);
+    }
+  },
+
   props: {
     nightMode: {
       type: Boolean,
-    },
-  },
-  data() {
-    return {
-      name: '',
-      subject: '',
-      text: '',
-    };
-  },
-  methods: {
-    sendEmail() {
-      this.name = this.name.trim();
-      this.text = this.text.trim();
-      this.subject = this.subject.trim();
-      if (this.name === '' || this.text === '' || this.subject === '') {
-        alert('Los campos nombre, asunto y mensaje son obligatorios.');
-        return;
-      }
-      const asunto = encodeURI(this.subject);
-      const texto = encodeURI(`Correo desde Formulario\n
-Nombre: ${this.name}
-Mensaje: ${this.text}\n\n`);
-      const a = document.createElement('a');
-      a.setAttribute('href', `mailto:fabnun@gmail.com?&subject=${asunto}&body=${texto}`);
-      a.click();
-      // this.subject = '';
-      // this.text = '';
-      // this.name = '';
     },
   },
 };

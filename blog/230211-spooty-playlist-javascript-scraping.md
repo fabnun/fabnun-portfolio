@@ -2,7 +2,7 @@
 
 ## javascript,spotify,playlist,dynamic-web-scraping
 
-Si quieres migrar tus playlists favoritas de Spotify a YouTube Music y ahorrar algunos pesos, una opción es hacerlo por tu cuenta. Con un poco de conocimiento técnico, puedes utilizar JavaScript para obtener los datos de tus canciones y guardarlos en un archivo CSV.
+Si quieres obtener información de tus playlists favoritas de Spotify, puedes utilizar JavaScript para obtener los datos de tus canciones y guardarlos en un archivo CSV.
 
 En este artículo, te mostraré los pasos que debes seguir para lograrlo:
 
@@ -87,8 +87,8 @@ const stop = () => {
 };
 ```
 
-Para ejecutar el script, escribimos start() y presionamos [enter], luego hacemos scroll hasta el final de la página. Una vez que hayas terminado, escribe stop() y presiona [enter] para detener el proceso y descargar el archivo CSV. Si tienes alguna duda o necesitas más información sobre el código, no dudes en preguntar en los comentarios.
+Para ejecutar el script, escribimos start() y presionamos [enter], luego hacemos scroll hasta el final de la página. Una vez que hayas terminado, escribe stop() y presiona [enter] para detener el proceso y descargar el archivo CSV. Si tienes alguna duda o necesitas más información sobre el código, no dudes en preguntar.
 
 https://youtu.be/-Ladto5MJEs
 
-En una próxima publicación, mostraré cómo agregar las canciones a YouTube Music. ¡No te pierdas la próxima parte de este tutorial!
+En una próxima publicación, mostraré cómo agregar las canciones a YouTube Music.
